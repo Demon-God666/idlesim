@@ -10,7 +10,7 @@
 ## Quick Setup
 
 1. Install godot for your system:
-   - Arch: `sudo pacman -S godot`
+   - Arch: `sudo pacman -S godot-mono`
    - App Image: [Godot 4 download](https://godotengine.org/download/linux/)
 
 1. Clone the project `git clone git@github.com:Demon-God666/idlesim.git`
