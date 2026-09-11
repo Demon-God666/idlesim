@@ -24,6 +24,7 @@
 1. [Trello Board](https://trello.com/b/yLCnqVVh/idle-sim)
 1. [Godot Documentation](https://docs.godotengine.org/en/4.7/index.html)
 1. [GitHub Repo](https://github.com/Demon-God666/idlesim)
+2. [Draw.io collab](https://drive.google.com/file/d/1F0GekO9UQy7nf0a3o66n65o94Z1sGAlr/view?usp=sharing)
 
 ---
 
