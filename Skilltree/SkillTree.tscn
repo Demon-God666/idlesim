@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://dkmdt8ahm4qbq"]
+
+[ext_resource type="Script" uid="uid://chm3dtxx8vwh6" path="res://Skilltree/SkillTree.cs" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://cjphls82oisgx" path="res://Skilltree/Connections.cs" id="2_epypp"]
+[ext_resource type="PackedScene" uid="uid://wokk0s7f4ikw" path="res://Skilltree/SkillButton.tscn" id="3_ub1pf"]
+
+[node name="SkillTree" type="Control" unique_id=1749117477]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_0e48y")
+
+[node name="Background" type="ColorRect" parent="." unique_id=799861099]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SkillTreeContainer" type="Control" parent="." unique_id=2118771792]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Connections" type="Node2D" parent="SkillTreeContainer" unique_id=375049544]
+script = ExtResource("2_epypp")
+
+[node name="Skill1" parent="SkillTreeContainer" unique_id=1070685481 instance=ExtResource("3_ub1pf")]
+layout_mode = 1
+
+[node name="Skill2" parent="SkillTreeContainer" unique_id=936138917 instance=ExtResource("3_ub1pf")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Skill3" parent="SkillTreeContainer" unique_id=547405069 instance=ExtResource("3_ub1pf")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -100.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 1
+
+[node name="Skill4" parent="SkillTreeContainer" unique_id=1301389988 instance=ExtResource("3_ub1pf")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Skill5" parent="SkillTreeContainer" unique_id=1768700457 instance=ExtResource("3_ub1pf")]
+layout_mode = 1
+anchors_preset = 2
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 0
+
+[node name="SkillPointsLabel" type="Label" parent="." unique_id=1729574711]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 50.0
+offset_right = 50.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+text = "Skillpunkte"
+horizontal_alignment = 1

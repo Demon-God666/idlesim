@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="IdleSim"
-config/features=PackedStringArray("4.7", "GL Compatibility")
+run/main_scene="uid://dkmdt8ahm4qbq"
+config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[dotnet]
+
+project/assembly_name="IdleSim"
 
 [physics]
 
