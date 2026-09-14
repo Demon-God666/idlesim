@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Skill : Button
+public partial class SkillButton : Button
 {
 	[Export]
 	public string SkillName { get; set; } = "Skill";

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class MoneyCurrency : Control
+public partial class CurrencySystem : Control
 {
 	
 	private int _value = 0;

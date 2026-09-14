@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c7tfjcqom4dw6"]
 
-[ext_resource type="Script" uid="uid://dxuls1o81lqw7" path="res://scenes/currency_system/MoneyCurrency.cs" id="1_lss2i"]
+[ext_resource type="Script" uid="uid://dxuls1o81lqw7" path="res://scenes/currency_system/CurrencySystem.cs" id="1_lss2i"]
 
-[node name="currency_system" type="Control" unique_id=1295007714]
+[node name="CurrencySystem" type="Control" unique_id=1295007714]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,3 +96,11 @@ offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "-"
+
+[node name="BuyButton" type="Button" parent="Container" unique_id=167185503]
+layout_mode = 0
+offset_left = -34.0
+offset_top = -153.0
+offset_right = 33.0
+offset_bottom = -122.0
+text = "Buy: 10"

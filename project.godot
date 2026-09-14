@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="IdleSim"
-run/main_scene="uid://c7tfjcqom4dw6"
+run/main_scene="uid://d4fs0qf04gbxs"
 config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
