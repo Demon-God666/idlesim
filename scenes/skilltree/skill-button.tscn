@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://wokk0s7f4ikw"]
 
-[ext_resource type="Script" uid="uid://chm3dtxx8vwh6" path="res://Skilltree/SkillTree.cs" id="1_75r4l"]
+[ext_resource type="Script" path="res://Skilltree/SkillTree.cs" id="1_75r4l"]
 
 [node name="SkillButton" type="Button" unique_id=1070685481]
 anchors_preset = 8
