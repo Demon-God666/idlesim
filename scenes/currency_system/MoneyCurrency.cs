@@ -9,6 +9,7 @@ public partial class MoneyCurrency : Control
 	private Label _label;
 	private Button _minusButton;
 	private Button _plusButton;
+	private Button _buyButton;
 	
 	public override void _Ready()
 	{
@@ -16,21 +17,23 @@ public partial class MoneyCurrency : Control
 		_label = GetNode<Label>("Label");
 		_minusButton = GetNode<Button>("MinusButton");
 		_plusButton = GetNode<Button>("PlusButton");
+		_buyButton = GetNode<Button>("BuyButton");
 
 		_value= _valueLabel.Text.ToInt();
 		_label.Text = "Money";
-		_plusButton.Pressed += Add;
-		_minusButton.Pressed += Remove;
+		_plusButton.Pressed += () => Add(1);
+		_minusButton.Pressed += () => Remove(1);
+		_buyButton.Pressed += () => Remove(10);
 	}
 
-	private void Add()
+	private void Add(int amount)
 	{
-		_value++;
+		_value += amount;
 		UpdateValue();
 	}
-	private void Remove()
+	private void Remove(int amount)
 	{
-		_value--;
+		_value -= amount;
 		UpdateValue();
 	}
 	private void UpdateValue()
