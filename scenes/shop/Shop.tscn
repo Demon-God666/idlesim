@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://bji4tvxkn4cxe"]
 
+[ext_resource type="PackedScene" uid="uid://6ct326bxuudj" path="res://scenes/shop/components/ShopItem.tscn" id="1_3qebd"]
+[ext_resource type="Texture2D" uid="uid://bbb38kioa5gwm" path="res://assets/eingefügte Datei.png" id="1_rktij"]
+
 [node name="Shop" type="Control" unique_id=1308284145]
 layout_mode = 3
 anchors_preset = 15
@@ -15,3 +18,834 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ShopCatalog" type="Control" parent="ColorRect" unique_id=1838190883]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CatalogRect" type="Control" parent="ColorRect/ShopCatalog" unique_id=1527566159]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -525.0
+offset_top = -250.0
+offset_right = 525.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CatalogRect" type="ColorRect" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=2109269814]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -525.0
+offset_top = -250.0
+offset_right = 525.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7096228, 0.2584864, 0.20777893, 1)
+
+[node name="TabRect" type="ColorRect" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=831730307]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1005.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.45977253, 0.3963066, 0.5435653, 1)
+
+[node name="ShopItem1" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=688870312 instance=ExtResource("1_3qebd")]
+layout_mode = 0
+
+[node name="ShopItem2" type="Control" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=1984738666]
+anchors_preset = 0
+offset_left = 45.0
+offset_top = 250.0
+offset_right = 295.0
+offset_bottom = 500.0
+
+[node name="ProductLabel" type="Label" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem2" unique_id=1059890474]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 225.0
+offset_bottom = 56.0
+text = "Milk"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ImageContainer" type="ReferenceRect" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem2" unique_id=318146707]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -69.0
+offset_right = 100.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(100, 0)
+border_color = Color(0, 0, 0, 1)
+
+[node name="ProductImage" type="TextureRect" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem2/ImageContainer" unique_id=2003099078]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -75.0
+offset_right = 100.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rktij")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ButtonContainer" type="Control" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem2" unique_id=77458930]
+anchors_preset = 0
+offset_left = 25.0
+offset_top = 205.0
+offset_right = 225.0
+offset_bottom = 250.0
+
+[node name="ButtonRemove" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem2/ButtonContainer" unique_id=1587118560]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -15.5
+offset_right = -180.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "-"
+icon_alignment = 1
+
+[node name="ProductAmountLabel" type="Label" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem2/ButtonContainer" unique_id=1253439067]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 7.0
+offset_right = 79.0
+offset_bottom = 38.0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ButtonAdd" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem2/ButtonContainer" unique_id=518966172]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -15.5
+offset_right = -101.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "+"
+
+[node name="ButtonBuy" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem2/ButtonContainer" unique_id=1043357258]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Buy"
+
+[node name="ShopItem3" type="Control" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=1299021200]
+anchors_preset = 0
+offset_left = 295.0
+offset_right = 545.0
+offset_bottom = 250.0
+
+[node name="ProductLabel" type="Label" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem3" unique_id=359170083]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 225.0
+offset_bottom = 56.0
+text = "Milk"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ImageContainer" type="ReferenceRect" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem3" unique_id=716816614]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -69.0
+offset_right = 100.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(100, 0)
+border_color = Color(0, 0, 0, 1)
+
+[node name="ProductImage" type="TextureRect" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem3/ImageContainer" unique_id=593571392]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -75.0
+offset_right = 100.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rktij")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ButtonContainer" type="Control" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem3" unique_id=1045750508]
+anchors_preset = 0
+offset_left = 25.0
+offset_top = 205.0
+offset_right = 225.0
+offset_bottom = 250.0
+
+[node name="ButtonRemove" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem3/ButtonContainer" unique_id=464199119]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -15.5
+offset_right = -180.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "-"
+icon_alignment = 1
+
+[node name="ProductAmountLabel" type="Label" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem3/ButtonContainer" unique_id=1758723607]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 7.0
+offset_right = 79.0
+offset_bottom = 38.0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ButtonAdd" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem3/ButtonContainer" unique_id=1374560215]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -15.5
+offset_right = -101.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "+"
+
+[node name="ButtonBuy" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem3/ButtonContainer" unique_id=345159807]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Buy"
+
+[node name="ShopItem4" type="Control" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=1212444877]
+anchors_preset = 0
+offset_left = 295.0
+offset_top = 250.0
+offset_right = 545.0
+offset_bottom = 500.0
+
+[node name="ProductLabel" type="Label" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem4" unique_id=222926105]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 225.0
+offset_bottom = 56.0
+text = "Milk"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ImageContainer" type="ReferenceRect" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem4" unique_id=360764324]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -69.0
+offset_right = 100.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(100, 0)
+border_color = Color(0, 0, 0, 1)
+
+[node name="ProductImage" type="TextureRect" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem4/ImageContainer" unique_id=1298395232]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -75.0
+offset_right = 100.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rktij")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ButtonContainer" type="Control" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem4" unique_id=549444474]
+anchors_preset = 0
+offset_left = 25.0
+offset_top = 205.0
+offset_right = 225.0
+offset_bottom = 250.0
+
+[node name="ButtonRemove" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem4/ButtonContainer" unique_id=618265667]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -15.5
+offset_right = -180.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "-"
+icon_alignment = 1
+
+[node name="ProductAmountLabel" type="Label" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem4/ButtonContainer" unique_id=45778438]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 7.0
+offset_right = 79.0
+offset_bottom = 38.0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ButtonAdd" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem4/ButtonContainer" unique_id=1239649152]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -15.5
+offset_right = -101.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "+"
+
+[node name="ButtonBuy" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem4/ButtonContainer" unique_id=518257886]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Buy"
+
+[node name="ShopItem5" type="Control" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=1709987684]
+anchors_preset = 0
+offset_left = 545.0
+offset_right = 795.0
+offset_bottom = 250.0
+
+[node name="ProductLabel" type="Label" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem5" unique_id=743564294]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 225.0
+offset_bottom = 56.0
+text = "Milk"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ImageContainer" type="ReferenceRect" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem5" unique_id=1938470362]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -69.0
+offset_right = 100.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(100, 0)
+border_color = Color(0, 0, 0, 1)
+
+[node name="ProductImage" type="TextureRect" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem5/ImageContainer" unique_id=647057594]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -75.0
+offset_right = 100.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rktij")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ButtonContainer" type="Control" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem5" unique_id=563879333]
+anchors_preset = 0
+offset_left = 25.0
+offset_top = 205.0
+offset_right = 225.0
+offset_bottom = 250.0
+
+[node name="ButtonRemove" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem5/ButtonContainer" unique_id=379243051]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -15.5
+offset_right = -180.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "-"
+icon_alignment = 1
+
+[node name="ProductAmountLabel" type="Label" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem5/ButtonContainer" unique_id=1666676933]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 7.0
+offset_right = 79.0
+offset_bottom = 38.0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ButtonAdd" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem5/ButtonContainer" unique_id=1595801666]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -15.5
+offset_right = -101.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "+"
+
+[node name="ButtonBuy" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem5/ButtonContainer" unique_id=579070879]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Buy"
+
+[node name="ShopItem6" type="Control" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=1076864007]
+anchors_preset = 0
+offset_left = 545.0
+offset_top = 250.0
+offset_right = 795.0
+offset_bottom = 500.0
+
+[node name="ProductLabel" type="Label" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem6" unique_id=1806491867]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 225.0
+offset_bottom = 56.0
+text = "Milk"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ImageContainer" type="ReferenceRect" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem6" unique_id=1508580026]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -69.0
+offset_right = 100.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(100, 0)
+border_color = Color(0, 0, 0, 1)
+
+[node name="ProductImage" type="TextureRect" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem6/ImageContainer" unique_id=1258725251]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -75.0
+offset_right = 100.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rktij")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ButtonContainer" type="Control" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem6" unique_id=1582768109]
+anchors_preset = 0
+offset_left = 25.0
+offset_top = 205.0
+offset_right = 225.0
+offset_bottom = 250.0
+
+[node name="ButtonRemove" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem6/ButtonContainer" unique_id=948229725]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -15.5
+offset_right = -180.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "-"
+icon_alignment = 1
+
+[node name="ProductAmountLabel" type="Label" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem6/ButtonContainer" unique_id=352403690]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 7.0
+offset_right = 79.0
+offset_bottom = 38.0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ButtonAdd" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem6/ButtonContainer" unique_id=1791222392]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -15.5
+offset_right = -101.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "+"
+
+[node name="ButtonBuy" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem6/ButtonContainer" unique_id=346996360]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Buy"
+
+[node name="ShopItem7" type="Control" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=115926388]
+anchors_preset = 0
+offset_left = 795.0
+offset_right = 1045.0
+offset_bottom = 250.0
+
+[node name="ProductLabel" type="Label" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem7" unique_id=1265423311]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 225.0
+offset_bottom = 56.0
+text = "Milk"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ImageContainer" type="ReferenceRect" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem7" unique_id=874075537]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -69.0
+offset_right = 100.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(100, 0)
+border_color = Color(0, 0, 0, 1)
+
+[node name="ProductImage" type="TextureRect" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem7/ImageContainer" unique_id=348451111]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -75.0
+offset_right = 100.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rktij")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ButtonContainer" type="Control" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem7" unique_id=1934673457]
+anchors_preset = 0
+offset_left = 25.0
+offset_top = 205.0
+offset_right = 225.0
+offset_bottom = 250.0
+
+[node name="ButtonRemove" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem7/ButtonContainer" unique_id=1702124887]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -15.5
+offset_right = -180.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "-"
+icon_alignment = 1
+
+[node name="ProductAmountLabel" type="Label" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem7/ButtonContainer" unique_id=1507012654]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 7.0
+offset_right = 79.0
+offset_bottom = 38.0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ButtonAdd" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem7/ButtonContainer" unique_id=1233604897]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -15.5
+offset_right = -101.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "+"
+
+[node name="ButtonBuy" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem7/ButtonContainer" unique_id=1429368607]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Buy"
+
+[node name="ShopItem8" type="Control" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=1839648047]
+anchors_preset = 0
+offset_left = 795.0
+offset_top = 250.0
+offset_right = 1045.0
+offset_bottom = 500.0
+
+[node name="ProductLabel" type="Label" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem8" unique_id=1173788853]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 225.0
+offset_bottom = 56.0
+text = "Milk"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ImageContainer" type="ReferenceRect" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem8" unique_id=1030455019]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -69.0
+offset_right = 100.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(100, 0)
+border_color = Color(0, 0, 0, 1)
+
+[node name="ProductImage" type="TextureRect" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem8/ImageContainer" unique_id=1969211573]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -75.0
+offset_right = 100.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rktij")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ButtonContainer" type="Control" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem8" unique_id=748131017]
+anchors_preset = 0
+offset_left = 25.0
+offset_top = 205.0
+offset_right = 225.0
+offset_bottom = 250.0
+
+[node name="ButtonRemove" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem8/ButtonContainer" unique_id=678053770]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -15.5
+offset_right = -180.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "-"
+icon_alignment = 1
+
+[node name="ProductAmountLabel" type="Label" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem8/ButtonContainer" unique_id=1795799692]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 7.0
+offset_right = 79.0
+offset_bottom = 38.0
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ButtonAdd" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem8/ButtonContainer" unique_id=2124282507]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -15.5
+offset_right = -101.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "+"
+
+[node name="ButtonBuy" type="Button" parent="ColorRect/ShopCatalog/CatalogRect/ShopItem8/ButtonContainer" unique_id=193461154]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Buy"
