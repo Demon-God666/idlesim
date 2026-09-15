@@ -25,19 +25,6 @@ text = "Money:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="SkillTreeButton" type="Button" parent="." unique_id=1940161455]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -280.0
-offset_top = 8.0
-offset_right = -184.0
-offset_bottom = 45.0
-grow_horizontal = 0
-text = "Skill Tree"
-metadata/_edit_use_anchors_ = true
-
 [node name="CurrencySystemButton" type="Button" parent="." unique_id=1947057188]
 layout_mode = 1
 anchors_preset = 1

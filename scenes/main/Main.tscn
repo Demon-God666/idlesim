@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cxssqhp8xvokw" path="res://scenes/main/Main.cs" id="1_q24mn"]
 [ext_resource type="PackedScene" uid="uid://c7tfjcqom4dw6" path="res://scenes/currency_system/CurrencySystem.tscn" id="2_gyg6b"]
-[ext_resource type="PackedScene" uid="uid://dkmdt8ahm4qbq" path="res://scenes/skill-tree/SkillTree.tscn" id="3_dc040"]
 [ext_resource type="PackedScene" uid="uid://bji4tvxkn4cxe" path="res://scenes/shop/Shop.tscn" id="4_dc040"]
 [ext_resource type="PackedScene" uid="uid://c37xl3mb30gxt" path="res://scenes/navigation/Navigation.tscn" id="4_gyg6b"]
 
@@ -23,9 +22,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SkillTree" parent="." unique_id=1749117477 instance=ExtResource("3_dc040")]
-layout_mode = 1
-
 [node name="CurrencySystem" parent="." unique_id=1295007714 instance=ExtResource("2_gyg6b")]
 layout_mode = 1
 
@@ -35,6 +31,5 @@ layout_mode = 1
 [node name="Navigation" parent="." unique_id=61163014 instance=ExtResource("4_gyg6b")]
 layout_mode = 1
 
-[editable path="SkillTree"]
 [editable path="CurrencySystem"]
 [editable path="Navigation"]
