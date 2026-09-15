@@ -36,4 +36,5 @@ layout_mode = 1
 layout_mode = 1
 
 [editable path="SkillTree"]
+[editable path="CurrencySystem"]
 [editable path="Navigation"]

@@ -1,14 +1,18 @@
 using Godot;
-using System;
 
 public partial class Main : Control
 {	
-	private Control _currencySystem;
+
 	private Control _skillTree;
 	private Control _shop;
+
+	public CurrencySystem CurrencySystem { get; private set; }
+
 	public override void _Ready()
 	{
-		_currencySystem = GetNode<Control>("CurrencySystem");
+		CurrencySystem = GetNode<CurrencySystem>("CurrencySystem");
+
+	
 		_skillTree = GetNode<Control>("SkillTree"); 
 		_shop = GetNode<Control>("Shop");
 
@@ -18,8 +22,7 @@ public partial class Main : Control
 	public void ShowCurrencySystem()
 	{
 		HideAll();	
-		_currencySystem.Show();
-		
+		CurrencySystem.Show();
 	}
 	
 	public void ShowSkillTree()
@@ -36,7 +39,7 @@ public partial class Main : Control
 	
 	private void HideAll()
 	{
-		_currencySystem.Hide();
+		CurrencySystem.Hide();
 		_skillTree.Hide();
 		_shop.Hide();
 	}
