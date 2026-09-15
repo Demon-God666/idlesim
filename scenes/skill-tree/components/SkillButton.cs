@@ -13,7 +13,6 @@ public partial class SkillButton : Button
 	public override void _Ready()
 	{
 		Text = SkillName;
-
 		Pressed += OnPressed;
 	}
 
@@ -22,8 +21,7 @@ public partial class SkillButton : Button
 		if (Unlocked)
 			return;
 
-		SkillTree skillTree = GetTree()
-			.CurrentScene as SkillTree;
+		SkillTree skillTree = GetTree().CurrentScene as SkillTree;
 
 		if (skillTree == null)
 			return;
@@ -34,7 +32,6 @@ public partial class SkillButton : Button
 		skillTree.SpendSkillPoints(Cost);
 
 		Unlocked = true;
-
 		Text = $"✓ {SkillName}";
 	}
 }

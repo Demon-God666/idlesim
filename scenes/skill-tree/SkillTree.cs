@@ -4,7 +4,6 @@ public partial class SkillTree : Control
 {
 	public int SkillPoints { get; private set; } = 5;
 
-	private Label _skillPointsLabel;
 	private ScrollContainer _scrollContainer;
 
 	private bool _dragging;
@@ -12,15 +11,9 @@ public partial class SkillTree : Control
 
 	public override void _Ready()
 	{
-		_skillPointsLabel = GetNode<Label>(
-            "SkillPointsLabel"
-		);
-
 		_scrollContainer = GetNode<ScrollContainer>(
             "ScrollContainer"
 		);
-
-		UpdateSkillPoints();
 	}
 
 	public override void _GuiInput(InputEvent @event)
@@ -53,13 +46,5 @@ public partial class SkillTree : Control
 			return;
 
 		SkillPoints -= amount;
-
-		UpdateSkillPoints();
-	}
-
-	public void UpdateSkillPoints()
-	{
-		_skillPointsLabel.Text =
-			$"Skillpunkte: {SkillPoints}";
 	}
 }
