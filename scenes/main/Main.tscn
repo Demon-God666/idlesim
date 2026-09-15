@@ -33,12 +33,7 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="Navigation" parent="." unique_id=61163014 instance=ExtResource("4_gyg6b")]
-top_level = true
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_bottom = 0.0
-grow_horizontal = 0
-grow_vertical = 1
 
 [editable path="SkillTree"]
+[editable path="Navigation"]
