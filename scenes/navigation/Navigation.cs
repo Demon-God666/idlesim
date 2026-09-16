@@ -19,6 +19,8 @@ public partial class Navigation : Control
 		_shopButton = GetNode<Button>("ShopButton");
 		_moneyLabel = GetNode<Label>("MoneyLabel");
 		
+		_moneyLabel.Text = "Money: 0$";
+		
 		_currencySystemButton.Pressed += _main.ShowCurrencySystem;
 		_skillTreeButton.Pressed += _main.ShowSkillTree;
 		_shopButton.Pressed += _main.ShowShop;
@@ -28,7 +30,7 @@ public partial class Navigation : Control
 
 	private void UpdateMoneyText(int value)
 	{
-		_moneyLabel.Text = $"Money: {value}";
-		GD.Print($"Money updated: {value}");
+		_moneyLabel.Text = $"Money: {value}$";
+		GD.Print($"Money updated: {value}$");
 	}
 }

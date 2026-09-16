@@ -23,7 +23,7 @@ public partial class CurrencySystem : Control
 		_buyButton = GetNode<Button>("Container/BuyButton");
 
 		_value= _valueLabel.Text.ToInt();
-		_label.Text = "Money";
+		_label.Text = "Money:";
 		_plusButton.Pressed += () => Add(1);
 		_minusButton.Pressed += () => Remove(1);
 		_buyButton.Pressed += () => Remove(10);
