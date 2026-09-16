@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d4fs0qf04gbxs"]
 
 [ext_resource type="Script" uid="uid://cxssqhp8xvokw" path="res://scenes/main/Main.cs" id="1_q24mn"]
-[ext_resource type="PackedScene" path="res://scenes/currency_system/CurrencySystem.tscn" id="2_gyg6b"]
+[ext_resource type="PackedScene" uid="uid://c7tfjcqom4dw6" path="res://scenes/currency-system/CurrencySystem.tscn" id="2_gyg6b"]
 [ext_resource type="PackedScene" uid="uid://dkmdt8ahm4qbq" path="res://scenes/skill-tree/SkillTree.tscn" id="3_dc040"]
 [ext_resource type="PackedScene" uid="uid://bji4tvxkn4cxe" path="res://scenes/shop/Shop.tscn" id="4_dc040"]
 [ext_resource type="PackedScene" uid="uid://c37xl3mb30gxt" path="res://scenes/navigation/Navigation.tscn" id="4_gyg6b"]

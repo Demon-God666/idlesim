@@ -8,38 +8,34 @@
 [node name="ShopItem" type="Control" unique_id=688870312]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 250.0
+offset_right = 200.0
 offset_bottom = 250.0
 script = ExtResource("1_hrb1b")
 
-[node name="ProductLabel" type="Label" parent="." unique_id=2062552439]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 225.0
-offset_bottom = 56.0
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1605319210]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 200.0
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ProductLabel" type="Label" parent="VBoxContainer" unique_id=2062552439]
+layout_mode = 2
+size_flags_vertical = 3
 text = "Milk"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ImageContainer" type="ReferenceRect" parent="." unique_id=1325316410]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -69.0
-offset_right = 100.0
-offset_bottom = 81.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(100, 0)
+[node name="ImageContainer" type="ReferenceRect" parent="VBoxContainer" unique_id=1325316410]
+custom_minimum_size = Vector2(200, 150)
+custom_maximum_size = Vector2(200, 150)
+layout_mode = 2
+size_flags_vertical = 3
 border_color = Color(0, 0, 0, 1)
 editor_only = false
 
-[node name="ProductImage" type="TextureRect" parent="ImageContainer" unique_id=1004178757]
+[node name="ProductImage" type="TextureRect" parent="VBoxContainer/ImageContainer" unique_id=1004178757]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -56,32 +52,22 @@ texture = ExtResource("1_sevgc")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="ButtonContainer" type="HBoxContainer" parent="." unique_id=930624970]
+[node name="ButtonContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=930624970]
 custom_maximum_size = Vector2(200, -1)
 clip_contents = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -86.0
-offset_top = -31.0
-offset_right = 86.0
-grow_horizontal = 2
-grow_vertical = 0
+layout_mode = 2
 
-[node name="ButtonContainerAmount" type="HBoxContainer" parent="ButtonContainer" unique_id=1320483824]
+[node name="ButtonContainerAmount" type="HBoxContainer" parent="VBoxContainer/ButtonContainer" unique_id=1320483824]
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="ButtonRemove" type="Button" parent="ButtonContainer/ButtonContainerAmount" unique_id=106622559]
+[node name="ButtonRemove" type="Button" parent="VBoxContainer/ButtonContainer/ButtonContainerAmount" unique_id=106622559]
 custom_minimum_size = Vector2(18, 0)
 layout_mode = 2
 text = "-"
 icon_alignment = 1
 
-[node name="ProductAmountLabel" type="Label" parent="ButtonContainer/ButtonContainerAmount" unique_id=1058123902]
+[node name="ProductAmountLabel" type="Label" parent="VBoxContainer/ButtonContainer/ButtonContainerAmount" unique_id=1058123902]
 custom_minimum_size = Vector2(30, 0)
 custom_maximum_size = Vector2(30, -1)
 layout_mode = 2
@@ -91,17 +77,17 @@ label_settings = SubResource("LabelSettings_3qebd")
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="ButtonAdd" type="Button" parent="ButtonContainer/ButtonContainerAmount" unique_id=996113103]
+[node name="ButtonAdd" type="Button" parent="VBoxContainer/ButtonContainer/ButtonContainerAmount" unique_id=996113103]
 custom_minimum_size = Vector2(18, 0)
 layout_mode = 2
 text = "+"
 
-[node name="ButtonContainerBuy" type="HBoxContainer" parent="ButtonContainer" unique_id=2113539578]
+[node name="ButtonContainerBuy" type="HBoxContainer" parent="VBoxContainer/ButtonContainer" unique_id=2113539578]
 layout_mode = 2
 size_flags_horizontal = 10
 alignment = 2
 
-[node name="ProductPriceLabel" type="Label" parent="ButtonContainer/ButtonContainerBuy" unique_id=656317163]
+[node name="ProductPriceLabel" type="Label" parent="VBoxContainer/ButtonContainer/ButtonContainerBuy" unique_id=656317163]
 custom_minimum_size = Vector2(40, 0)
 custom_maximum_size = Vector2(40, -1)
 layout_mode = 2
@@ -109,6 +95,6 @@ text = "0000"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="ButtonBuy" type="Button" parent="ButtonContainer/ButtonContainerBuy" unique_id=2066645129]
+[node name="ButtonBuy" type="Button" parent="VBoxContainer/ButtonContainer/ButtonContainerBuy" unique_id=2066645129]
 layout_mode = 2
 text = "Buy"

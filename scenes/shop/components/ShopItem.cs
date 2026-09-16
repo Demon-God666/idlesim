@@ -9,9 +9,9 @@ public partial class ShopItem : Control
 
 	public override void _Ready()
 	{
-		_addButton = GetNode<Button>("ButtonContainer/ButtonContainerAmount/ButtonAdd");
-		_removeButton = GetNode<Button>("ButtonContainer/ButtonContainerAmount/ButtonRemove");
-		_productAmountLabel = GetNode<Label>("ButtonContainer/ButtonContainerAmount/ProductAmountLabel");
+		_addButton = GetNode<Button>("VBoxContainer/ButtonContainer/ButtonContainerAmount/ButtonAdd");
+		_removeButton = GetNode<Button>("VBoxContainer/ButtonContainer/ButtonContainerAmount/ButtonRemove");
+		_productAmountLabel = GetNode<Label>("VBoxContainer/ButtonContainer/ButtonContainerAmount/ProductAmountLabel");
 
 		_productAmountValue = _productAmountLabel.Text.ToInt();
 
