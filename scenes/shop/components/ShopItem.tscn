@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://cmrj4gv8x6ec1"]
 
+[ext_resource type="Script" uid="uid://c6af1pv3m3lso" path="res://scenes/shop/components/ShopItem.cs" id="1_hrb1b"]
 [ext_resource type="Texture2D" uid="uid://bbb38kioa5gwm" path="res://assets/eingefügte Datei.png" id="1_sevgc"]
 
-[node name="ShopItem1" type="Control" unique_id=688870312]
+[sub_resource type="LabelSettings" id="LabelSettings_3qebd"]
+
+[node name="ShopItem" type="Control" unique_id=688870312]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 250.0
 offset_bottom = 250.0
+script = ExtResource("1_hrb1b")
 
 [node name="ProductLabel" type="Label" parent="." unique_id=2062552439]
 layout_mode = 0
@@ -33,6 +37,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(100, 0)
 border_color = Color(0, 0, 0, 1)
+editor_only = false
 
 [node name="ProductImage" type="TextureRect" parent="ImageContainer" unique_id=1004178757]
 layout_mode = 1
@@ -51,74 +56,59 @@ texture = ExtResource("1_sevgc")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="ButtonContainer" type="Control" parent="." unique_id=546254674]
-anchors_preset = 0
-offset_left = 25.0
-offset_top = 205.0
-offset_right = 225.0
-offset_bottom = 250.0
-
-[node name="ButtonRemove" type="Button" parent="ButtonContainer" unique_id=106622559]
+[node name="ButtonContainer" type="HBoxContainer" parent="." unique_id=930624970]
+custom_maximum_size = Vector2(200, -1)
+clip_contents = true
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -15.5
-offset_right = -180.0
-offset_bottom = 15.5
-grow_horizontal = 0
-grow_vertical = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -31.0
+offset_right = 86.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ButtonContainerAmount" type="HBoxContainer" parent="ButtonContainer" unique_id=1320483824]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="ButtonRemove" type="Button" parent="ButtonContainer/ButtonContainerAmount" unique_id=106622559]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
 text = "-"
 icon_alignment = 1
 
-[node name="ProductAmountLabel" type="Label" parent="ButtonContainer" unique_id=1058123902]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 7.0
-offset_right = 57.0
-offset_bottom = 38.0
+[node name="ProductAmountLabel" type="Label" parent="ButtonContainer/ButtonContainerAmount" unique_id=1058123902]
+custom_minimum_size = Vector2(30, 0)
+custom_maximum_size = Vector2(30, -1)
+layout_mode = 2
+offset_transform_enabled = true
+text = "000"
+label_settings = SubResource("LabelSettings_3qebd")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ButtonAdd" type="Button" parent="ButtonContainer/ButtonContainerAmount" unique_id=996113103]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+text = "+"
+
+[node name="ButtonContainerBuy" type="HBoxContainer" parent="ButtonContainer" unique_id=2113539578]
+layout_mode = 2
+size_flags_horizontal = 10
+alignment = 2
+
+[node name="ProductPriceLabel" type="Label" parent="ButtonContainer/ButtonContainerBuy" unique_id=656317163]
+custom_minimum_size = Vector2(40, 0)
+custom_maximum_size = Vector2(40, -1)
+layout_mode = 2
 text = "0000"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="ButtonAdd" type="Button" parent="ButtonContainer" unique_id=996113103]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -143.0
-offset_top = -15.5
-offset_right = -123.0
-offset_bottom = 15.5
-grow_horizontal = 0
-grow_vertical = 2
-text = "+"
-
-[node name="ProductPriceLabel" type="Label" parent="ButtonContainer" unique_id=1700065040]
-layout_mode = 0
-offset_left = 77.0
-offset_top = 7.0
-offset_right = 152.0
-offset_bottom = 38.0
-text = "0000$"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="ButtonBuy" type="Button" parent="ButtonContainer" unique_id=1353487908]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -15.5
-offset_bottom = 15.5
-grow_horizontal = 0
-grow_vertical = 2
+[node name="ButtonBuy" type="Button" parent="ButtonContainer/ButtonContainerBuy" unique_id=2066645129]
+layout_mode = 2
 text = "Buy"

@@ -11,8 +11,6 @@ public partial class Main : Control
 	public override void _Ready()
 	{
 		CurrencySystem = GetNode<CurrencySystem>("CurrencySystem");
-
-	
 		_skillTree = GetNode<Control>("SkillTree"); 
 		_shop = GetNode<Control>("Shop");
 

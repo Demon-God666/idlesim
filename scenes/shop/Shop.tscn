@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://bji4tvxkn4cxe"]
 
+[ext_resource type="Script" uid="uid://c1s00lnqqi3ui" path="res://scenes/shop/Shop.cs" id="1_tc8pp"]
 [ext_resource type="PackedScene" uid="uid://cmrj4gv8x6ec1" path="res://scenes/shop/components/ShopItem.tscn" id="2_tc8pp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plsir"]
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 20
 
 [node name="Shop" type="Control" unique_id=1308284145]
 layout_mode = 3
@@ -9,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_tc8pp")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1258212835]
 layout_mode = 1
@@ -17,6 +26,102 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PageSwitcher" type="Control" parent="ColorRect" unique_id=1939084611]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DotContainer" type="Control" parent="ColorRect/PageSwitcher" unique_id=1035661653]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -74.0
+offset_right = 122.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Dot" type="Panel" parent="ColorRect/PageSwitcher/DotContainer" unique_id=918713083]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_plsir")
+
+[node name="Dot2" type="Panel" parent="ColorRect/PageSwitcher/DotContainer" unique_id=902755979]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -8.0
+offset_right = 32.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_plsir")
+
+[node name="Dot5" type="Panel" parent="ColorRect/PageSwitcher/DotContainer" unique_id=680360998]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -8.0
+offset_right = 56.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_plsir")
+
+[node name="Dot3" type="Panel" parent="ColorRect/PageSwitcher/DotContainer" unique_id=1077793493]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -8.0
+offset_right = -16.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_plsir")
+
+[node name="Dot4" type="Panel" parent="ColorRect/PageSwitcher/DotContainer" unique_id=1549768940]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -8.0
+offset_right = -40.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_plsir")
 
 [node name="ShopCatalog" type="Control" parent="ColorRect" unique_id=1838190883]
 layout_mode = 1
