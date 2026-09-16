@@ -1,12 +1,11 @@
-[gd_scene format=3 uid="uid://6ct326bxuudj"]
+[gd_scene format=3 uid="uid://cmrj4gv8x6ec1"]
 
 [ext_resource type="Texture2D" uid="uid://bbb38kioa5gwm" path="res://assets/eingefügte Datei.png" id="1_sevgc"]
 
 [node name="ShopItem1" type="Control" unique_id=688870312]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 45.0
-offset_right = 295.0
+offset_right = 250.0
 offset_bottom = 250.0
 
 [node name="ProductLabel" type="Label" parent="." unique_id=2062552439]
