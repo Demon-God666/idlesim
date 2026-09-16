@@ -131,7 +131,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CatalogRect" type="Control" parent="ColorRect/ShopCatalog" unique_id=1527566159]
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/ShopCatalog" unique_id=200678323]
+custom_minimum_size = Vector2(1050, 500)
+propagate_maximum_size = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -144,76 +146,53 @@ offset_right = 525.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
 
-[node name="CatalogRect" type="ColorRect" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=2109269814]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -525.0
-offset_top = -250.0
-offset_right = 525.0
-offset_bottom = 250.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="TabRect" type="ColorRect" parent="ColorRect/ShopCatalog/HBoxContainer" unique_id=831730307]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.45977253, 0.3963066, 0.5435653, 1)
+
+[node name="CatalogRect" type="ColorRect" parent="ColorRect/ShopCatalog/HBoxContainer" unique_id=2109269814]
+custom_minimum_size = Vector2(1000, 0)
+custom_maximum_size = Vector2(-1, 500)
+layout_mode = 2
+size_flags_horizontal = 3
 color = Color(0.7096228, 0.2584864, 0.20777893, 1)
 
-[node name="TabRect" type="ColorRect" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=831730307]
+[node name="BoxContainer" type="GridContainer" parent="ColorRect/ShopCatalog/HBoxContainer/CatalogRect" unique_id=2119753115]
+custom_maximum_size = Vector2(1000, 500)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1005.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.45977253, 0.3963066, 0.5435653, 1)
+offset_transform_enabled = true
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 4
 
-[node name="ShopItem" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=1994860268 instance=ExtResource("2_tc8pp")]
-layout_mode = 0
-offset_left = 45.0
-offset_right = 295.0
+[node name="ShopItem" parent="ColorRect/ShopCatalog/HBoxContainer/CatalogRect/BoxContainer" unique_id=1994860268 instance=ExtResource("2_tc8pp")]
+layout_mode = 2
 
-[node name="ShopItem2" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=1515164311 instance=ExtResource("2_tc8pp")]
-layout_mode = 0
-offset_left = 45.0
-offset_top = 250.0
-offset_right = 295.0
-offset_bottom = 500.0
+[node name="ShopItem2" parent="ColorRect/ShopCatalog/HBoxContainer/CatalogRect/BoxContainer" unique_id=1515164311 instance=ExtResource("2_tc8pp")]
+layout_mode = 2
 
-[node name="ShopItem3" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=1250776517 instance=ExtResource("2_tc8pp")]
-layout_mode = 0
-offset_left = 295.0
-offset_right = 545.0
+[node name="ShopItem3" parent="ColorRect/ShopCatalog/HBoxContainer/CatalogRect/BoxContainer" unique_id=1250776517 instance=ExtResource("2_tc8pp")]
+layout_mode = 2
 
-[node name="ShopItem4" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=203237880 instance=ExtResource("2_tc8pp")]
-layout_mode = 0
-offset_left = 295.0
-offset_top = 250.0
-offset_right = 545.0
-offset_bottom = 500.0
+[node name="ShopItem4" parent="ColorRect/ShopCatalog/HBoxContainer/CatalogRect/BoxContainer" unique_id=203237880 instance=ExtResource("2_tc8pp")]
+layout_mode = 2
 
-[node name="ShopItem5" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=97198664 instance=ExtResource("2_tc8pp")]
-layout_mode = 0
-offset_left = 545.0
-offset_right = 795.0
+[node name="ShopItem5" parent="ColorRect/ShopCatalog/HBoxContainer/CatalogRect/BoxContainer" unique_id=688870312 instance=ExtResource("2_tc8pp")]
+layout_mode = 2
 
-[node name="ShopItem6" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=367616651 instance=ExtResource("2_tc8pp")]
-layout_mode = 0
-offset_left = 545.0
-offset_top = 250.0
-offset_right = 795.0
-offset_bottom = 500.0
+[node name="ShopItem6" parent="ColorRect/ShopCatalog/HBoxContainer/CatalogRect/BoxContainer" unique_id=89302378 instance=ExtResource("2_tc8pp")]
+layout_mode = 2
 
-[node name="ShopItem7" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=213064962 instance=ExtResource("2_tc8pp")]
-layout_mode = 0
-offset_left = 795.0
-offset_right = 1045.0
+[node name="ShopItem7" parent="ColorRect/ShopCatalog/HBoxContainer/CatalogRect/BoxContainer" unique_id=679832616 instance=ExtResource("2_tc8pp")]
+layout_mode = 2
 
-[node name="ShopItem8" parent="ColorRect/ShopCatalog/CatalogRect" unique_id=1166537376 instance=ExtResource("2_tc8pp")]
-layout_mode = 0
-offset_left = 795.0
-offset_top = 250.0
-offset_right = 1045.0
-offset_bottom = 500.0
+[node name="ShopItem8" parent="ColorRect/ShopCatalog/HBoxContainer/CatalogRect/BoxContainer" unique_id=348109013 instance=ExtResource("2_tc8pp")]
+layout_mode = 2
