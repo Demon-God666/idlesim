@@ -15,10 +15,10 @@ public partial class Navigation : Control
 		_main = GetParent<Main>();
 		_currencySystem = GetNode<CurrencySystem>("../CurrencySystem");
 		
-		_currencySystemButton = GetNode<Button>("CurrencySystemButton");
-		_skillTreeButton = GetNode<Button>("SkillTreeButton");
-		_shopButton = GetNode<Button>("ShopButton");
-		_moneyLabel = GetNode<Label>("MoneyLabel");
+		_currencySystemButton = GetNode<Button>("HBoxContainer/CurrencySystemButton");
+		_skillTreeButton = GetNode<Button>("HBoxContainer/SkillTreeButton");
+		_shopButton = GetNode<Button>("HBoxContainer/ShopButton");
+		_moneyLabel = GetNode<Label>("HBoxContainer/MoneyLabel");
 		
 		_moneyLabel.Text = $"Money: {_currencySystem.GetMoney()}$";
 		
