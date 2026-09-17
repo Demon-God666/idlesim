@@ -5,6 +5,7 @@ public partial class CurrencySystem : Control
 {
 	
 	private int _value = 0;
+	
 	private Label _valueLabel;
 	private Label _label;
 	private Button _minusButton;
@@ -24,21 +25,38 @@ public partial class CurrencySystem : Control
 
 		_value= _valueLabel.Text.ToInt();
 		_label.Text = "Money:";
+		
 		_plusButton.Pressed += () => Add(1);
 		_minusButton.Pressed += () => Remove(1);
 		_buyButton.Pressed += () => Remove(10);
+		
+		EmitSignal(SignalName.MoneyUpdated, _value);
 	}
 
-	private void Add(int amount)
+	public int GetMoney()
+	{
+		return _value;
+	}
+
+	public void Add(int amount)
 	{
 		_value += amount;
 		UpdateValue();
 	}
-	private void Remove(int amount)
+
+	public bool Remove(int amount)
 	{
+		if (_value < amount)
+		{
+			return false;
+		}
+
 		_value -= amount;
 		UpdateValue();
+
+		return true;
 	}
+	
 	private void UpdateValue()
 	{
 		EmitSignal(SignalName.MoneyUpdated, _value);

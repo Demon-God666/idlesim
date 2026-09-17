@@ -4,6 +4,7 @@ public partial class Navigation : Control
 {
 	private Main _main;
 	private CurrencySystem _currencySystem;
+	
 	private Button _currencySystemButton;
 	private Button _skillTreeButton;
 	private Button _shopButton;
@@ -19,7 +20,7 @@ public partial class Navigation : Control
 		_shopButton = GetNode<Button>("ShopButton");
 		_moneyLabel = GetNode<Label>("MoneyLabel");
 		
-		_moneyLabel.Text = "Money: 0$";
+		_moneyLabel.Text = $"Money: {_currencySystem.GetMoney()}$";
 		
 		_currencySystemButton.Pressed += _main.ShowCurrencySystem;
 		_skillTreeButton.Pressed += _main.ShowSkillTree;
@@ -33,4 +34,5 @@ public partial class Navigation : Control
 		_moneyLabel.Text = $"Money: {value}$";
 		GD.Print($"Money updated: {value}$");
 	}
+
 }
