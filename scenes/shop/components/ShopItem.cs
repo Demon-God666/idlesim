@@ -1,16 +1,20 @@
 using Godot;
+using IdleSim.scenes.shop.components;
 
 public partial class ShopItem : Control
 {
 	private CurrencySystem _currencySystem;
+	private ShopItemData _item;
 	
 	private Button _addButton;
 	private Button _removeButton;
 	private Label _productAmountLabel;
 	private int _productAmountValue;
 	
+	private Label _productNameLabel;
 	private Label _productPriceLabel;
 	private int _productPriceValue;
+	private TextureRect _productImage;
 	
 	private Button _buttonBuy;
 
@@ -21,11 +25,15 @@ public partial class ShopItem : Control
 		_addButton = GetNode<Button>("VBoxContainer/ButtonContainer/ButtonContainerAmount/ButtonAdd");
 		_removeButton = GetNode<Button>("VBoxContainer/ButtonContainer/ButtonContainerAmount/ButtonRemove");
 		_productAmountLabel = GetNode<Label>("VBoxContainer/ButtonContainer/ButtonContainerAmount/ProductAmountLabel");
-		_productPriceLabel = GetNode<Label>("VBoxContainer/ButtonContainer/ButtonContainerBuy/ProductPriceLabel");
 		_buttonBuy = GetNode<Button>("VBoxContainer/ButtonContainer/ButtonContainerBuy/ButtonBuy");
+
+		_productNameLabel = GetNode<Label>("VBoxContainer/ProductLabel");
+		_productPriceLabel = GetNode<Label>("VBoxContainer/ButtonContainer/ButtonContainerBuy/ProductPriceLabel");
+		_productImage = GetNode<TextureRect>("VBoxContainer/ImageContainer/AspectRatioContainer/ProductImage");
+
 		
 		_productAmountValue = 1;
-		_productPriceValue = 10;
+		
 
 		UpdateProductAmountLabel();
 		UpdateProductPriceLabel();
@@ -77,6 +85,17 @@ public partial class ShopItem : Control
 	private void UpdateProductPriceLabel()
 	{
 		_productPriceLabel.Text = (_productPriceValue * _productAmountValue) + "$";
+	}
+
+	public void SetItem(ShopItemData item)
+	{
+		_item = item;
+		
+		_productNameLabel.Text= item.ProductName;
+		_productPriceValue = item.ProductPrice;
+		_productImage.Texture = item.ProductImage;
+		
+		UpdateProductPriceLabel();
 	}
 
 }

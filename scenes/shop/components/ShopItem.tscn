@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cmrj4gv8x6ec1"]
 
 [ext_resource type="Script" uid="uid://c6af1pv3m3lso" path="res://scenes/shop/components/ShopItem.cs" id="1_hrb1b"]
-[ext_resource type="Texture2D" uid="uid://bbb38kioa5gwm" path="res://assets/eingefügte Datei.png" id="1_sevgc"]
+[ext_resource type="Texture2D" uid="uid://do2vugqbgk62u" path="res://assets/images/Milk.png" id="1_sevgc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3qebd"]
 
@@ -43,22 +43,33 @@ size_flags_vertical = 3
 border_color = Color(0, 0, 0, 1)
 editor_only = false
 
-[node name="ProductImage" type="TextureRect" parent="VBoxContainer/ImageContainer" unique_id=1004178757]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer/ImageContainer" unique_id=611512220]
+custom_maximum_size = Vector2(180, 130)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -75.0
-offset_right = 100.0
-offset_bottom = 75.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_visual_only = false
+
+[node name="ProductImage" type="TextureRect" parent="VBoxContainer/ImageContainer/AspectRatioContainer" unique_id=1004178757]
+layout_mode = 2
+offset_transform_enabled = true
 texture = ExtResource("1_sevgc")
 expand_mode = 2
 stretch_mode = 5
+
+[node name="Polygon2D" type="Polygon2D" parent="VBoxContainer/ImageContainer/AspectRatioContainer" unique_id=2050698469]
+show_behind_parent = true
+clip_children = 2
+light_mask = 0
+position = Vector2(-89, 0)
+texture = ExtResource("1_sevgc")
+polygon = PackedVector2Array(0, 0, 180, 0, 180, 130, 95.0898, 130, 0, 130)
+uv = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/ImageContainer/AspectRatioContainer" unique_id=1169083206]
 
 [node name="ButtonContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=930624970]
 custom_maximum_size = Vector2(200, -1)
