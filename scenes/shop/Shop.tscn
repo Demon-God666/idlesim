@@ -3,8 +3,46 @@
 [ext_resource type="Script" uid="uid://c1s00lnqqi3ui" path="res://scenes/shop/Shop.cs" id="1_tc8pp"]
 [ext_resource type="PackedScene" uid="uid://pmr355nhjen5" path="res://scenes/shop/components/ShopTab.tscn" id="2_srfm6"]
 [ext_resource type="PackedScene" uid="uid://cmrj4gv8x6ec1" path="res://scenes/shop/components/ShopItem.tscn" id="2_tc8pp"]
+[ext_resource type="Script" uid="uid://dwt0yxwwydpxa" path="res://scenes/shop/components/PageSwitcher.cs" id="4_srfm6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plsir"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tc8pp"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.95, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srfm6"]
+border_color = Color(0.6215884, 0.8345286, 0.9528665, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjfbs"]
+border_color = Color(0.6215884, 0.8345286, 0.9528665, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yl83"]
+border_color = Color(0.6215884, 0.8345286, 0.9528665, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdw2s"]
+border_color = Color(0.6215884, 0.8345286, 0.9528665, 1)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
@@ -27,102 +65,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="PageSwitcher" type="Control" parent="ColorRect" unique_id=1939084611]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="DotContainer" type="Control" parent="ColorRect/PageSwitcher" unique_id=1035661653]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -74.0
-offset_right = 122.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Dot" type="Panel" parent="ColorRect/PageSwitcher/DotContainer" unique_id=918713083]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_plsir")
-
-[node name="Dot2" type="Panel" parent="ColorRect/PageSwitcher/DotContainer" unique_id=902755979]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 16.0
-offset_top = -8.0
-offset_right = 32.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_plsir")
-
-[node name="Dot5" type="Panel" parent="ColorRect/PageSwitcher/DotContainer" unique_id=680360998]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 40.0
-offset_top = -8.0
-offset_right = 56.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_plsir")
-
-[node name="Dot3" type="Panel" parent="ColorRect/PageSwitcher/DotContainer" unique_id=1077793493]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -8.0
-offset_right = -16.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_plsir")
-
-[node name="Dot4" type="Panel" parent="ColorRect/PageSwitcher/DotContainer" unique_id=1549768940]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -56.0
-offset_top = -8.0
-offset_right = -40.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_plsir")
 
 [node name="ShopCatalog" type="Control" parent="ColorRect" unique_id=1838190883]
 layout_mode = 1
@@ -214,3 +156,83 @@ layout_mode = 2
 
 [node name="ShopItem8" parent="ColorRect/ShopCatalog/HBoxContainer/CatalogRect/BoxContainer" unique_id=348109013 instance=ExtResource("2_tc8pp")]
 layout_mode = 2
+
+[node name="PageSwitcher" type="Control" parent="ColorRect" unique_id=1939084611]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_srfm6")
+
+[node name="BackButton" type="Button" parent="ColorRect/PageSwitcher" unique_id=1227010048]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_right = 18.0
+offset_bottom = 15.5
+grow_vertical = 2
+text = "<"
+
+[node name="ForwardButton" type="Button" parent="ColorRect/PageSwitcher" unique_id=60494892]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = ">"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/PageSwitcher" unique_id=1923557975]
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -54.0
+offset_right = 59.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="ActiveDot" type="Panel" parent="ColorRect/PageSwitcher/HBoxContainer" unique_id=1549768940]
+custom_maximum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tc8pp")
+
+[node name="InactiveDot" type="Panel" parent="ColorRect/PageSwitcher/HBoxContainer" unique_id=1077793493]
+custom_maximum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_srfm6")
+
+[node name="Dot3" type="Panel" parent="ColorRect/PageSwitcher/HBoxContainer" unique_id=468190195]
+custom_maximum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_xjfbs")
+
+[node name="Dot4" type="Panel" parent="ColorRect/PageSwitcher/HBoxContainer" unique_id=1507420659]
+custom_maximum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_6yl83")
+
+[node name="Dot5" type="Panel" parent="ColorRect/PageSwitcher/HBoxContainer" unique_id=267584204]
+custom_maximum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_rdw2s")

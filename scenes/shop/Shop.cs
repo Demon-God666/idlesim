@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Godot;
 using IdleSim.scenes.shop.components;
+using System.Linq;
 
 public partial class Shop : Control
 {
@@ -8,11 +9,13 @@ public partial class Shop : Control
 	private int _money;
 	private List<ShopItemData> _items = new();
 	private GridContainer _gridContainer;
+	private PageSwitcher _pageSwitcher;
 	
 	const string ImagePath = "res:///assets/images/";
 	public override void _Ready()
 	{
 		
+		_pageSwitcher = GetNode<PageSwitcher>("ColorRect/PageSwitcher");
 
 		_gridContainer = GetNode<GridContainer>("ColorRect/ShopCatalog/HBoxContainer/CatalogRect/BoxContainer");	
 		foreach (Node child in _gridContainer.GetChildren())
@@ -40,8 +43,8 @@ public partial class Shop : Control
 			ShopItem shopItem = GD.Load<PackedScene>("res://scenes/shop/components/ShopItem.tscn").Instantiate<ShopItem>();
 			_gridContainer.AddChild(shopItem);
 			shopItem.SetItem(item);
-
 		}	
+		DisplayShopItems();
 	}
 	
 	private void UpdateMoney(int value)
@@ -57,5 +60,30 @@ public partial class Shop : Control
 	private void AddItemToShop(string productName, int productPrice, string productImagePath)
 	{
 		_items.Add(new ShopItemData(productName, productPrice, GD.Load<Texture2D>(ImagePath + productImagePath)));
+	}
+
+	public void DisplayShopItems()
+	{
+		var itemCount =  _gridContainer.GetChildCount();
+		_pageSwitcher.GetMaxPage(itemCount);
+		
+		foreach (Node child in _gridContainer.GetChildren())
+		{
+			child.QueueFree();
+		}
+
+		int startIndex = (_pageSwitcher.CurrentPage - 1) * 8;
+
+		foreach (ShopItemData item in _items
+					 .Skip(startIndex)
+					 .Take(8))
+		{
+			ShopItem shopItem = GD.Load<PackedScene>(
+				"res://scenes/shop/components/ShopItem.tscn"
+			).Instantiate<ShopItem>();
+
+			_gridContainer.AddChild(shopItem);
+			shopItem.SetItem(item);
+		}
 	}
 }
