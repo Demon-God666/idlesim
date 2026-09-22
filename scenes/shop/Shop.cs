@@ -28,16 +28,24 @@ public partial class Shop : Control
 		
 		_money = _currencySystem.GetMoney();
 	
-		AddItemToShop("Milk", 10, "Milk.png");
-		AddItemToShop("Cheese", 20, "Cheese.png");
-		AddItemToShop("Eggs", 8, "Eggs.png");
-		AddItemToShop("Butter", 15, "Butter.png");
-		AddItemToShop("Bread", 12, "Bread.png");
-		AddItemToShop("Ham", 25, "Ham.png");
-		AddItemToShop("Bananas", 10, "Bananas.png");
-		AddItemToShop("Apples", 5, "Apples.png");
-		AddItemToShop("Oranges", 7, "Oranges.png");
-
+		AddItemToShop("Milk", 10, "Milk.png",3);
+		AddItemToShop("Cheese", 20, "Cheese.png",3);
+		AddItemToShop("Eggs", 8, "Eggs.png",2);
+		AddItemToShop("Butter", 15, "Butter.png",3);
+		AddItemToShop("Bread", 12, "Bread.png", 2);
+		AddItemToShop("Ham", 25, "Ham.png", 2);
+		AddItemToShop("Bananas", 10, "Bananas.png", 1);
+		AddItemToShop("Apples", 5, "Apples.png", 1);
+		
+		AddItemToShop("Oranges", 7, "Oranges.png",1);
+		AddItemToShop("Pasta", 15, "Pasta.png",2);
+		AddItemToShop("Rice", 10, "Rice.png",2);
+		AddItemToShop("Tomatoes", 12, "Tomatoes.png",1);
+		AddItemToShop("Cucumber", 8, "Cucumber.png",1);
+		AddItemToShop("Chicken", 20, "Chicken.png",2);
+		AddItemToShop("Beef", 30, "Beef.png", 2);
+		AddItemToShop("Cheese", 20, "Cheese2.png", 3);
+		
 		_pageSwitcher.GetMaxPage(_items.Count);
 		
 		foreach (ShopItemData item in _items )
@@ -59,9 +67,27 @@ public partial class Shop : Control
 		return _money;
 	}
 	
-	private void AddItemToShop(string productName, int productPrice, string productImagePath)
+	private void AddItemToShop(
+		string productName,
+		int productPrice,
+		string productImagePath,
+		int categoryId)
 	{
-		_items.Add(new ShopItemData(productName, productPrice, GD.Load<Texture2D>(ImagePath + productImagePath)));
+		List<Category> categories = new()
+		{
+			new(1, "Fruits and Vegetables"),
+			new(2, "Bread"),
+			new(3, "Milk Products")
+		};
+
+		Category category = categories.Find(c => c.CategoryId == categoryId);
+
+		_items.Add(new ShopItemData(
+			productName,
+			productPrice,
+			GD.Load<Texture2D>(ImagePath + productImagePath),
+			category
+		));
 	}
 
 	public void DisplayShopItems()
