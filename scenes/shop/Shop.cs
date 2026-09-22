@@ -38,6 +38,8 @@ public partial class Shop : Control
 		AddItemToShop("Apples", 5, "Apples.png");
 		AddItemToShop("Oranges", 7, "Oranges.png");
 
+		_pageSwitcher.GetMaxPage(_items.Count);
+		
 		foreach (ShopItemData item in _items )
 		{
 			ShopItem shopItem = GD.Load<PackedScene>("res://scenes/shop/components/ShopItem.tscn").Instantiate<ShopItem>();
@@ -64,8 +66,6 @@ public partial class Shop : Control
 
 	public void DisplayShopItems()
 	{
-		var itemCount =  _gridContainer.GetChildCount();
-		_pageSwitcher.GetMaxPage(itemCount);
 		
 		foreach (Node child in _gridContainer.GetChildren())
 		{

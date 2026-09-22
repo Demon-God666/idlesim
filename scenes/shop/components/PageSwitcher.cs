@@ -11,6 +11,9 @@ public partial class PageSwitcher : Control
 
 	private Panel _activeDot;
 	private Panel _inactiveDot;
+	private HBoxContainer _dotsContainer;
+	
+	private Panel _currentActiveDot;
 	
 	private int _maxPage;
 	
@@ -19,6 +22,11 @@ public partial class PageSwitcher : Control
 		_shop = GetNode<Shop>("../..");
 		_backButton = GetNode<Button>("BackButton");
 		_forwardButton = GetNode<Button>("ForwardButton");
+		
+		_activeDot = GetNode<Panel>("DotTemplates/ActiveDot");
+		_inactiveDot = GetNode<Panel>("DotTemplates/InactiveDot");
+		_dotsContainer = GetNode<HBoxContainer>("HBoxContainer");
+		
 		
 		_backButton.Disabled = true;
 		
@@ -40,6 +48,7 @@ public partial class PageSwitcher : Control
 		{
 			_backButton.Disabled = true;
 		}
+		MoveActiveDot();
 	}
 
 	private void ForwardButtonPressed()
@@ -51,10 +60,42 @@ public partial class PageSwitcher : Control
 		{
 			_forwardButton.Disabled = true;
 		}
+		MoveActiveDot();
 	}
 	
 	public void GetMaxPage(int itemCount)
 	{
 		_maxPage = Mathf.CeilToInt(itemCount / 8.0f);
+		GetDots();
+	}
+
+	private void GetDots()
+	{
+		foreach (Node child in _dotsContainer.GetChildren())
+		{
+			child.Free();
+		}
+
+		for (int i = 0; i < _maxPage; i++)
+		{
+			Panel dot;
+
+			if (i == 0)
+			{
+				dot = _activeDot.Duplicate() as Panel;
+				_currentActiveDot = dot;
+			}
+			else
+			{
+				dot = _inactiveDot.Duplicate() as Panel;
+			}
+
+			_dotsContainer.AddChild(dot);
+		}
+	}
+	
+	private void MoveActiveDot()
+	{
+		_dotsContainer.MoveChild(_currentActiveDot, CurrentPage - 1 );
 	}
 }
