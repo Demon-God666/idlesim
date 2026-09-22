@@ -38,4 +38,5 @@ layout_mode = 1
 [editable path="SkillTree"]
 [editable path="CurrencySystem"]
 [editable path="Shop"]
+[editable path="Shop/ColorRect/ShopCatalog/HBoxContainer/TabRect/TabContainer/Tab"]
 [editable path="Navigation"]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bji4tvxkn4cxe"]
 
 [ext_resource type="Script" uid="uid://c1s00lnqqi3ui" path="res://scenes/shop/Shop.cs" id="1_tc8pp"]
+[ext_resource type="PackedScene" uid="uid://pmr355nhjen5" path="res://scenes/shop/components/ShopTab.tscn" id="2_srfm6"]
 [ext_resource type="PackedScene" uid="uid://cmrj4gv8x6ec1" path="res://scenes/shop/components/ShopItem.tscn" id="2_tc8pp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plsir"]
@@ -148,10 +149,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="TabRect" type="ColorRect" parent="ColorRect/ShopCatalog/HBoxContainer" unique_id=831730307]
+[node name="TabRect" type="ColorRect" parent="ColorRect/ShopCatalog/HBoxContainer" unique_id=2079372797]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 color = Color(0.45977253, 0.3963066, 0.5435653, 1)
+
+[node name="TabContainer" type="VBoxContainer" parent="ColorRect/ShopCatalog/HBoxContainer/TabRect" unique_id=1819238164]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="ShopTab" parent="ColorRect/ShopCatalog/HBoxContainer/TabRect/TabContainer" unique_id=1382784152 instance=ExtResource("2_srfm6")]
+layout_mode = 2
+
+[node name="ShopTab2" parent="ColorRect/ShopCatalog/HBoxContainer/TabRect/TabContainer" unique_id=2093616809 instance=ExtResource("2_srfm6")]
+layout_mode = 2
 
 [node name="CatalogRect" type="ColorRect" parent="ColorRect/ShopCatalog/HBoxContainer" unique_id=2109269814]
 custom_minimum_size = Vector2(1000, 0)
