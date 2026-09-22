@@ -30,7 +30,7 @@ public partial class ShopItem : Control
 		_productNameLabel = GetNode<Label>("VBoxContainer/ProductLabel");
 		_productPriceLabel = GetNode<Label>("VBoxContainer/ButtonContainer/ButtonContainerBuy/ProductPriceLabel");
 		_productImage = GetNode<TextureRect>("VBoxContainer/ImageContainer/AspectRatioContainer/ProductImage");
-
+		
 		
 		_productAmountValue = 1;
 		
@@ -95,7 +95,27 @@ public partial class ShopItem : Control
 		_productPriceValue = item.ProductPrice;
 		_productImage.Texture = item.ProductImage;
 		
+		LoadImageShadow();
 		UpdateProductPriceLabel();
+	}
+
+	private void LoadImageShadow()
+	{
+		var imageAspect = _productImage.GetParent<AspectRatioContainer>();
+
+		var shadowAspect = (AspectRatioContainer)imageAspect.Duplicate();
+		shadowAspect.Name = "ShadowAspectRatioContainer";
+
+		var parent = imageAspect.GetParent();
+
+		parent.AddChild(shadowAspect);
+		parent.MoveChild(shadowAspect, imageAspect.GetIndex());
+
+		var shadowTexture = shadowAspect.GetNode<TextureRect>("ProductImage");
+		shadowTexture.Name = "ShadowTexture";
+		shadowTexture.Modulate = new Color(0, 0, 0, 0.4f);
+
+		shadowAspect.Position += new Vector2(10, 10);
 	}
 
 }

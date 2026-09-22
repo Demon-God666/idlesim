@@ -60,17 +60,6 @@ texture = ExtResource("1_sevgc")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="Polygon2D" type="Polygon2D" parent="VBoxContainer/ImageContainer/AspectRatioContainer" unique_id=2050698469]
-show_behind_parent = true
-clip_children = 2
-light_mask = 0
-position = Vector2(-89, 0)
-texture = ExtResource("1_sevgc")
-polygon = PackedVector2Array(0, 0, 180, 0, 180, 130, 95.0898, 130, 0, 130)
-uv = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VBoxContainer/ImageContainer/AspectRatioContainer" unique_id=1169083206]
-
 [node name="ButtonContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=930624970]
 custom_maximum_size = Vector2(200, -1)
 clip_contents = true
