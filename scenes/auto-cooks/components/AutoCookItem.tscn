@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b4ogj3c0r8p5g"]
+
+[ext_resource type="Script" uid="uid://dkgwqndnmrptk" path="res://scenes/auto-cooks/components/AutoCookItem.cs" id="1_5advr"]
+
+[node name="AutoCookItem" type="Control" unique_id=129108681]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 150.0
+offset_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_5advr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1310582401]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.53, 0.53, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=979021179]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IngredientListLabel" type="Label" parent="VBoxContainer" unique_id=1180713573]
+layout_mode = 2
+text = "Ingredients: "
+
+[node name="ProduceItemLabel" type="Label" parent="VBoxContainer" unique_id=885872379]
+layout_mode = 2
+text = "Produces: "
+
+[node name="ProducedProductValueLabel" type="Label" parent="VBoxContainer" unique_id=580805734]
+layout_mode = 2
+text = "Value: "
+
+[node name="ProduceTimeLabel" type="Label" parent="VBoxContainer" unique_id=694480970]
+layout_mode = 2
+text = "Time: "
+
+[node name="StartAutoCookButton" type="Button" parent="." unique_id=718821041]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -38.0
+offset_right = -8.0
+offset_bottom = -7.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Cook"

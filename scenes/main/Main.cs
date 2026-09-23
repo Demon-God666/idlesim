@@ -9,6 +9,8 @@ public partial class Main : Control
 	
 	public Inventory Inventory { get; set; }
 	public CurrencySystem CurrencySystem { get; private set; }
+	
+	private AutoCooks AutoCooks { get; set; }
 
 	public override void _Ready()
 	{
@@ -16,6 +18,7 @@ public partial class Main : Control
 		_skillTree = GetNode<Control>("SkillTree"); 
 		_shop = GetNode<Control>("Shop");
 		Inventory = GetNode<Inventory>("Inventory");
+		AutoCooks = GetNode<AutoCooks>("AutoCooks");
 
 		ShowCurrencySystem();
 	}
@@ -44,11 +47,18 @@ public partial class Main : Control
 		Inventory.Show();
 	}
 	
+	public void ShowAutoCooks()
+	{
+		HideAll();	
+		AutoCooks.Show();
+	}
+	
 	private void HideAll()
 	{
 		CurrencySystem.Hide();
 		_skillTree.Hide();
 		_shop.Hide();
 		Inventory.Hide();
+		AutoCooks.Hide();
 	}
 }

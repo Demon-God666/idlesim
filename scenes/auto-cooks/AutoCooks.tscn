@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://us8jt5wp4ug6"]
+
+[ext_resource type="Script" uid="uid://blo2iskjlhfw5" path="res://scenes/auto-cooks/AutoCooks.cs" id="1_1aqpq"]
+[ext_resource type="PackedScene" uid="uid://b4ogj3c0r8p5g" path="res://scenes/auto-cooks/components/AutoCookItem.tscn" id="1_lyqv6"]
+
+[node name="AutoCooks" type="Control" unique_id=1225239424]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1aqpq")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1577311063]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AutoCookItemContainer" type="GridContainer" parent="ColorRect" unique_id=1290850893]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="AutoCookItem" parent="ColorRect/AutoCookItemContainer" unique_id=129108681 instance=ExtResource("1_lyqv6")]
+layout_mode = 2
+
+[node name="AutoCookItem2" parent="ColorRect/AutoCookItemContainer" unique_id=1946212540 instance=ExtResource("1_lyqv6")]
+layout_mode = 2
+
+[node name="AutoCookItem3" parent="ColorRect/AutoCookItemContainer" unique_id=1486083329 instance=ExtResource("1_lyqv6")]
+layout_mode = 2
+
+[node name="AutoCookItem4" parent="ColorRect/AutoCookItemContainer" unique_id=1195052066 instance=ExtResource("1_lyqv6")]
+layout_mode = 2
+
+[node name="AutoCookItem5" parent="ColorRect/AutoCookItemContainer" unique_id=34979792 instance=ExtResource("1_lyqv6")]
+layout_mode = 2
+
+[editable path="ColorRect/AutoCookItemContainer/AutoCookItem"]
+[editable path="ColorRect/AutoCookItemContainer/AutoCookItem2"]
+[editable path="ColorRect/AutoCookItemContainer/AutoCookItem3"]
+[editable path="ColorRect/AutoCookItemContainer/AutoCookItem4"]
+[editable path="ColorRect/AutoCookItemContainer/AutoCookItem5"]

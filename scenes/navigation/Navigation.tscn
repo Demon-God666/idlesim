@@ -49,3 +49,8 @@ layout_mode = 2
 text = "Inventory
 "
 metadata/_edit_use_anchors_ = true
+
+[node name="AutoCookButton" type="Button" parent="HBoxContainer" unique_id=1839942962]
+layout_mode = 2
+text = "Auto Cook"
+metadata/_edit_use_anchors_ = true
