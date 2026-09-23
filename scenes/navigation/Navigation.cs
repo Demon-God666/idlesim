@@ -8,6 +8,7 @@ public partial class Navigation : Control
 	private Button _currencySystemButton;
 	private Button _skillTreeButton;
 	private Button _shopButton;
+	private Button _inventoryButton;
 	private Label _moneyLabel;
 	
 	public override void _Ready()
@@ -18,6 +19,7 @@ public partial class Navigation : Control
 		_currencySystemButton = GetNode<Button>("HBoxContainer/CurrencySystemButton");
 		_skillTreeButton = GetNode<Button>("HBoxContainer/SkillTreeButton");
 		_shopButton = GetNode<Button>("HBoxContainer/ShopButton");
+		_inventoryButton = GetNode<Button>("HBoxContainer/InventoryButton");
 		_moneyLabel = GetNode<Label>("HBoxContainer/MoneyLabel");
 		
 		_moneyLabel.Text = $"Money: {_currencySystem.GetMoney()}$";
@@ -25,6 +27,7 @@ public partial class Navigation : Control
 		_currencySystemButton.Pressed += _main.ShowCurrencySystem;
 		_skillTreeButton.Pressed += _main.ShowSkillTree;
 		_shopButton.Pressed += _main.ShowShop;
+		_inventoryButton.Pressed += _main.ShowInventory;
 		
 		_currencySystem.MoneyUpdated += UpdateMoneyText;
 	}

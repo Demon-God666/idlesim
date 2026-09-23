@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://fd2m0cml4vwx"]
 
 [ext_resource type="Script" uid="uid://xilgetaae20r" path="res://scenes/skill-tree/SkillTree.cs" id="1_jfxr7"]
-[ext_resource type="Script" uid="uid://drmci42cpebax" path="res://scenes/skill-tree/Connections.cs" id="2_ib7fn"]
+[ext_resource type="Script" uid="uid://drmci42cpebax" path="res://scenes/skill-tree/components/Connections.cs" id="2_ib7fn"]
 [ext_resource type="PackedScene" uid="uid://wokk0s7f4ikw" path="res://scenes/skill-tree/components/SkillButton.tscn" id="4_c1xl7"]
 
 [node name="SkillTree" type="Control" unique_id=1749117477]

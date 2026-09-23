@@ -1,9 +1,12 @@
 using Godot;
+using IdleSim.scenes.inventory;
+using IdleSim.scenes.inventory.components;
 using IdleSim.scenes.shop.components;
 
 public partial class ShopItem : Control
 {
 	private CurrencySystem _currencySystem;
+	private Inventory _inventory;
 	private ShopItemData _item;
 	
 	private Button _addButton;
@@ -20,7 +23,9 @@ public partial class ShopItem : Control
 
 	public override void _Ready()
 	{
+		
 		_currencySystem = GetTree().Root.GetNode<CurrencySystem>("Main/CurrencySystem");
+		_inventory = GetTree().Root.GetNode<Inventory>("Main/Inventory");
 		
 		_addButton = GetNode<Button>("VBoxContainer/ButtonContainer/ButtonContainerAmount/ButtonAdd");
 		_removeButton = GetNode<Button>("VBoxContainer/ButtonContainer/ButtonContainerAmount/ButtonRemove");
@@ -70,7 +75,8 @@ public partial class ShopItem : Control
 			GD.Print("Nicht genug Geld.");
 			return;
 		}
-
+		
+		_inventory.Add(_item, _productAmountValue);
 		_currencySystem.Remove(price);
 
 		GD.Print($"Gekauft: {_productAmountValue}x für {price}$");

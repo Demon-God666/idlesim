@@ -43,3 +43,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 text = "Shop"
 metadata/_edit_use_anchors_ = true
+
+[node name="InventoryButton" type="Button" parent="HBoxContainer" unique_id=1687623281]
+layout_mode = 2
+text = "Inventory
+"
+metadata/_edit_use_anchors_ = true
