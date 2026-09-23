@@ -51,7 +51,7 @@ public partial class Main : Control
 	{
 		HideAll();	
 		AutoCooks.Show();
-	}
+	} 
 	
 	private void HideAll()
 	{

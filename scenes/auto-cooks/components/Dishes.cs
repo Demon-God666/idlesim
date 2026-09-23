@@ -9,9 +9,9 @@ public class Dishes
     private int _producedProductValue;
     private int _produceTime;
     
-    public Dishes(List<IngredientList> ingredientList, string produceItem, int producedProductValue, int produceTime)
+    public Dishes((string, int) ingredientList, string produceItem, int producedProductValue, int produceTime)
     {
-        IngredientList = ingredientList;
+        IngredientList = new List<IngredientList>();
         _produceItem = produceItem;
         _producedProductValue = producedProductValue;
         _produceTime = produceTime;
