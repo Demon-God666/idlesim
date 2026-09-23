@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://c7tfjcqom4dw6"]
+
+[ext_resource type="Script" uid="uid://dxuls1o81lqw7" path="res://scenes/currency_system/CurrencySystem.cs" id="1_lss2i"]
+
+[node name="CurrencySystem" type="Control" unique_id=1295007714]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lss2i")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1420974938]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="Control" parent="." unique_id=1163849706]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Container" unique_id=641805675]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.25
+offset_top = -18.75
+offset_right = 39.25
+offset_bottom = 18.75
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Money"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="Container" unique_id=1537144301]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = 21.0
+offset_right = 29.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlusButton" type="Button" parent="Container" unique_id=1990761724]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 28.5
+offset_top = 21.0
+offset_right = 58.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+"
+
+[node name="MinusButton" type="Button" parent="Container" unique_id=67331113]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 21.0
+offset_right = -26.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "-"
+
+[node name="BuyButton" type="Button" parent="Container" unique_id=167185503]
+layout_mode = 0
+offset_left = -34.0
+offset_top = -153.0
+offset_right = 33.0
+offset_bottom = -122.0
+text = "Buy: 10"

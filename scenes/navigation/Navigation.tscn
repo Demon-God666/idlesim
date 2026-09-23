@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://c37xl3mb30gxt"]
+
+[ext_resource type="Script" uid="uid://bcx6hj7fehym6" path="res://scenes/navigation/Navigation.cs" id="1_2a8o0"]
+
+[node name="Navigation" type="Control" unique_id=61163014]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+script = ExtResource("1_2a8o0")
+
+[node name="MoneyLabel" type="Label" parent="." unique_id=189397776]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -576.0
+offset_top = 8.0
+offset_right = -288.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "Money:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CurrencySystemButton" type="Button" parent="." unique_id=1947057188]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_top = 8.0
+offset_right = -88.0
+offset_bottom = 45.0
+grow_horizontal = 0
+text = "Money"
+metadata/_edit_use_anchors_ = true
+
+[node name="ShopButton" type="Button" parent="." unique_id=1235084449]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 45.0
+grow_horizontal = 0
+text = "Shop"
+metadata/_edit_use_anchors_ = true
