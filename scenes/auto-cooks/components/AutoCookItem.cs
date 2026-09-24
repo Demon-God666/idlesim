@@ -19,13 +19,15 @@ public partial class AutoCookItem : Control
 		_produceTime = GetNode<Label>("VBoxContainer/ProduceTimeLabel");
 	}
 	
-	public void SetAutoCookItem(Dishes dish) 
+	public void SetAutoCookItem(Dishes dish)
 	{
-			_ingredientList.Text = dish.IngredientList[0].ItemName
-			                       + " x" + dish.IngredientList[0].ItemAmount;
+		var ingredient = dish.IngredientList[0];
 
-			_produceItem.Text = dish.ProduceItem;
-			_producedProductValue.Text = dish.ProducedProductValue.ToString();
-			_produceTime.Text = dish.ProduceTime.ToString();
+		_ingredientList.Text = ingredient.ItemName;
+		_ingredientList.Text += " x" + ingredient.ItemAmount;
+
+		_produceItem.Text = dish.ProduceItem;
+		_producedProductValue.Text = dish.ProducedProductValue.ToString();
+		_produceTime.Text = dish.ProduceTime.ToString();
 	}
 }

@@ -20,7 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AutoCookItemContainer" type="GridContainer" parent="ColorRect" unique_id=1290850893]
+[node name="AutoCookItemContainer" type="GridContainer" parent="." unique_id=1290850893]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -35,23 +35,23 @@ theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 4
 
-[node name="AutoCookItem" parent="ColorRect/AutoCookItemContainer" unique_id=129108681 instance=ExtResource("1_lyqv6")]
+[node name="AutoCookItem" parent="AutoCookItemContainer" unique_id=129108681 instance=ExtResource("1_lyqv6")]
 layout_mode = 2
 
-[node name="AutoCookItem2" parent="ColorRect/AutoCookItemContainer" unique_id=1946212540 instance=ExtResource("1_lyqv6")]
+[node name="AutoCookItem2" parent="AutoCookItemContainer" unique_id=1946212540 instance=ExtResource("1_lyqv6")]
 layout_mode = 2
 
-[node name="AutoCookItem3" parent="ColorRect/AutoCookItemContainer" unique_id=1486083329 instance=ExtResource("1_lyqv6")]
+[node name="AutoCookItem3" parent="AutoCookItemContainer" unique_id=1486083329 instance=ExtResource("1_lyqv6")]
 layout_mode = 2
 
-[node name="AutoCookItem4" parent="ColorRect/AutoCookItemContainer" unique_id=1195052066 instance=ExtResource("1_lyqv6")]
+[node name="AutoCookItem4" parent="AutoCookItemContainer" unique_id=1195052066 instance=ExtResource("1_lyqv6")]
 layout_mode = 2
 
-[node name="AutoCookItem5" parent="ColorRect/AutoCookItemContainer" unique_id=34979792 instance=ExtResource("1_lyqv6")]
+[node name="AutoCookItem5" parent="AutoCookItemContainer" unique_id=34979792 instance=ExtResource("1_lyqv6")]
 layout_mode = 2
 
-[editable path="ColorRect/AutoCookItemContainer/AutoCookItem"]
-[editable path="ColorRect/AutoCookItemContainer/AutoCookItem2"]
-[editable path="ColorRect/AutoCookItemContainer/AutoCookItem3"]
-[editable path="ColorRect/AutoCookItemContainer/AutoCookItem4"]
-[editable path="ColorRect/AutoCookItemContainer/AutoCookItem5"]
+[editable path="AutoCookItemContainer/AutoCookItem"]
+[editable path="AutoCookItemContainer/AutoCookItem2"]
+[editable path="AutoCookItemContainer/AutoCookItem3"]
+[editable path="AutoCookItemContainer/AutoCookItem4"]
+[editable path="AutoCookItemContainer/AutoCookItem5"]
