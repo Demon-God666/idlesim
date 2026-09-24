@@ -4,16 +4,16 @@ namespace IdleSim.scenes.auto_cooks.components;
 
 public class Dishes
 {
-    public List<IngredientList> IngredientList;
-    private string _produceItem;
-    private int _producedProductValue;
-    private int _produceTime;
+    public List<IngredientList> IngredientList = new();
+    public string ProduceItem { get; }
+    public int ProducedProductValue {get;}
+    public int ProduceTime { get; }
     
-    public Dishes((string, int) ingredientList, string produceItem, int producedProductValue, int produceTime)
+    public Dishes(List<IngredientList> ingredientList, string produceItem, int producedProductValue, int produceTime)
     {
-        IngredientList = new List<IngredientList>();
-        _produceItem = produceItem;
-        _producedProductValue = producedProductValue;
-        _produceTime = produceTime;
+        IngredientList = ingredientList;
+        ProduceItem = produceItem;
+        ProducedProductValue = producedProductValue;
+        ProduceTime = produceTime;
     }
 }

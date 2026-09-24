@@ -10,9 +10,6 @@ public partial class AutoCookItem : Control
 	private Label _produceItem;
 	private Label _producedProductValue;
 	private Label _produceTime;
-
-	private List<Dishes> Dishes;
-	
 	
 	public override void _Ready()
 	{
@@ -20,24 +17,15 @@ public partial class AutoCookItem : Control
 		_produceItem = GetNode<Label>("VBoxContainer/ProduceItemLabel");
 		_producedProductValue = GetNode<Label>("VBoxContainer/ProducedProductValueLabel");
 		_produceTime = GetNode<Label>("VBoxContainer/ProduceTimeLabel");
-		Dishes = GetNode<List<Dishes>>("Dishes");
-		 
-		_ingredientList.Text = "";
-		_produceItem.Text = "";
-		_producedProductValue.Text = "";
-		_produceTime.Text = "";
-		
-		CreateAutoCookItem();
-	}
-
-	public void CreateAutoCookItem()
-	{
-		
-		foreach (var item in Dishes)
-		{
-			
-		}
-		
 	}
 	
+	public void SetAutoCookItem(Dishes dish) 
+	{
+			_ingredientList.Text = dish.IngredientList[0].ItemName
+			                       + " x" + dish.IngredientList[0].ItemAmount;
+
+			_produceItem.Text = dish.ProduceItem;
+			_producedProductValue.Text = dish.ProducedProductValue.ToString();
+			_produceTime.Text = dish.ProduceTime.ToString();
+	}
 }
