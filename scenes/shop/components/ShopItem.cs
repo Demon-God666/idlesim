@@ -7,7 +7,7 @@ public partial class ShopItem : Control
 {
 	private CurrencySystem _currencySystem;
 	private Inventory _inventory;
-	private ShopItemData _item;
+	private ItemData _item;
 	
 	private Button _addButton;
 	private Button _removeButton;
@@ -93,7 +93,7 @@ public partial class ShopItem : Control
 		_productPriceLabel.Text = (_productPriceValue * _productAmountValue) + "$";
 	}
 
-	public void SetItem(ShopItemData item)
+	public void SetItem(ItemData item)
 	{
 		_item = item;
 		

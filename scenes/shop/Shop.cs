@@ -7,7 +7,7 @@ public partial class Shop : Control
 {
 	private CurrencySystem _currencySystem;
 	private int _money;
-	private List<ShopItemData> _items = new();
+	private List<ItemData> _items = new();
 	private GridContainer _gridContainer;
 	private PageSwitcher _pageSwitcher;
 	
@@ -48,7 +48,7 @@ public partial class Shop : Control
 		
 		_pageSwitcher.GetMaxPage(_items.Count);
 		
-		foreach (ShopItemData item in _items )
+		foreach (ItemData item in _items )
 		{
 			ShopItem shopItem = GD.Load<PackedScene>("res://scenes/shop/components/ShopItem.tscn").Instantiate<ShopItem>();
 			_gridContainer.AddChild(shopItem);
@@ -67,7 +67,7 @@ public partial class Shop : Control
 		return _money;
 	}
 	
-	private void AddItemToShop(
+	public ItemData AddItemToShop(
 		string productName,
 		int productPrice,
 		string productImagePath,
@@ -75,6 +75,7 @@ public partial class Shop : Control
 	{
 		List<Category> categories = new()
 		{
+			new (0, "Dishes"),
 			new(1, "Fruits and Vegetables"),
 			new(2, "Bread"),
 			new(3, "Milk Products")
@@ -82,12 +83,16 @@ public partial class Shop : Control
 
 		Category category = categories.Find(c => c.CategoryId == categoryId);
 
-		_items.Add(new ShopItemData(
+		ItemData itemData = new ItemData(
 			productName,
 			productPrice,
 			GD.Load<Texture2D>(ImagePath + productImagePath),
 			category
-		));
+		);
+
+		_items.Add(itemData);
+		
+		return itemData;
 	}
 
 	public void DisplayShopItems()
@@ -100,7 +105,7 @@ public partial class Shop : Control
 
 		int startIndex = (_pageSwitcher.CurrentPage - 1) * 8;
 
-		foreach (ShopItemData item in _items
+		foreach (ItemData item in _items
 					 .Skip(startIndex)
 					 .Take(8))
 		{
@@ -111,5 +116,10 @@ public partial class Shop : Control
 			_gridContainer.AddChild(shopItem);
 			shopItem.SetItem(item);
 		}
+	}
+	
+	public bool HasItem(ItemData itemData)
+	{
+		return _items.Contains(itemData);
 	}
 }

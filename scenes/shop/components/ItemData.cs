@@ -5,7 +5,7 @@ using Godot.Collections;
 
 namespace IdleSim.scenes.shop.components;
 
-public class ShopItemData
+public class ItemData
 {
 	public string ProductName { get; set; }
 	public int ProductPrice { get; set; }
@@ -15,7 +15,7 @@ public class ShopItemData
 			
 	
 
-	public ShopItemData(string productName, int productPrice, Texture2D productImage, Category category)
+	public ItemData(string productName, int productPrice, Texture2D productImage, Category category)
 	{
 		ProductName = productName;
 		ProductPrice = productPrice;

@@ -36,8 +36,8 @@ public partial class AutoCookItem : Control
 	{
 		_dish = dish;
 		
-		_produceItem.Text += dish.ProduceItem;
-		_producedProductValue.Text += dish.ProducedProductValue + "$";
+		_produceItem.Text += dish.ItemData.ProductName;
+		_producedProductValue.Text += dish.ItemData.ProductPrice + "$";
 		_produceTime.Text += dish.ProduceTime + "s";
 		
 		UpdateInventory();

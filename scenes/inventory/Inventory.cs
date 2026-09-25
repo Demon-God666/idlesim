@@ -23,7 +23,7 @@ public partial class Inventory : Control
 		EmitSignal(SignalName.InventoryUpdated);
 	}
 
-	public void Add(ShopItemData item, int amount)
+	public void Add(ItemData item, int amount)
 	{
 		BoughtItem checkExistingItem = InventoryItems.Find(x => x.Item == item);
 		
