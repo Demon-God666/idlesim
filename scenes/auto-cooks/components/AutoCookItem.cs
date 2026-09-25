@@ -56,6 +56,11 @@ public partial class AutoCookItem : Control
 
 	private void UpdateInventory()
 	{
+		if (_dish == null)
+			return;
+
+		_ingredientList.Text = "Ingredients: \n";
+		
 		foreach (var ingredient in _dish.IngredientList)
 		{
 			_ingredientList.Text += $"{ingredient.ItemName} {ingredient.ItemAmount}/ {GetInventoryItemCount(ingredient.ItemName)}";

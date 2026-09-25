@@ -30,10 +30,12 @@ public partial class Inventory : Control
 		if (checkExistingItem != null)
 		{
 			checkExistingItem.Amount += amount;
-			return;
 		}
-		
-		InventoryItems.Add(new BoughtItem(item, amount));
+		else
+		{
+			InventoryItems.Add(new BoughtItem(item, amount));
+		}
+
 		EmitSignal(SignalName.InventoryUpdated);
 	}
 	
