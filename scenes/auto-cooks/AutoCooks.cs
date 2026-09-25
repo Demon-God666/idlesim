@@ -8,17 +8,17 @@ public partial class AutoCooks : Control
 	private List<Dishes> _autoCookDishes = new();
 
 	private GridContainer _autoCookItemContainer;
-	private AutoCookItem _autoCookItem;
+	private AutoCookItem _autoCookItemTemplate;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		_autoCookItemContainer = GetNode<GridContainer>("AutoCookItemContainer");
-		_autoCookItem = GetNode<AutoCookItem>("AutoCookItemContainer/AutoCookItem");
+		_autoCookItemTemplate = GetNode<AutoCookItem>("AutoCookItemTemplate/AutoCookItem");
 
 		AddDish(
-			new List<string> { "Milk" },
-			new List<int> { 1 },
+			new List<string> { "Milk", "Water" },
+			new List<int> { 1, 2 },
 			"Milk Rice",
 			20,
 			10
@@ -90,9 +90,10 @@ public partial class AutoCooks : Control
 
 		foreach (var dish in _autoCookDishes)
 		{
-			var autoCookItem = _autoCookItem.Duplicate() as AutoCookItem;
-			autoCookItem.SetAutoCookItem(dish);
+			var autoCookItem = (AutoCookItem)_autoCookItemTemplate.Duplicate();
+			
 			_autoCookItemContainer.AddChild(autoCookItem);
+			autoCookItem.SetAutoCookItem(dish);
 		}
 	}
 }

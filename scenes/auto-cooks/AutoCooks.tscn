@@ -50,6 +50,17 @@ layout_mode = 2
 [node name="AutoCookItem5" parent="AutoCookItemContainer" unique_id=34979792 instance=ExtResource("1_lyqv6")]
 layout_mode = 2
 
+[node name="AutoCookItemTemplate" type="Control" parent="." unique_id=1787959178]
+visible = false
+anchors_preset = 0
+offset_left = 296.0
+offset_top = 364.0
+offset_right = 572.0
+offset_bottom = 638.0
+
+[node name="AutoCookItem" parent="AutoCookItemTemplate" unique_id=1620054390 instance=ExtResource("1_lyqv6")]
+layout_mode = 1
+
 [editable path="AutoCookItemContainer/AutoCookItem"]
 [editable path="AutoCookItemContainer/AutoCookItem2"]
 [editable path="AutoCookItemContainer/AutoCookItem3"]

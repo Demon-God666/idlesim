@@ -7,7 +7,7 @@ namespace IdleSim.scenes.inventory;
 
 public partial class Inventory : Control
 {
-	public List<BoughtItem> InventoryItems = new ();
+	public List<BoughtItem> InventoryItems { get; set; } = new();
 	
 	private Button _showInventoryButton;
 	public override void _Ready()
@@ -38,5 +38,6 @@ public partial class Inventory : Control
 		}
 		
 	}
+	
 	
 }

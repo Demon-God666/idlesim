@@ -25,7 +25,7 @@ public partial class CurrencySystem : Control
 		_value= _valueLabel.Text.ToInt();
 		_label.Text = "Money:";
 		
-		_plusButton.Pressed += () => Add(1);
+		_plusButton.Pressed += () => Add(100);
 		_minusButton.Pressed += () => Remove(1);
 		
 		EmitSignal(SignalName.MoneyUpdated, _value);
