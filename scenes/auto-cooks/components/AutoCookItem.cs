@@ -13,6 +13,7 @@ public partial class AutoCookItem : Control
 	private Label _producedProductValue;
 	private Label _produceTime;
 	private Inventory _inventory;
+	private Dishes _dish;
 	
 	public override void _Ready()
 	{
@@ -27,29 +28,41 @@ public partial class AutoCookItem : Control
 		_produceItem.Text = "Produce: \n";
 		_producedProductValue.Text = "Value: \n";
 		_produceTime.Text = "Time: \n";
+		
+		_inventory.InventoryUpdated += UpdateInventory;
 	}
 	
 	public void SetAutoCookItem(Dishes dish)
 	{
-		foreach (var ingredient in dish.IngredientList)
-		{
-			_ingredientList.Text += $"{ingredient.ItemName} {ingredient.ItemAmount}/ {GetInventoryItemCount(ingredient.ItemName)}";
-			if (dish.IngredientList.Count > 1 && dish.IngredientList.IndexOf(ingredient) < dish.IngredientList.Count - 1)
-			{
-				_ingredientList.Text += "\n";
-			}
-		}
+		_dish = dish;
 		
 		_produceItem.Text += dish.ProduceItem;
 		_producedProductValue.Text += dish.ProducedProductValue + "$";
 		_produceTime.Text += dish.ProduceTime + "s";
 		
-		GD.Print(_inventory.InventoryItems.Count);
+		UpdateInventory();
 	}
 	
 	private int GetInventoryItemCount(string itemName)
 	{
-		var item = _inventory.InventoryItems.Find(i => i.Item.ProductName == itemName);
-		return item == null ? 0 : item.Amount;
+		var itemIndex = _inventory.InventoryItems.FindIndex(i => i.Item.ProductName == itemName);
+		if (itemIndex < 0)
+			return 0;
+		
+		var itemAmount = _inventory.InventoryItems[itemIndex];
+		GD.Print(itemAmount);
+		return itemAmount?.Amount ?? 0;
+	}
+
+	private void UpdateInventory()
+	{
+		foreach (var ingredient in _dish.IngredientList)
+		{
+			_ingredientList.Text += $"{ingredient.ItemName} {ingredient.ItemAmount}/ {GetInventoryItemCount(ingredient.ItemName)}";
+			if (_dish.IngredientList.Count > 1 && _dish.IngredientList.IndexOf(ingredient) < _dish.IngredientList.Count - 1)
+			{
+				_ingredientList.Text += "\n";
+			}
+		}
 	}
 }

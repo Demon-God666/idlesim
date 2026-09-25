@@ -9,8 +9,7 @@ public partial class AutoCooks : Control
 
 	private GridContainer _autoCookItemContainer;
 	private AutoCookItem _autoCookItemTemplate;
-
-	// Called when the node enters the scene tree for the first time.
+	
 	public override void _Ready()
 	{
 		_autoCookItemContainer = GetNode<GridContainer>("AutoCookItemContainer");
