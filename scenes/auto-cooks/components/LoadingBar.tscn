@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bjmwymxsha7lf"]
+
+[ext_resource type="Script" uid="uid://b2puieogbksga" path="res://scenes/auto-cooks/components/LoadingBar.cs" id="1_6tbqh"]
+
+[node name="LoadingBar" type="Control" unique_id=408746264]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 45.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("1_6tbqh")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=111625663]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

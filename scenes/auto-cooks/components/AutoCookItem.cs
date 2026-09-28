@@ -7,13 +7,16 @@ using IdleSim.scenes.inventory.components;
 
 public partial class AutoCookItem : Control
 {
-	private bool _isCooking;
+	private bool _isCooking = false;
 	private Label _ingredientList;
 	private Label _produceItem;
 	private Label _producedProductValue;
 	private Label _produceTime;
 	private Inventory _inventory;
 	private Dishes _dish;
+	
+	private LoadingBar _loadingBar;
+	private Button _cookingButton;
 	
 	public override void _Ready()
 	{
@@ -24,10 +27,15 @@ public partial class AutoCookItem : Control
 		_producedProductValue = GetNode<Label>("VBoxContainer/ProducedProductValueLabel");
 		_produceTime = GetNode<Label>("VBoxContainer/ProduceTimeLabel");
 		
+		_loadingBar = GetNode<LoadingBar>("HBoxContainer/LoadingBar");
+		_cookingButton = GetNode<Button>("HBoxContainer/StartAutoCookButton");
+		
 		_ingredientList.Text = "Ingredients: \n";
 		_produceItem.Text = "Produce: \n";
 		_producedProductValue.Text = "Value: \n";
 		_produceTime.Text = "Time: \n";
+		
+		_cookingButton.Pressed += CookingButtonPressed;
 		
 		_inventory.InventoryUpdated += UpdateInventory;
 	}
@@ -68,6 +76,40 @@ public partial class AutoCookItem : Control
 			{
 				_ingredientList.Text += "\n";
 			}
+		}
+	}
+	
+	private async void CookingButtonPressed()
+	{
+		var checkItem = _inventory.CheckIngredientAvailable(_dish.IngredientList);
+		
+		if (!checkItem)
+		{
+			GD.Print("Not enough ingredients");
+			_isCooking = false;
+			return;
+		}
+		
+		if (checkItem)
+		{
+			foreach (var ingredient in _dish.IngredientList)
+			{
+				var item = _inventory.InventoryItems.Find(
+					x => x.Item.ProductName == ingredient.ItemName
+				);
+
+				_inventory.Remove(item.Item, ingredient.ItemAmount);
+				UpdateInventory();
+			}
+		}
+		
+		_isCooking = !_isCooking;
+
+		if (_isCooking) 
+		{
+				GD.Print(_dish.ProduceTime);
+				await _loadingBar.SetLoadingBar(_dish.ProduceTime); 
+			
 		}
 	}
 }

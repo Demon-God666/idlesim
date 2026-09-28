@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Godot;
+using IdleSim.scenes.auto_cooks.components;
 using IdleSim.scenes.inventory.components;
 using IdleSim.scenes.shop.components;
 
@@ -47,6 +48,33 @@ public partial class Inventory : Control
 			GD.Print($"{item.Item.ProductName}: {item.Amount}");
 		}
 		
+	}
+	
+	public void Remove(ItemData item, int amount)
+	{
+		BoughtItem findItem = InventoryItems.Find(x => x.Item == item);
+
+		if (findItem != null)
+		{
+			findItem.Amount -= amount;
+		}
+	}
+	
+	public bool CheckIngredientAvailable(List<IngredientList> ingredientList)
+	{
+		foreach (var ingredient in ingredientList)
+		{
+			var checkItem = InventoryItems.Find(
+				x => x.Item.ProductName == ingredient.ItemName
+			);
+
+			if (checkItem == null || checkItem.Amount < ingredient.ItemAmount)
+			{
+				return false;
+			}
+		}
+		
+		return true;
 	}
 	
 	

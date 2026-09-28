@@ -18,39 +18,47 @@ public partial class AutoCooks : Control
 		_autoCookItemContainer = GetNode<GridContainer>("AutoCookItemContainer");
 		_autoCookItemTemplate = GetNode<AutoCookItem>("AutoCookItemTemplate/AutoCookItem");
 		
+		
+		AddDish(
+			new List<string> { "Milk" },
+			new List<int> { 1 },
+			FormatDishData("Milk Rice", 20, "MilkRice.png", 0),
+			2
+		);
+		
 		AddDish(
 			new List<string> { "Milk", "Water" },
 			new List<int> { 1, 2 },
 			FormatDishData("Milk Rice", 20, "MilkRice.png", 0),
-			10
+			2
 		);
 
 		AddDish(
 			new List<string> { "Water" },
 			new List<int> { 1 },
-			FormatDishData("Water Rice", 20, "WaterRice.png", 0),
-			10
+			FormatDishData("Water Rice", 10, "WaterRice.png", 0),
+			9
 		);
 
 		AddDish(
 			new List<string> { "Sugar" },
 			new List<int> { 1 },
-			FormatDishData("Sugar Rice", 20, "SugarRice.png", 0),
-			10
+			FormatDishData("Sugar Rice", 22, "SugarRice.png", 0),
+			11
 		);
 
 		AddDish(
 			new List<string> { "Salt" },
 			new List<int> { 1 },
-			FormatDishData("Salt Rice", 20, "SaltRice.png", 0),
-			10
+			FormatDishData("Salt Rice", 30, "SaltRice.png", 0),
+			8
 		);
 
 		AddDish(
 				new List<string> { "Flour" },
 				new List<int> { 1 },
 				FormatDishData("Flour Rice", 20, "FlourRice.png", 0),
-				10
+				12
 			);
 		
 		LoadAutoCooks();

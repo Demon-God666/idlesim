@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b4ogj3c0r8p5g"]
 
 [ext_resource type="Script" uid="uid://dkgwqndnmrptk" path="res://scenes/auto-cooks/components/AutoCookItem.cs" id="1_5advr"]
+[ext_resource type="PackedScene" uid="uid://bjmwymxsha7lf" path="res://scenes/auto-cooks/components/LoadingBar.tscn" id="2_yju2e"]
 
 [node name="AutoCookItem" type="Control" unique_id=129108681]
 layout_mode = 3
@@ -46,17 +47,20 @@ text = "Value: "
 layout_mode = 2
 text = "Time: "
 
-[node name="StartAutoCookButton" type="Button" parent="." unique_id=718821041]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=340341586]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -55.0
-offset_top = -38.0
-offset_right = -8.0
-offset_bottom = -7.0
-grow_horizontal = 0
+offset_top = -31.0
+grow_horizontal = 2
 grow_vertical = 0
+
+[node name="LoadingBar" parent="HBoxContainer" unique_id=408746264 instance=ExtResource("2_yju2e")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StartAutoCookButton" type="Button" parent="HBoxContainer" unique_id=718821041]
+layout_mode = 2
 text = "Cook"

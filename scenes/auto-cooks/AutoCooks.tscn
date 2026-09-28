@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://blo2iskjlhfw5" path="res://scenes/auto-cooks/AutoCooks.cs" id="1_1aqpq"]
 [ext_resource type="PackedScene" uid="uid://b4ogj3c0r8p5g" path="res://scenes/auto-cooks/components/AutoCookItem.tscn" id="1_lyqv6"]
+[ext_resource type="Script" uid="uid://b2puieogbksga" path="res://scenes/auto-cooks/components/LoadingBar.cs" id="3_vf8a8"]
 
 [node name="AutoCooks" type="Control" unique_id=1225239424]
 layout_mode = 3
@@ -49,6 +50,9 @@ layout_mode = 2
 
 [node name="AutoCookItem5" parent="AutoCookItemContainer" unique_id=34979792 instance=ExtResource("1_lyqv6")]
 layout_mode = 2
+
+[node name="LoadingBar" parent="AutoCookItemContainer/AutoCookItem5/HBoxContainer" parent_id_path=PackedInt32Array(34979792, 340341586) index="0" unique_id=408746264]
+script = ExtResource("3_vf8a8")
 
 [node name="AutoCookItemTemplate" type="Control" parent="." unique_id=1787959178]
 visible = false
