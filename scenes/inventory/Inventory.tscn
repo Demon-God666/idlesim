@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://biwpkgyydxv6r"]
 
 [ext_resource type="Script" uid="uid://bykqh30l5oxcd" path="res://scenes/inventory/Inventory.cs" id="1_py74r"]
+[ext_resource type="PackedScene" uid="uid://chv3gaxfmhmqu" path="res://scenes/inventory/components/InventoryItem.tscn" id="2_vugo4"]
 
 [node name="Inventory" type="Control" unique_id=1310039838]
 layout_mode = 3
@@ -20,8 +21,65 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2100755607]
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 60.0
+theme_override_constants/scrollbar_h_separation = 10
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer" unique_id=1563676152]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="InventoryItem" parent="ScrollContainer/GridContainer" unique_id=863489559 instance=ExtResource("2_vugo4")]
+layout_mode = 2
+
+[node name="InventoryItem2" parent="ScrollContainer/GridContainer" unique_id=205167407 instance=ExtResource("2_vugo4")]
+layout_mode = 2
+
+[node name="InventoryItem3" parent="ScrollContainer/GridContainer" unique_id=313569162 instance=ExtResource("2_vugo4")]
+layout_mode = 2
+
+[node name="InventoryItem4" parent="ScrollContainer/GridContainer" unique_id=949231556 instance=ExtResource("2_vugo4")]
+layout_mode = 2
+
+[node name="InventoryItem5" parent="ScrollContainer/GridContainer" unique_id=187036105 instance=ExtResource("2_vugo4")]
+layout_mode = 2
+
+[node name="InventoryItem6" parent="ScrollContainer/GridContainer" unique_id=1542628666 instance=ExtResource("2_vugo4")]
+layout_mode = 2
+
+[node name="InventoryItem7" parent="ScrollContainer/GridContainer" unique_id=1224533636 instance=ExtResource("2_vugo4")]
+layout_mode = 2
+
+[node name="InventoryItem8" parent="ScrollContainer/GridContainer" unique_id=110595610 instance=ExtResource("2_vugo4")]
+layout_mode = 2
+
+[node name="InventoryItem9" parent="ScrollContainer/GridContainer" unique_id=886133924 instance=ExtResource("2_vugo4")]
+layout_mode = 2
+
+[node name="InventoryItem10" parent="ScrollContainer/GridContainer" unique_id=1864597661 instance=ExtResource("2_vugo4")]
+layout_mode = 2
+
+[node name="InventoryItem11" parent="ScrollContainer/GridContainer" unique_id=1304097655 instance=ExtResource("2_vugo4")]
+layout_mode = 2
+
+[node name="InventoryItem12" parent="ScrollContainer/GridContainer" unique_id=663468487 instance=ExtResource("2_vugo4")]
+layout_mode = 2
 
 [node name="Control" type="Control" parent="." unique_id=230211965]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
