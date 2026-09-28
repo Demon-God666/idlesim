@@ -1,5 +1,6 @@
 using Godot;
 using System.Collections.Generic;
+using System.Text.Json;
 using IdleSim.scenes.auto_cooks.components;
 using IdleSim.scenes.shop.components;
 
@@ -17,61 +18,23 @@ public partial class AutoCooks : Control
 		_autoCookItemContainer = GetNode<GridContainer>("AutoCookItemContainer");
 		_autoCookItemTemplate = GetNode<AutoCookItem>("AutoCookItemTemplate/AutoCookItem");
 		
-		AddDish(
-			new List<string> { "Milk" },
-			new List<int> { 1 },
-			FormatDishData("Milk Rice", 20, "MilkRice.png", 0),
-			2
-		);
-		
-		AddDish(
-			new List<string> { "Milk", "Water" },
-			new List<int> { 1, 2 },
-			FormatDishData("Milk Rice", 20, "MilkRice.png", 0),
-			2
-		);
-
-		AddDish(
-			new List<string> { "Water" },
-			new List<int> { 1 },
-			FormatDishData("Water Rice", 10, "WaterRice.png", 0),
-			9
-		);
-
-		AddDish(
-			new List<string> { "Sugar" },
-			new List<int> { 1 },
-			FormatDishData("Sugar Rice", 22, "SugarRice.png", 0),
-			11
-		);
-
-		AddDish(
-			new List<string> { "Salt" },
-			new List<int> { 1 },
-			FormatDishData("Salt Rice", 30, "SaltRice.png", 0),
-			8
-		);
-
-		AddDish(
-				new List<string> { "Flour" },
-				new List<int> { 1 },
-				FormatDishData("Flour Rice", 20, "FlourRice.png", 0),
-				12
-			);
-		
+		LoadDishes();
 		LoadAutoCooks();
 	}
 
-	private void AddDish(List<string> ingredientName, List<int> ingredientAmount, ItemData itemData, int produceTime)
+	private void AddDish(
+		ItemData itemData,
+		List<IngredientListJson> ingredientData,
+		int produceTime)
 	{
 		var ingredients = new List<IngredientList>();
 
-		for (int i = 0; i < ingredientName.Count; i++)
+		foreach (var ingredient in ingredientData)
 		{
 			ingredients.Add(
 				new IngredientList(
-					ingredientName[i],
-					ingredientAmount[i]
+					ingredient.Name,
+					ingredient.Amount
 				)
 			);
 		}
@@ -104,20 +67,6 @@ public partial class AutoCooks : Control
 			autoCookItem.SetAutoCookItem(dish);
 		}
 	}
-
-	private ItemData FormatDishData(
-		string productName,
-		int productPrice,
-		string productImagePath,
-		int categoryId)
-	{
-		return _shop.AddItemToShop(
-			productName,
-			productPrice,
-			productImagePath,
-			categoryId
-		);
-	}
 	
 	public void UpdateAllAutoCookItems()
 	{
@@ -127,6 +76,26 @@ public partial class AutoCooks : Control
 			{
 				autoCookItem.UpdateInventory();
 			}
+		}
+	}
+
+	private void LoadDishes()
+	{
+		var json = FileAccess.GetFileAsString("res://data/Dishes.json");
+		var options = new JsonSerializerOptions()
+		{
+			PropertyNameCaseInsensitive = true
+		};
+		
+		var dishes = JsonSerializer.Deserialize<List<DishesJson>>(json, options);
+		
+		foreach (var item in dishes)
+		{
+			var itemData = _shop.GetItemData().Find(
+				x => x.ProductName == item.ItemData
+			);
+			
+			AddDish(itemData, item.Ingredients, item.ProduceTime);
 		}
 	}
 }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Godot;
 using IdleSim.scenes.shop.components;
 using System.Linq;
+using System.Text.Json;
 
 public partial class Shop : Control
 {
@@ -10,8 +11,9 @@ public partial class Shop : Control
 	private List<ItemData> _items = new();
 	private GridContainer _gridContainer;
 	private PageSwitcher _pageSwitcher;
+	private int _itemCountWithoutDishes; 
 	
-	const string ImagePath = "res:///assets/images/";
+	private string _imagePath = "res://assets/images/";
 	public override void _Ready()
 	{
 		
@@ -28,25 +30,10 @@ public partial class Shop : Control
 		
 		_money = _currencySystem.GetMoney();
 	
-		AddItemToShop("Milk", 10, "Milk.png",3);
-		AddItemToShop("Cheese", 20, "Cheese.png",3);
-		AddItemToShop("Eggs", 8, "Eggs.png",2);
-		AddItemToShop("Butter", 15, "Butter.png",3);
-		AddItemToShop("Bread", 12, "Bread.png", 2);
-		AddItemToShop("Ham", 25, "Ham.png", 2);
-		AddItemToShop("Bananas", 10, "Bananas.png", 1);
-		AddItemToShop("Apples", 5, "Apples.png", 1);
-		
-		AddItemToShop("Oranges", 7, "Oranges.png",1);
-		AddItemToShop("Pasta", 15, "Pasta.png",2);
-		AddItemToShop("Rice", 10, "Rice.png",2);
-		AddItemToShop("Tomatoes", 12, "Tomatoes.png",1);
-		AddItemToShop("Cucumber", 8, "Cucumber.png",1);
-		AddItemToShop("Chicken", 20, "Chicken.png",2);
-		AddItemToShop("Beef", 30, "Beef.png", 2);
-		AddItemToShop("Cheese", 20, "Cheese2.png", 3);
-		
-		_pageSwitcher.GetMaxPage(_items.Count);
+		LoadItemData();
+
+		GetItemCountWithoutDishes(_items);
+		_pageSwitcher.GetMaxPage(_itemCountWithoutDishes);
 		
 		foreach (ItemData item in _items )
 		{
@@ -86,7 +73,7 @@ public partial class Shop : Control
 		ItemData itemData = new ItemData(
 			productName,
 			productPrice,
-			GD.Load<Texture2D>(ImagePath + productImagePath),
+			GD.Load<Texture2D>(_imagePath + productImagePath),
 			category
 		);
 
@@ -109,6 +96,8 @@ public partial class Shop : Control
 					 .Skip(startIndex)
 					 .Take(8))
 		{
+			if (item.Category.CategoryId == 0) return;
+			
 			ShopItem shopItem = GD.Load<PackedScene>(
 				"res://scenes/shop/components/ShopItem.tscn"
 			).Instantiate<ShopItem>();
@@ -121,5 +110,36 @@ public partial class Shop : Control
 	public bool HasItem(ItemData itemData)
 	{
 		return _items.Contains(itemData);
+	}
+
+	private void LoadItemData()
+	{
+		var json = FileAccess.GetFileAsString("res://data/ItemData.json");
+		var options = new JsonSerializerOptions
+		{
+			PropertyNameCaseInsensitive = true
+		};
+		var items = JsonSerializer.Deserialize<List<ItemDataJson>>(json, options);
+		
+		foreach (var item in items)
+		{
+			AddItemToShop(item.Name, item.Price, item.Image, item.Category);
+		}
+	}
+
+	private void GetItemCountWithoutDishes(List<ItemData> items)
+	{
+		foreach (ItemData item in items)
+		{
+			if (item.Category.CategoryId != 0)
+			{
+				_itemCountWithoutDishes++;
+			}
+		}
+	}
+	
+	public List<ItemData> GetItemData()
+	{
+		return _items;
 	}
 }
