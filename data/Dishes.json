@@ -1,0 +1,52 @@
+[
+  {
+    "itemData": "Milk Rice",
+    "ingredients": [
+      {
+        "name": "Milk",
+        "amount": 1
+      }
+    ],
+    "produceTime": 2
+  },
+  {
+    "itemData": "Water Rice",
+    "ingredients": [
+      {
+        "name": "Water",
+        "amount": 1
+      }
+    ],
+    "produceTime": 9
+  },
+  {
+    "itemData": "Sugar Rice",
+    "ingredients": [
+      {
+        "name": "Sugar",
+        "amount": 1
+      }
+    ],
+    "produceTime": 11
+  },
+  {
+    "itemData": "Salt Rice",
+    "ingredients": [
+      {
+        "name": "Salt",
+        "amount": 1
+      }
+    ],
+    "produceTime": 8
+  },
+  {
+    "itemData": "Flour Rice",
+    "ingredients": [
+      {
+        "name": "Flour",
+        "amount": 1
+      }
+    ],
+    "produceTime": 12
+  }
+]

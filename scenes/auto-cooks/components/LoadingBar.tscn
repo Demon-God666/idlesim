@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjmwymxsha7lf"]
 
-[ext_resource type="Script" uid="uid://b2puieogbksga" path="res://scenes/auto-cooks/components/LoadingBar.cs" id="1_6tbqh"]
+[ext_resource type="Script" uid="uid://b2puieogbksga" path="res://components/LoadingBar.cs" id="1_6tbqh"]
 
 [node name="LoadingBar" type="Control" unique_id=408746264]
 layout_mode = 3

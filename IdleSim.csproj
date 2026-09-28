@@ -7,4 +7,52 @@
   <ItemGroup>
     <Folder Include="scenes\auto-cooks\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\images\Apples.png" />
+    <Content Include="assets\images\Apples.png.import" />
+    <Content Include="assets\images\Bananas.png" />
+    <Content Include="assets\images\Bananas.png.import" />
+    <Content Include="assets\images\Beef.png" />
+    <Content Include="assets\images\Beef.png.import" />
+    <Content Include="assets\images\Bread.png" />
+    <Content Include="assets\images\Bread.png.import" />
+    <Content Include="assets\images\Butter.png" />
+    <Content Include="assets\images\Butter.png.import" />
+    <Content Include="assets\images\Cheese.png" />
+    <Content Include="assets\images\Cheese.png.import" />
+    <Content Include="assets\images\Cheese2.png" />
+    <Content Include="assets\images\Cheese2.png.import" />
+    <Content Include="assets\images\Chicken.png" />
+    <Content Include="assets\images\Chicken.png.import" />
+    <Content Include="assets\images\Cucumber.png" />
+    <Content Include="assets\images\Cucumber.png.import" />
+    <Content Include="assets\images\Eggs.png" />
+    <Content Include="assets\images\Eggs.png.import" />
+    <Content Include="assets\images\FlourRice.png" />
+    <Content Include="assets\images\FlourRice.png.import" />
+    <Content Include="assets\images\FruitAndVegtablesTab.png" />
+    <Content Include="assets\images\FruitAndVegtablesTab.png.import" />
+    <Content Include="assets\images\Ham.png" />
+    <Content Include="assets\images\Ham.png.import" />
+    <Content Include="assets\images\Milk.png" />
+    <Content Include="assets\images\Milk.png.import" />
+    <Content Include="assets\images\MilkRice.png" />
+    <Content Include="assets\images\MilkRice.png.import" />
+    <Content Include="assets\images\Oranges.png" />
+    <Content Include="assets\images\Oranges.png.import" />
+    <Content Include="assets\images\Pasta.png" />
+    <Content Include="assets\images\Pasta.png.import" />
+    <Content Include="assets\images\Rice.png" />
+    <Content Include="assets\images\Rice.png.import" />
+    <Content Include="assets\images\SaltRice.png" />
+    <Content Include="assets\images\SaltRice.png.import" />
+    <Content Include="assets\images\SugarRice.png" />
+    <Content Include="assets\images\SugarRice.png.import" />
+    <Content Include="assets\images\Tomatoes.png" />
+    <Content Include="assets\images\Tomatoes.png.import" />
+    <Content Include="assets\images\WaterRice.png" />
+    <Content Include="assets\images\WaterRice.png.import" />
+    <Content Include="data\Dishes.json" />
+    <Content Include="data\ItemData.json" />
+  </ItemGroup>
 </Project>
