@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using System.Collections.Generic;
 using IdleSim.scenes.auto_cooks.components;
 using IdleSim.scenes.shop.components;
