@@ -13,22 +13,8 @@ public partial class LoadingBar : Control
 	{
 		_loadingBar = GetNode<ProgressBar>("ProgressBar");
 	}
-	public override void _Process(double delta)
+	public void SetProgress(double value)
 	{
-	}
-
-	public async Task SetLoadingBar(int produceTime)
-	{
-		var progressPerSecond = 100.0f / produceTime;
-		
-			for (int i = 0; i < produceTime; i++)
-			{
-				_loadingBar.Value += progressPerSecond;
-				GD.Print(_loadingBar.Value);
-				await Task.Delay(1000);
-			}
-
-			_loadingBar.Value = 0;
-		
+		_loadingBar.Value = value;
 	}
 }

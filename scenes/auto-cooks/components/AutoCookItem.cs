@@ -8,6 +8,7 @@ using IdleSim.scenes.inventory.components;
 public partial class AutoCookItem : Control
 {
 	private bool _isCooking = false;
+	private bool _hasStartedCooking = false;
 	private Label _ingredientList;
 	private Label _produceItem;
 	private Label _producedProductValue;
@@ -17,6 +18,8 @@ public partial class AutoCookItem : Control
 	
 	private LoadingBar _loadingBar;
 	private Button _cookingButton;
+	private double _elapsedTime;
+	private double _producingTime;
 	
 	public override void _Ready()
 	{
@@ -79,37 +82,68 @@ public partial class AutoCookItem : Control
 		}
 	}
 	
-	private async void CookingButtonPressed()
+	private void CookingButtonPressed()
 	{
-		var checkItem = _inventory.CheckIngredientAvailable(_dish.IngredientList);
-		
-		if (!checkItem)
+		if (_isCooking)
 		{
-			GD.Print("Not enough ingredients");
-			_isCooking = false;
+			_isCooking = !_isCooking;
+			return;
+		}
+
+		if (_hasStartedCooking)
+		{
+			_isCooking = !_isCooking;
 			return;
 		}
 		
-		if (checkItem)
-		{
-			foreach (var ingredient in _dish.IngredientList)
-			{
-				var item = _inventory.InventoryItems.Find(
-					x => x.Item.ProductName == ingredient.ItemName
-				);
+		var checkItem = _inventory.CheckIngredientAvailable(_dish.IngredientList);
 
-				_inventory.Remove(item.Item, ingredient.ItemAmount);
-				UpdateInventory();
-			}
+		if (!checkItem)
+		{
+			GD.Print("Not enough ingredients");
+			return;
 		}
-		
-		_isCooking = !_isCooking;
 
-		if (_isCooking) 
+		foreach (var ingredient in _dish.IngredientList)
 		{
-				GD.Print(_dish.ProduceTime);
-				await _loadingBar.SetLoadingBar(_dish.ProduceTime); 
-			
+			var item = _inventory.InventoryItems.Find(
+				x => x.Item.ProductName == ingredient.ItemName
+			);
+
+			_inventory.Remove(item.Item, ingredient.ItemAmount);
+		}
+
+		UpdateInventory();
+
+		_producingTime = _dish.ProduceTime;
+		_elapsedTime = 0;
+		_hasStartedCooking = true;
+
+		_loadingBar.SetProgress(0);
+
+		_isCooking = !_isCooking;
+	}
+	
+	public override void _Process(double delta)
+	{
+		if (!_isCooking)
+			return;
+
+		_elapsedTime += delta;
+
+		var progress = (_elapsedTime / _producingTime) * 100.0;
+
+		_loadingBar.SetProgress(progress);
+
+		if (_elapsedTime >= _producingTime)
+		{
+			_isCooking = false;
+			_hasStartedCooking = false;
+			_elapsedTime = 0;
+
+			_loadingBar.SetProgress(0);
+
+			GD.Print("Cooking finished");
 		}
 	}
 }
