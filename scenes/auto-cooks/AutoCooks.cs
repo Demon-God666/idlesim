@@ -18,7 +18,6 @@ public partial class AutoCooks : Control
 		_autoCookItemContainer = GetNode<GridContainer>("AutoCookItemContainer");
 		_autoCookItemTemplate = GetNode<AutoCookItem>("AutoCookItemTemplate/AutoCookItem");
 		
-		
 		AddDish(
 			new List<string> { "Milk" },
 			new List<int> { 1 },
@@ -119,5 +118,16 @@ public partial class AutoCooks : Control
 			productImagePath,
 			categoryId
 		);
+	}
+	
+	public void UpdateAllAutoCookItems()
+	{
+		foreach (var child in _autoCookItemContainer.GetChildren())
+		{
+			if (child is AutoCookItem autoCookItem)
+			{
+				autoCookItem.UpdateInventory();
+			}
+		}
 	}
 }

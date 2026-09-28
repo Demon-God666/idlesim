@@ -21,6 +21,8 @@ public partial class AutoCookItem : Control
 	private double _elapsedTime;
 	private double _producingTime;
 	
+	private AutoCooks _autoCooks;
+	
 	public override void _Ready()
 	{
 		_inventory = GetNode<Inventory>("../../../Inventory");
@@ -32,6 +34,7 @@ public partial class AutoCookItem : Control
 		
 		_loadingBar = GetNode<LoadingBar>("HBoxContainer/LoadingBar");
 		_cookingButton = GetNode<Button>("HBoxContainer/StartAutoCookButton");
+		_autoCooks = GetTree().Root.GetNode<AutoCooks>("Main/AutoCooks");
 		
 		_ingredientList.Text = "Ingredients: \n";
 		_produceItem.Text = "Produce: \n";
@@ -65,7 +68,7 @@ public partial class AutoCookItem : Control
 		return itemAmount?.Amount ?? 0;
 	}
 
-	private void UpdateInventory()
+	public void UpdateInventory()
 	{
 		if (_dish == null)
 			return;
@@ -113,7 +116,7 @@ public partial class AutoCookItem : Control
 			_inventory.Remove(item.Item, ingredient.ItemAmount);
 		}
 
-		UpdateInventory();
+		_autoCooks.UpdateAllAutoCookItems();
 
 		_producingTime = _dish.ProduceTime;
 		_elapsedTime = 0;
