@@ -2,6 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://do2vugqbgk62u" path="res://assets/images/Milk.png" id="1_1dn05"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83w4y"]
+bg_color = Color(0.60038817, 0.60038817, 0.60038817, 0.8)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8001019, 0.8001019, 0.8001019, 0.69900006)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="InventoryItem" type="Control" unique_id=863489559]
 custom_minimum_size = Vector2(0, 300)
 custom_maximum_size = Vector2(-1, 300)
@@ -43,13 +56,16 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer" unique_id=1239055827]
-custom_maximum_size = Vector2(-1, 150)
+custom_maximum_size = Vector2(150, -1)
+propagate_maximum_size = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
 [node name="InventoryImage" type="TextureRect" parent="VBoxContainer/AspectRatioContainer" unique_id=1397771869]
+custom_maximum_size = Vector2(-1, 150)
 layout_mode = 2
+size_flags_horizontal = 4
 texture = ExtResource("1_1dn05")
 stretch_mode = 5
 
@@ -61,13 +77,18 @@ size_flags_vertical = 3
 layout_mode = 2
 
 [node name="RemoveAmountButton" type="Button" parent="VBoxContainer/HBoxContainerAddRemove" unique_id=582360422]
+modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/pressed = SubResource("StyleBoxFlat_83w4y")
+toggle_mode = true
 text = "-"
 
 [node name="AddAmountButton" type="Button" parent="VBoxContainer/HBoxContainerAddRemove" unique_id=1634672764]
+modulate = Color(0, 0.7490196, 0.2784314, 1)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/pressed = SubResource("StyleBoxFlat_83w4y")
 text = "+"
 
 [node name="HBoxContainerButtons" type="HBoxContainer" parent="VBoxContainer" unique_id=1196145393]

@@ -1,6 +1,7 @@
-using Godot;
+	using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using IdleSim.scenes.inventory;
 using IdleSim.scenes.inventory.components;
 
@@ -12,16 +13,22 @@ public partial class InventoryItem : Control
 	private Label _productName;
 	private TextureRect _inventoryImage;
 	private Button _removeAmount;
+	private bool _remove = false;
 	private Button _addAmount;
+	private bool _add = true;
 	
 	private HBoxContainer _multiplierContainer;
 	private Button _multiplierButtonTemplate;
-	private List<string> _multipliers = ["1", "5", "10"];
+	private List<int> _multipliers = [1, 5, 10];
 	
 	private HBoxContainer _sellContainer;
 	private Label _itemAvailable;
+	private int _itemAvailableValue;
 	private Label _itemSellAmount;
+	private int _itemSellAmountValue;
 	private Label _itemSellPrice;
+	private float _itemSellPriceValue;
+	private float _itemSingleSellPrice;
 	private Button _sellButton;
 	
 	public override void _Ready()
@@ -41,14 +48,137 @@ public partial class InventoryItem : Control
 		_itemSellAmount = GetNode<Label>("VBoxContainer/HBoxContainer/ItemAmountLabel");
 		_itemSellPrice = GetNode<Label>("VBoxContainer/HBoxContainer/ItemPriceLabel");
 		_sellButton = GetNode<Button>("VBoxContainer/HBoxContainer/SellButton");
+
+		LoadMultipliers();
 		
+		foreach (var child in _multiplierContainer.GetChildren())
+		{
+			if (child is Button button)
+				button.Pressed += () => CalculateProductAmount(button);
+		}
+
+		var buttonGroup = new ButtonGroup();
+		
+		_addAmount.ToggleMode = true;
+		_removeAmount.ToggleMode = true;
+
+		_addAmount.ButtonGroup = buttonGroup;
+		_removeAmount.ButtonGroup = buttonGroup;
+		
+		_addAmount.ButtonPressed = true;
+		SetActiveButton(_addAmount);
+
+		_addAmount.Pressed += () => SetActiveButton(_addAmount);
+		_removeAmount.Pressed += () => SetActiveButton(_removeAmount);
+		
+		_sellButton.Pressed += SellItem;
 	}
 
+	private void SetActiveButton(Button button)
+	{
+		_add = button == _addAmount;
+		_remove = button == _removeAmount;
+	}
+	
 	public void SetInventoryItem(BoughtItem item)
 	{
 		_productName.Text = item.Item.ProductName;
+		_inventoryImage.Texture = item.Item.ProductImage;
+
+		_itemAvailableValue = item.Amount;
+		_itemAvailable.Text = $"Own: {_itemAvailableValue}x";
+
+		_itemSellAmountValue = 1;
+		_itemSellAmount.Text = $"{_itemSellAmountValue}x";
+		
+		_itemSingleSellPrice = SetSellPrice(item.Item.ProductPrice);
+		_itemSellPriceValue = _itemSingleSellPrice;
+		_itemSellPrice.Text = $"{_itemSellPriceValue}$";
 	}
 
+	private void CalculateProductAmount(Button button)
+	{
+		var add = button.Text.EndsWith("x");
+		var percent = button.Text.EndsWith("%");
+		
+		var buttonValue = button.Text.Trim(new char[] {'x', '%'}).ToInt();
+
+
+		var amount = add
+			? buttonValue
+			: (int)Math.Round(_itemAvailableValue * (buttonValue / 100.0));
+
+	
+			if (_add)
+			{
+				_itemSellAmountValue += amount;
+			}
+			else
+			{
+				_itemSellAmountValue -= amount;
+			}
+
+			if (CheckItemAvailable())
+			{
+				_itemSellAmount.Text = $"{_itemSellAmountValue}x";
+				_itemSellPriceValue = _itemSellAmountValue * _itemSingleSellPrice;
+				_itemSellPrice.Text = $"{_itemSellPriceValue}$";
+			} else {GD.Print("Somthing went wrong");}
+
+		
+	}
+
+		private bool CheckItemAvailable()
+		{
+			if(_itemSellAmountValue < 1) 
+			{
+				_itemSellAmountValue = 1;
+				GD.Print("Min Reached");
+				return true;
+			} 
+			else if (_itemSellAmountValue > _itemAvailableValue)
+			{
+				_itemSellAmountValue = _itemAvailableValue;
+				GD.Print("Max Reached");
+				return true;
+			} 
+			else if (_itemSellAmountValue <= _itemAvailableValue)
+			{
+				return true;
+			}
+			
+			return false;
+		}
+
+	private void LoadMultipliers()
+	{
+		foreach (var buttons in _multiplierContainer.GetChildren())
+		{
+			buttons.QueueFree();
+		}
+		
+		for (int i = 0; i < _multipliers.Count*2; i++)
+		{
+			var multiplierIndex = i % _multipliers.Count;
+			var multiplierSuffix = i < _multipliers.Count ? "x" : "0%";
+			var newMultiplier = (Button)_multiplierButtonTemplate.Duplicate();
+			newMultiplier.Text = $"{_multipliers[multiplierIndex]}{multiplierSuffix}";
+			_multiplierContainer.AddChild(newMultiplier);
+			
+		}
+	}
+	
+	private float SetSellPrice(int buyPrice)
+	{
+		var sellPrice = (float)Math.Round(buyPrice * 0.7 - 1, 2);
+		if (sellPrice <= 0.01) return 0.01f;
+		return sellPrice;
+	}
+
+	private void SellItem()
+	{
+		
+	}
 	
 	
 }
