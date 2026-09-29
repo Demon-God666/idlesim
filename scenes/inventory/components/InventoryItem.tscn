@@ -33,6 +33,7 @@ grow_vertical = 2
 
 [node name="ProductNameLabel" type="Label" parent="VBoxContainer" unique_id=1568921288]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "Milk"
 horizontal_alignment = 1
@@ -130,3 +131,18 @@ vertical_alignment = 1
 [node name="SellButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1288532966]
 layout_mode = 2
 text = "Sell Item"
+
+[node name="Templates" type="Control" parent="." unique_id=1040525006]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MultiplierButton" type="Button" parent="Templates" unique_id=1718665076]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 234.5
+offset_right = 326.0
+offset_bottom = 265.5
+size_flags_horizontal = 3
+text = "10x"

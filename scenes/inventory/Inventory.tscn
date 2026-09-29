@@ -33,6 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
 offset_top = 60.0
+offset_bottom = -10.0
 theme_override_constants/scrollbar_h_separation = 10
 
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer" unique_id=1563676152]
@@ -91,7 +92,7 @@ script = ExtResource("3_78qb0")
 layout_mode = 2
 script = ExtResource("3_78qb0")
 
-[node name="Control" type="Control" parent="." unique_id=230211965]
+[node name="Templates" type="Control" parent="." unique_id=230211965]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -102,7 +103,18 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ShowInventoryButton" type="Button" parent="Control" unique_id=284546072]
+[node name="InventoryItem" parent="Templates" unique_id=1948911615 instance=ExtResource("2_vugo4")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 2.0
+offset_top = -264.0
+offset_right = 275.0
+offset_bottom = 36.0
+script = ExtResource("3_78qb0")
+
+[node name="ShowInventoryButton" type="Button" parent="Templates" unique_id=284546072]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -116,3 +128,5 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Show Inventory"
+
+[editable path="ScrollContainer/GridContainer/InventoryItem"]
