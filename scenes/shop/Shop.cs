@@ -121,18 +121,15 @@ public partial class Shop : Control
 
         foreach (var item in items)
         {
-            AddItemToShop(item.Name, item.Price, item.Image, item.Category);
+            AddItemToShop(ItemDataJson.Name, ItemDataJson.Price, ItemDataJson.Image, ItemDataJson.Category);
         }
     }
 
     private void GetItemCountWithoutDishes(List<ItemData> items)
     {
-        foreach (var item in items)
+        foreach (var _ in items.Where(item => item.Category.CategoryId != 0))
         {
-            if (item.Category.CategoryId != 0)
-            {
-                _itemCountWithoutDishes++;
-            }
+            _itemCountWithoutDishes++;
         }
     }
 

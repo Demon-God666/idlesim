@@ -8,7 +8,7 @@ namespace IdleSim.scenes.inventory;
 
 public partial class Inventory : Control
 {
-    public List<BoughtItem> InventoryItems { get; set; } = [];
+    public List<BoughtItem> InventoryItems { get; } = [];
 
     private Button _showInventoryButton;
 
@@ -63,8 +63,7 @@ public partial class Inventory : Control
     {
         foreach (var ingredient in ingredientList)
         {
-            var checkItem = InventoryItems.Find(x => x.Item.ProductName == ingredient.ItemName
-            );
+            var checkItem = InventoryItems.Find(x => x.Item.ProductName == ingredient.ItemName);
 
             if (checkItem == null || checkItem.Amount < ingredient.ItemAmount)
             {

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
 using Godot;
 using IdleSim.scenes.auto_cooks.components;
@@ -29,17 +30,8 @@ public partial class AutoCooks : Control
         List<IngredientListJson> ingredientData,
         int produceTime)
     {
-        var ingredients = new List<IngredientList>();
-
-        foreach (var ingredient in ingredientData)
-        {
-            ingredients.Add(
-                new IngredientList(
-                    ingredient.Name,
-                    ingredient.Amount
-                )
-            );
-        }
+        var ingredients = ingredientData
+            .Select(_ => new IngredientList(IngredientListJson.Name, IngredientListJson.Amount)).ToList();
 
         var dish = new Dishes(
             ingredients,
@@ -83,17 +75,14 @@ public partial class AutoCooks : Control
     private void LoadDishes()
     {
         var json = FileAccess.GetFileAsString("res://data/Dishes.json");
-        var options = new JsonSerializerOptions()
-        {
-            PropertyNameCaseInsensitive = true
-        };
+        var options = new JsonSerializerOptions();
+        options.PropertyNameCaseInsensitive = true;
 
         var dishes = JsonSerializer.Deserialize<List<DishesJson>>(json, options);
 
         foreach (var item in dishes)
         {
-            var itemData = _shop.GetItemData().Find(x => x.ProductName == item.ItemData
-            );
+            var itemData = _shop.GetItemData().Find(x => x.ProductName == item.ItemData);
 
             AddDish(itemData, item.Ingredients, item.ProduceTime);
         }

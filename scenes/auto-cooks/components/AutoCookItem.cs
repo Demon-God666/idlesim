@@ -83,13 +83,7 @@ public partial class AutoCookItem : Control
 
     private void CookingButtonPressed()
     {
-        if (_isCooking)
-        {
-            _isCooking = !_isCooking;
-            return;
-        }
-
-        if (_hasStartedCooking)
+        if (_isCooking || _hasStartedCooking)
         {
             _isCooking = !_isCooking;
             return;
@@ -133,15 +127,13 @@ public partial class AutoCookItem : Control
 
         _loadingBar.SetProgress(progress);
 
-        if (_elapsedTime >= _producingTime)
-        {
-            _isCooking = false;
-            _hasStartedCooking = false;
-            _elapsedTime = 0;
+        if (!(_elapsedTime >= _producingTime)) return;
+        _isCooking = false;
+        _hasStartedCooking = false;
+        _elapsedTime = 0;
 
-            _loadingBar.SetProgress(0);
+        _loadingBar.SetProgress(0);
 
-            GD.Print("Cooking finished");
-        }
+        GD.Print("Cooking finished");
     }
 }

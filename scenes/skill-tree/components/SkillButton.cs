@@ -5,7 +5,6 @@ namespace IdleSim.scenes.skill_tree.components;
 public partial class SkillButton : Button
 {
     [Export] public string SkillName { get; set; } = "Skill";
-
     [Export] public int Cost { get; set; } = 1;
 
     private bool Unlocked { get; set; }
@@ -18,20 +17,13 @@ public partial class SkillButton : Button
 
     private void OnPressed()
     {
-        if (Unlocked)
-            return;
-
-        var skillTree = GetTree().CurrentScene as SkillTree;
-
-        if (skillTree == null)
-            return;
-
-        if (skillTree.SkillPoints < Cost)
-            return;
+        if (Unlocked) return;
+        if (GetTree().CurrentScene is not SkillTree skillTree) return;
+        if (skillTree.SkillPoints < Cost) return;
 
         skillTree.SpendSkillPoints(Cost);
 
         Unlocked = true;
-        Text = $"✓ {SkillName}";
+        Text = $"{SkillName}";
     }
 }

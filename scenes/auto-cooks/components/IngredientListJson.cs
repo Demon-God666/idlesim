@@ -2,7 +2,7 @@ namespace IdleSim.scenes.auto_cooks.components;
 
 public abstract class IngredientListJson
 {
-    public string Name { get; set; }
+    public static string Name => null;
 
-    public int Amount { get; set; }
+    public static int Amount => 0;
 }

@@ -1,4 +1,10 @@
 [
+  // TODO
+  "categoirysdf",
+  {
+    "produce": 1,
+    "fliesch": 2
+  },
   {
     "name": "Milk",
     "price": 10,
@@ -102,10 +108,10 @@
     "category": 0
   },
   {
-  "name": "Water Rice",
-  "price": 10,
-  "image": "WaterRice.png",
-  "category": 0
+    "name": "Water Rice",
+    "price": 10,
+    "image": "WaterRice.png",
+    "category": 0
   },
   {
     "name": "Sugar Rice",
