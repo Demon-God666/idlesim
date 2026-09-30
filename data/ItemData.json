@@ -1,134 +1,136 @@
-[
-  // TODO
-  "categoirysdf",
-  {
-    "produce": 1,
-    "fliesch": 2
+{
+  "categories": {
+    "Dishes": 0,
+    "Fruits and Vegetables": 1,
+    "Bread": 2,
+    "Milk Products": 3
   },
-  {
-    "name": "Milk",
-    "price": 10,
-    "image": "Milk.png",
-    "category": 3
-  },
-  {
-    "name": "Cheese",
-    "price": 20,
-    "image": "Cheese.png",
-    "category": 3
-  },
-  {
-    "name": "Eggs",
-    "price": 8,
-    "image": "Eggs.png",
-    "category": 2
-  },
-  {
-    "name": "Butter",
-    "price": 15,
-    "image": "Butter.png",
-    "category": 3
-  },
-  {
-    "name": "Bread",
-    "price": 12,
-    "image": "Bread.png",
-    "category": 2
-  },
-  {
-    "name": "Ham",
-    "price": 25,
-    "image": "Ham.png",
-    "category": 2
-  },
-  {
-    "name": "Bananas",
-    "price": 10,
-    "image": "Bananas.png",
-    "category": 1
-  },
-  {
-    "name": "Apples",
-    "price": 5,
-    "image": "Apples.png",
-    "category": 1
-  },
-  {
-    "name": "Oranges",
-    "price": 7,
-    "image": "Oranges.png",
-    "category": 1
-  },
-  {
-    "name": "Pasta",
-    "price": 15,
-    "image": "Pasta.png",
-    "category": 2
-  },
-  {
-    "name": "Rice",
-    "price": 10,
-    "image": "Rice.png",
-    "category": 2
-  },
-  {
-    "name": "Tomatoes",
-    "price": 12,
-    "image": "Tomatoes.png",
-    "category": 1
-  },
-  {
-    "name": "Cucumber",
-    "price": 8,
-    "image": "Cucumber.png",
-    "category": 1
-  },
-  {
-    "name": "Chicken",
-    "price": 20,
-    "image": "Chicken.png",
-    "category": 2
-  },
-  {
-    "name": "Beef",
-    "price": 30,
-    "image": "Beef.png",
-    "category": 2
-  },
-  {
-    "name": "Cheese",
-    "price": 20,
-    "image": "Cheese2.png",
-    "category": 3
-  },
-  {
-    "name": "Milk Rice",
-    "price": 20,
-    "image": "MilkRice.png",
-    "category": 0
-  },
-  {
-    "name": "Water Rice",
-    "price": 10,
-    "image": "WaterRice.png",
-    "category": 0
-  },
-  {
-    "name": "Sugar Rice",
-    "price": 22,
-    "image": "SugarRice.png",
-    "category": 0
-  },
-  {
-    "name": "Salt Rice",
-    "price": 30,
-    "image": "SaltRice.png",
-    "category": 0
-  },
-  {
-    "name": "Flour Rice",
-    "price": 20,
-    "image": "FlourRice.png",
-    "category": 0
-  }
-]
+  "items": [
+    {
+      "name": "Milk",
+      "price": 10,
+      "image": "Milk.png",
+      "category": 3
+    },
+    {
+      "name": "Cheese",
+      "price": 20,
+      "image": "Cheese.png",
+      "category": 3
+    },
+    {
+      "name": "Eggs",
+      "price": 8,
+      "image": "Eggs.png",
+      "category": 2
+    },
+    {
+      "name": "Butter",
+      "price": 15,
+      "image": "Butter.png",
+      "category": 3
+    },
+    {
+      "name": "Bread",
+      "price": 12,
+      "image": "Bread.png",
+      "category": 2
+    },
+    {
+      "name": "Ham",
+      "price": 25,
+      "image": "Ham.png",
+      "category": 2
+    },
+    {
+      "name": "Bananas",
+      "price": 10,
+      "image": "Bananas.png",
+      "category": 1
+    },
+    {
+      "name": "Apples",
+      "price": 5,
+      "image": "Apples.png",
+      "category": 1
+    },
+    {
+      "name": "Oranges",
+      "price": 7,
+      "image": "Oranges.png",
+      "category": 1
+    },
+    {
+      "name": "Pasta",
+      "price": 15,
+      "image": "Pasta.png",
+      "category": 2
+    },
+    {
+      "name": "Rice",
+      "price": 10,
+      "image": "Rice.png",
+      "category": 2
+    },
+    {
+      "name": "Tomatoes",
+      "price": 12,
+      "image": "Tomatoes.png",
+      "category": 1
+    },
+    {
+      "name": "Cucumber",
+      "price": 8,
+      "image": "Cucumber.png",
+      "category": 1
+    },
+    {
+      "name": "Chicken",
+      "price": 20,
+      "image": "Chicken.png",
+      "category": 2
+    },
+    {
+      "name": "Beef",
+      "price": 30,
+      "image": "Beef.png",
+      "category": 2
+    },
+    {
+      "name": "Cheese",
+      "price": 20,
+      "image": "Cheese2.png",
+      "category": 3
+    },
+    {
+      "name": "Milk Rice",
+      "price": 20,
+      "image": "MilkRice.png",
+      "category": 0
+    },
+    {
+      "name": "Water Rice",
+      "price": 10,
+      "image": "WaterRice.png",
+      "category": 0
+    },
+    {
+      "name": "Sugar Rice",
+      "price": 22,
+      "image": "SugarRice.png",
+      "category": 0
+    },
+    {
+      "name": "Salt Rice",
+      "price": 30,
+      "image": "SaltRice.png",
+      "category": 0
+    },
+    {
+      "name": "Flour Rice",
+      "price": 20,
+      "image": "FlourRice.png",
+      "category": 0
+    }
+  ]
+}

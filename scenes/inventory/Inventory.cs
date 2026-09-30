@@ -10,17 +10,12 @@ public partial class Inventory : Control
 {
     public List<BoughtItem> InventoryItems { get; } = [];
 
-    private Button _showInventoryButton;
-
     [Signal]
     public delegate void InventoryUpdatedEventHandler();
 
 
     public override void _Ready()
     {
-        _showInventoryButton = GetNode<Button>("Control/ShowInventoryButton");
-        _showInventoryButton.Pressed += PrintInventory;
-
         EmitSignal(SignalName.InventoryUpdated);
     }
 

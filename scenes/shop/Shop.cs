@@ -64,21 +64,11 @@ public partial class Shop : Control
         string productImagePath,
         int categoryId)
     {
-        List<Category> categories =
-        [
-            new(0, "Dishes"),
-            new(1, "Fruits and Vegetables"),
-            new(2, "Bread"),
-            new(3, "Milk Products")
-        ];
-
-        var category = categories.Find(c => c.CategoryId == categoryId);
-
         var itemData = new ItemData(
             productName,
             productPrice,
             GD.Load<Texture2D>(_imagePath + productImagePath),
-            category
+            categoryId
         );
 
         _items.Add(itemData);
@@ -97,7 +87,7 @@ public partial class Shop : Control
                      .Skip(startIndex)
                      .Take(8))
         {
-            if (item.Category.CategoryId == 0) return;
+            if (item.Category == 0) return;
 
             var shopItem = GD.Load<PackedScene>(
                 "res://scenes/shop/components/ShopItem.tscn"
@@ -130,7 +120,7 @@ public partial class Shop : Control
 
     private void GetItemCountWithoutDishes(List<ItemData> items)
     {
-        foreach (var _ in items.Where(item => item.Category.CategoryId != 0))
+        foreach (var _ in items.Where(item => item.Category != 0))
         {
             _itemCountWithoutDishes++;
         }

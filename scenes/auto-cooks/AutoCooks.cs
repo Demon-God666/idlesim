@@ -11,6 +11,7 @@ namespace IdleSim.scenes.auto_cooks;
 public partial class AutoCooks : Control
 {
 	private readonly List<Dishes> _autoCookDishes = [];
+	
 	private Shop _shop;
 
 	private GridContainer _autoCookItemContainer;
@@ -76,8 +77,10 @@ public partial class AutoCooks : Control
 	private void LoadDishes()
 	{
 		var json = FileAccess.GetFileAsString("res://data/Dishes.json");
-		var options = new JsonSerializerOptions();
-		options.PropertyNameCaseInsensitive = true;
+		var options = new JsonSerializerOptions
+		{
+			PropertyNameCaseInsensitive = true
+		};
 
 		var dishes = JsonSerializer.Deserialize<List<DishesJson>>(json, options);
 
