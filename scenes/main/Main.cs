@@ -1,4 +1,6 @@
 using Godot;
+using IdleSim.scenes.auto_cooks;
+using IdleSim.scenes.currency_system;
 using IdleSim.scenes.inventory;
 
 namespace IdleSim.scenes.main;
@@ -9,17 +11,17 @@ public partial class Main : Control
 	private Control _shop;
 
 	private Inventory Inventory { get; set; }
-	private currency_system.CurrencySystem CurrencySystem { get; set; }
+	private CurrencySystem CurrencySystem { get; set; }
 
-	private auto_cooks.AutoCooks AutoCooks { get; set; }
+	private AutoCooks AutoCooks { get; set; }
 
 	public override void _Ready()
 	{
-		CurrencySystem = GetNode<currency_system.CurrencySystem>("CurrencySystem");
+		CurrencySystem = GetNode<CurrencySystem>("CurrencySystem");
 		_skillTree = GetNode<Control>("SkillTree");
 		_shop = GetNode<Control>("Shop");
 		Inventory = GetNode<Inventory>("Inventory");
-		AutoCooks = GetNode<auto_cooks.AutoCooks>("AutoCooks");
+		AutoCooks = GetNode<AutoCooks>("AutoCooks");
 
 		ShowCurrencySystem();
 	}

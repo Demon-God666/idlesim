@@ -2,13 +2,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using Godot;
+using IdleSim.scenes.currency_system;
 using IdleSim.scenes.shop.components;
 
 namespace IdleSim.scenes.shop;
 
 public partial class Shop : Control
 {
-    private currency_system.CurrencySystem _currencySystem;
+    private CurrencySystem _currencySystem;
     private int _money;
     private readonly List<ItemData> _items = [];
     private GridContainer _gridContainer;
@@ -27,7 +28,7 @@ public partial class Shop : Control
             child.QueueFree();
         }
 
-        _currencySystem = GetNode<currency_system.CurrencySystem>("../CurrencySystem");
+        _currencySystem = GetNode<CurrencySystem>("../CurrencySystem");
         _currencySystem.MoneyUpdated += UpdateMoney;
 
         _money = _currencySystem.GetMoney();

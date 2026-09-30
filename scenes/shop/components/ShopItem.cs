@@ -1,11 +1,12 @@
 using Godot;
+using IdleSim.scenes.currency_system;
 using IdleSim.scenes.inventory;
 
 namespace IdleSim.scenes.shop.components;
 
 public partial class ShopItem : Control
 {
-	private currency_system.CurrencySystem _currencySystem;
+	private CurrencySystem _currencySystem;
 	private Inventory _inventory;
 	private ItemData _item;
 
@@ -23,7 +24,7 @@ public partial class ShopItem : Control
 
 	public override void _Ready()
 	{
-		_currencySystem = GetTree().Root.GetNode<currency_system.CurrencySystem>("Main/CurrencySystem");
+		_currencySystem = GetTree().Root.GetNode<CurrencySystem>("Main/CurrencySystem");
 		_inventory = GetTree().Root.GetNode<Inventory>("Main/Inventory");
 
 		_addButton = GetNode<Button>("VBoxContainer/ButtonContainer/ButtonContainerAmount/ButtonAdd");
