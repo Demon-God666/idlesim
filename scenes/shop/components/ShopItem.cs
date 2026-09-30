@@ -1,6 +1,5 @@
 using Godot;
 using IdleSim.scenes.inventory;
-using IdleSim.scenes.inventory.components;
 using IdleSim.scenes.shop.components;
 
 public partial class ShopItem : Control

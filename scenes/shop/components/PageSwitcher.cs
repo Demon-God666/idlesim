@@ -1,6 +1,4 @@
 using Godot;
-using System;
-using System.Runtime.InteropServices.JavaScript;
 
 public partial class PageSwitcher : Control
 {

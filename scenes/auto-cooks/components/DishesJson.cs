@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using IdleSim.scenes.shop.components;
 
 namespace IdleSim.scenes.auto_cooks.components;
 

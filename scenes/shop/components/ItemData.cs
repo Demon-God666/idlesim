@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using System.Runtime.InteropServices.JavaScript;
 using Godot;
-using Godot.Collections;
 
 namespace IdleSim.scenes.shop.components;
 
