@@ -1,5 +1,7 @@
 using Godot;
 
+namespace IdleSim.scenes.shop.components;
+
 public partial class PageSwitcher : Control
 {
     private Shop _shop;

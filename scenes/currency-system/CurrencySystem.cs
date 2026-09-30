@@ -1,5 +1,7 @@
 using Godot;
 
+namespace IdleSim.scenes.currency_system;
+
 public partial class CurrencySystem : Control
 {
     private int _value = 0;

@@ -1,5 +1,7 @@
 using Godot;
 
+namespace IdleSim.scenes.skill_tree.components;
+
 public partial class SkillButton : Button
 {
     [Export] public string SkillName { get; set; } = "Skill";

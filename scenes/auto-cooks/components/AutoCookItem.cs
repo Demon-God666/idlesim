@@ -1,6 +1,7 @@
 using Godot;
-using IdleSim.scenes.auto_cooks.components;
 using IdleSim.scenes.inventory;
+
+namespace IdleSim.scenes.auto_cooks.components;
 
 public partial class AutoCookItem : Control
 {
@@ -13,7 +14,7 @@ public partial class AutoCookItem : Control
     private Inventory _inventory;
     private bool _isCooking;
 
-    private LoadingBar _loadingBar;
+    private IdleSim.components.LoadingBar _loadingBar;
     private Label _produceItem;
     private Label _produceTime;
     private Label _producedProductValue;
@@ -28,7 +29,7 @@ public partial class AutoCookItem : Control
         _producedProductValue = GetNode<Label>("VBoxContainer/ProducedProductValueLabel");
         _produceTime = GetNode<Label>("VBoxContainer/ProduceTimeLabel");
 
-        _loadingBar = GetNode<LoadingBar>("HBoxContainer/LoadingBar");
+        _loadingBar = GetNode<IdleSim.components.LoadingBar>("HBoxContainer/LoadingBar");
         _cookingButton = GetNode<Button>("HBoxContainer/StartAutoCookButton");
         _autoCooks = GetTree().Root.GetNode<AutoCooks>("Main/AutoCooks");
 

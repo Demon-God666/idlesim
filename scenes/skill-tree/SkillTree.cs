@@ -1,5 +1,7 @@
 using Godot;
 
+namespace IdleSim.scenes.skill_tree;
+
 public partial class SkillTree : Control
 {
     public int SkillPoints { get; private set; } = 5;

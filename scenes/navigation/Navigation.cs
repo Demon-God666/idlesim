@@ -1,9 +1,11 @@
 using Godot;
 
+namespace IdleSim.scenes.navigation;
+
 public partial class Navigation : Control
 {
-    private Main _main;
-    private CurrencySystem _currencySystem;
+    private main.Main _main;
+    private currency_system.CurrencySystem _currencySystem;
 
     private Button _currencySystemButton;
     private Button _skillTreeButton;
@@ -14,8 +16,8 @@ public partial class Navigation : Control
 
     public override void _Ready()
     {
-        _main = GetParent<Main>();
-        _currencySystem = GetNode<CurrencySystem>("../CurrencySystem");
+        _main = GetParent<main.Main>();
+        _currencySystem = GetNode<currency_system.CurrencySystem>("../CurrencySystem");
 
         _currencySystemButton = GetNode<Button>("HBoxContainer/CurrencySystemButton");
         _skillTreeButton = GetNode<Button>("HBoxContainer/SkillTreeButton");

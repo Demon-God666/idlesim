@@ -1,5 +1,7 @@
 using Godot;
 
+namespace IdleSim.scenes.skill_tree.components;
+
 public partial class Connections : Node2D
 {
     public override void _Draw()

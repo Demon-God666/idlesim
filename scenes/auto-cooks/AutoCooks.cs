@@ -1,20 +1,22 @@
-using Godot;
 using System.Collections.Generic;
 using System.Text.Json;
+using Godot;
 using IdleSim.scenes.auto_cooks.components;
 using IdleSim.scenes.shop.components;
+
+namespace IdleSim.scenes.auto_cooks;
 
 public partial class AutoCooks : Control
 {
     private List<Dishes> _autoCookDishes = new();
-    private Shop _shop;
+    private shop.Shop _shop;
 
     private GridContainer _autoCookItemContainer;
     private AutoCookItem _autoCookItemTemplate;
 
     public override void _Ready()
     {
-        _shop = GetTree().Root.GetNode<Shop>("Main/Shop");
+        _shop = GetTree().Root.GetNode<shop.Shop>("Main/Shop");
         _autoCookItemContainer = GetNode<GridContainer>("AutoCookItemContainer");
         _autoCookItemTemplate = GetNode<AutoCookItem>("AutoCookItemTemplate/AutoCookItem");
 

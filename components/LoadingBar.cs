@@ -1,5 +1,7 @@
 using Godot;
 
+namespace IdleSim.components;
+
 public partial class LoadingBar : Control
 {
     private ProgressBar _loadingBar;

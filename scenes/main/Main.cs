@@ -1,23 +1,25 @@
 using Godot;
 using IdleSim.scenes.inventory;
 
+namespace IdleSim.scenes.main;
+
 public partial class Main : Control
 {
     private Control _skillTree;
     private Control _shop;
 
     public Inventory Inventory { get; set; }
-    public CurrencySystem CurrencySystem { get; private set; }
+    public currency_system.CurrencySystem CurrencySystem { get; private set; }
 
-    private AutoCooks AutoCooks { get; set; }
+    private auto_cooks.AutoCooks AutoCooks { get; set; }
 
     public override void _Ready()
     {
-        CurrencySystem = GetNode<CurrencySystem>("CurrencySystem");
+        CurrencySystem = GetNode<currency_system.CurrencySystem>("CurrencySystem");
         _skillTree = GetNode<Control>("SkillTree");
         _shop = GetNode<Control>("Shop");
         Inventory = GetNode<Inventory>("Inventory");
-        AutoCooks = GetNode<AutoCooks>("AutoCooks");
+        AutoCooks = GetNode<auto_cooks.AutoCooks>("AutoCooks");
 
         ShowCurrencySystem();
     }
