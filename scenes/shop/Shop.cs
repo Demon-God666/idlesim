@@ -115,11 +115,13 @@ public partial class Shop : Control
     private void LoadItemData()
     {
         var json = FileAccess.GetFileAsString("res://data/ItemData.json");
-        var options = new JsonSerializerOptions();
-        options.PropertyNameCaseInsensitive = true;
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
         var items = JsonSerializer.Deserialize<List<ItemDataJson>>(json, options);
 
-        foreach (var item in items)
+        foreach (var _ in items)
         {
             AddItemToShop(ItemDataJson.Name, ItemDataJson.Price, ItemDataJson.Image, ItemDataJson.Category);
         }
