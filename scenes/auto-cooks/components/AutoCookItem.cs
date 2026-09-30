@@ -74,7 +74,7 @@ public partial class AutoCookItem : Control
 		foreach (var ingredient in _dish.IngredientList)
 		{
 			_ingredientList.Text +=
-				$"{ingredient.ItemName} {ingredient.ItemAmount}/ {GetInventoryItemCount(ingredient.ItemName)}";
+				$"{ingredient.ItemName} {GetInventoryItemCount(ingredient.ItemName)} / {ingredient.ItemAmount}";
 			if (_dish.IngredientList.Count > 1 &&
 				_dish.IngredientList.IndexOf(ingredient) < _dish.IngredientList.Count - 1) _ingredientList.Text += "\n";
 		}

@@ -10,18 +10,20 @@ public partial class Inventory : Control
 {
 	public List<BoughtItem> InventoryItems { get; set; } = new();
 	
-	private Button _showInventoryButton;
-	
 	[Signal]
 	public delegate void InventoryUpdatedEventHandler();
-	
+
+	private InventoryItem _inventoryItem;
+	private GridContainer _inventoryItemsContainer;
 	
 	public override void _Ready()
 	{
-		_showInventoryButton = GetNode<Button>("Control/ShowInventoryButton");
-		_showInventoryButton.Pressed += PrintInventory;
+		_inventoryItem = GetNode<InventoryItem>("Templates/InventoryItem");
+		_inventoryItemsContainer = GetNode<GridContainer>("ScrollContainer/GridContainer");
 		
 		EmitSignal(SignalName.InventoryUpdated);
+		
+		LoadInventoryItems();
 	}
 
 	public void Add(ItemData item, int amount)
@@ -37,6 +39,7 @@ public partial class Inventory : Control
 			InventoryItems.Add(new BoughtItem(item, amount));
 		}
 
+		LoadInventoryItems();
 		EmitSignal(SignalName.InventoryUpdated);
 	}
 	
@@ -77,5 +80,20 @@ public partial class Inventory : Control
 		return true;
 	}
 	
+	public void LoadInventoryItems()
+	{
+		foreach (var item in _inventoryItemsContainer.GetChildren())
+		{
+			item.QueueFree();	
+		}
+		
+		foreach (var item in InventoryItems)
+		{
+			var inventoryItemChild = (InventoryItem)_inventoryItem.Duplicate();
+
+			_inventoryItemsContainer.AddChild(inventoryItemChild);
+			inventoryItemChild.SetInventoryItem(item);
+		}
+	}
 	
 }
