@@ -71,14 +71,14 @@ public partial class ShopItem : Control
 
         if (_currencySystem.GetMoney() < price)
         {
-            GD.Print("Nicht genug Geld.");
+            GD.Print("Not enough money.");
             return;
         }
 
         _inventory.Add(_item, _productAmountValue);
         _currencySystem.Remove(price);
 
-        GD.Print($"Gekauft: {_productAmountValue}x für {price}$");
+        GD.Print($"Bought: {_productAmountValue}x for {price}$");
     }
 
     private void UpdateProductAmountLabel()

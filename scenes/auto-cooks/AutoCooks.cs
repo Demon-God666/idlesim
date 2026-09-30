@@ -42,7 +42,7 @@ public partial class AutoCooks : Control
         _autoCookDishes.Add(dish);
 
         GD.Print($"Dish: {dish.ItemData.ProductName}");
-        GD.Print($"Im Shop: {_shop.HasItem(dish.ItemData)}");
+        GD.Print($"In shop: {_shop.HasItem(dish.ItemData)}");
     }
 
     private void LoadAutoCooks()
