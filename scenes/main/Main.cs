@@ -2,63 +2,62 @@ using Godot;
 using IdleSim.scenes.inventory;
 
 public partial class Main : Control
-{	
+{
+    private Control _skillTree;
+    private Control _shop;
 
-	private Control _skillTree;
-	private Control _shop;
-	
-	public Inventory Inventory { get; set; }
-	public CurrencySystem CurrencySystem { get; private set; }
-	
-	private AutoCooks AutoCooks { get; set; }
+    public Inventory Inventory { get; set; }
+    public CurrencySystem CurrencySystem { get; private set; }
 
-	public override void _Ready()
-	{
-		CurrencySystem = GetNode<CurrencySystem>("CurrencySystem");
-		_skillTree = GetNode<Control>("SkillTree"); 
-		_shop = GetNode<Control>("Shop");
-		Inventory = GetNode<Inventory>("Inventory");
-		AutoCooks = GetNode<AutoCooks>("AutoCooks");
+    private AutoCooks AutoCooks { get; set; }
 
-		ShowCurrencySystem();
-	}
+    public override void _Ready()
+    {
+        CurrencySystem = GetNode<CurrencySystem>("CurrencySystem");
+        _skillTree = GetNode<Control>("SkillTree");
+        _shop = GetNode<Control>("Shop");
+        Inventory = GetNode<Inventory>("Inventory");
+        AutoCooks = GetNode<AutoCooks>("AutoCooks");
 
-	public void ShowCurrencySystem()
-	{
-		HideAll();	
-		CurrencySystem.Show();
-	}
-	
-	public void ShowSkillTree()
-	{
-		HideAll();	
-		_skillTree.Show();
-	}
+        ShowCurrencySystem();
+    }
 
-	public void ShowShop()
-	{
-		HideAll();	
-		_shop.Show();
-	}
-	
-	public void ShowInventory()
-	{
-		HideAll();	
-		Inventory.Show();
-	}
-	
-	public void ShowAutoCooks()
-	{
-		HideAll();	
-		AutoCooks.Show();
-	} 
-	
-	private void HideAll()
-	{
-		CurrencySystem.Hide();
-		_skillTree.Hide();
-		_shop.Hide();
-		Inventory.Hide();
-		AutoCooks.Hide();
-	}
+    public void ShowCurrencySystem()
+    {
+        HideAll();
+        CurrencySystem.Show();
+    }
+
+    public void ShowSkillTree()
+    {
+        HideAll();
+        _skillTree.Show();
+    }
+
+    public void ShowShop()
+    {
+        HideAll();
+        _shop.Show();
+    }
+
+    public void ShowInventory()
+    {
+        HideAll();
+        Inventory.Show();
+    }
+
+    public void ShowAutoCooks()
+    {
+        HideAll();
+        AutoCooks.Show();
+    }
+
+    private void HideAll()
+    {
+        CurrencySystem.Hide();
+        _skillTree.Hide();
+        _shop.Hide();
+        Inventory.Hide();
+        AutoCooks.Hide();
+    }
 }

@@ -12,5 +12,4 @@ public class BoughtItem
         Item = item;
         Amount = amount;
     }
-    
 }
