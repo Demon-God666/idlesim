@@ -7,6 +7,5 @@ public class ItemData(string productName, int productPrice, Texture2D productIma
     public string ProductName { get; } = productName;
     public int ProductPrice { get; } = productPrice;
     public Texture2D ProductImage { get; } = productImage;
-
     public Category Category { get; } = category;
 }

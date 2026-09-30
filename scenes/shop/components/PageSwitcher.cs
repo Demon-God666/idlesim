@@ -26,7 +26,7 @@ public partial class PageSwitcher : Control
         _activeDot = GetNode<Panel>("DotTemplates/ActiveDot");
         _inactiveDot = GetNode<Panel>("DotTemplates/InactiveDot");
         _dotsContainer = GetNode<HBoxContainer>("HBoxContainer");
-        
+
         _backButton.Disabled = true;
 
         _backButton.Pressed += BackButtonPressed;
