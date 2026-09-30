@@ -8,8 +8,8 @@ public partial class Main : Control
     private Control _skillTree;
     private Control _shop;
 
-    public Inventory Inventory { get; set; }
-    public currency_system.CurrencySystem CurrencySystem { get; private set; }
+    private Inventory Inventory { get; set; }
+    private currency_system.CurrencySystem CurrencySystem { get; set; }
 
     private auto_cooks.AutoCooks AutoCooks { get; set; }
 

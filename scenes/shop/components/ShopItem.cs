@@ -67,7 +67,7 @@ public partial class ShopItem : Control
 
     private void Buy()
     {
-        int price = _productPriceValue * _productAmountValue;
+        var price = _productPriceValue * _productAmountValue;
 
         if (_currencySystem.GetMoney() < price)
         {

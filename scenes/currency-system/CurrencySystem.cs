@@ -4,7 +4,7 @@ namespace IdleSim.scenes.currency_system;
 
 public partial class CurrencySystem : Control
 {
-    private int _value = 0;
+    private int _value;
 
     private Label _valueLabel;
     private Label _label;

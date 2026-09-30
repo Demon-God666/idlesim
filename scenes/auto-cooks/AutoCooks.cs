@@ -8,7 +8,7 @@ namespace IdleSim.scenes.auto_cooks;
 
 public partial class AutoCooks : Control
 {
-    private List<Dishes> _autoCookDishes = new();
+    private readonly List<Dishes> _autoCookDishes = [];
     private shop.Shop _shop;
 
     private GridContainer _autoCookItemContainer;

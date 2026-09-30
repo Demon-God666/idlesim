@@ -5,8 +5,8 @@ namespace IdleSim.components;
 public partial class LoadingBar : Control
 {
     private ProgressBar _loadingBar;
-    private float progress = 0.0f;
-    private int progressTime = 0;
+    private float _progress;
+    private int _progressTime;
 
     public override void _Ready()
     {

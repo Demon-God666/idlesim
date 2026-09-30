@@ -72,12 +72,12 @@ public partial class PageSwitcher : Control
 
     private void GetDots()
     {
-        foreach (Node child in _dotsContainer.GetChildren())
+        foreach (var child in _dotsContainer.GetChildren())
         {
             child.Free();
         }
 
-        for (int i = 0; i < _maxPage; i++)
+        for (var i = 0; i < _maxPage; i++)
         {
             Panel dot;
 

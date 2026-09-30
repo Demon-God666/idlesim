@@ -8,7 +8,7 @@ public partial class SkillButton : Button
 
     [Export] public int Cost { get; set; } = 1;
 
-    public bool Unlocked { get; private set; }
+    private bool Unlocked { get; set; }
 
     public override void _Ready()
     {
@@ -21,7 +21,7 @@ public partial class SkillButton : Button
         if (Unlocked)
             return;
 
-        SkillTree skillTree = GetTree().CurrentScene as SkillTree;
+        var skillTree = GetTree().CurrentScene as SkillTree;
 
         if (skillTree == null)
             return;

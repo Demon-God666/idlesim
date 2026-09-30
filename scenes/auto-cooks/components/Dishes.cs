@@ -3,17 +3,10 @@ using IdleSim.scenes.shop.components;
 
 namespace IdleSim.scenes.auto_cooks.components;
 
-public class Dishes
+public class Dishes(List<IngredientList> ingredientList, ItemData itemData, int produceTime)
 {
-    public List<IngredientList> IngredientList = new();
+    public readonly List<IngredientList> IngredientList = ingredientList;
 
-    public ItemData ItemData { get; }
-    public int ProduceTime { get; }
-
-    public Dishes(List<IngredientList> ingredientList, ItemData itemData, int produceTime)
-    {
-        IngredientList = ingredientList;
-        ItemData = itemData;
-        ProduceTime = produceTime;
-    }
+    public ItemData ItemData { get; } = itemData;
+    public int ProduceTime { get; } = produceTime;
 }

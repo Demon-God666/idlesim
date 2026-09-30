@@ -8,7 +8,7 @@ namespace IdleSim.scenes.inventory;
 
 public partial class Inventory : Control
 {
-    public List<BoughtItem> InventoryItems { get; set; } = new();
+    public List<BoughtItem> InventoryItems { get; set; } = [];
 
     private Button _showInventoryButton;
 
@@ -26,7 +26,7 @@ public partial class Inventory : Control
 
     public void Add(ItemData item, int amount)
     {
-        BoughtItem checkExistingItem = InventoryItems.Find(x => x.Item == item);
+        var checkExistingItem = InventoryItems.Find(x => x.Item == item);
 
         if (checkExistingItem != null)
         {
@@ -43,7 +43,7 @@ public partial class Inventory : Control
     private void PrintInventory()
     {
         GD.Print("Inventory:");
-        foreach (BoughtItem item in InventoryItems)
+        foreach (var item in InventoryItems)
         {
             GD.Print($"{item.Item.ProductName}: {item.Amount}");
         }
@@ -51,7 +51,7 @@ public partial class Inventory : Control
 
     public void Remove(ItemData item, int amount)
     {
-        BoughtItem findItem = InventoryItems.Find(x => x.Item == item);
+        var findItem = InventoryItems.Find(x => x.Item == item);
 
         if (findItem != null)
         {

@@ -10,7 +10,7 @@ public partial class Shop : Control
 {
     private currency_system.CurrencySystem _currencySystem;
     private int _money;
-    private List<ItemData> _items = new();
+    private readonly List<ItemData> _items = [];
     private GridContainer _gridContainer;
     private PageSwitcher _pageSwitcher;
     private int _itemCountWithoutDishes;
@@ -22,7 +22,7 @@ public partial class Shop : Control
         _pageSwitcher = GetNode<PageSwitcher>("ColorRect/PageSwitcher");
 
         _gridContainer = GetNode<GridContainer>("ColorRect/ShopCatalog/HBoxContainer/CatalogRect/BoxContainer");
-        foreach (Node child in _gridContainer.GetChildren())
+        foreach (var child in _gridContainer.GetChildren())
         {
             child.QueueFree();
         }
@@ -37,9 +37,9 @@ public partial class Shop : Control
         GetItemCountWithoutDishes(_items);
         _pageSwitcher.GetMaxPage(_itemCountWithoutDishes);
 
-        foreach (ItemData item in _items)
+        foreach (var item in _items)
         {
-            ShopItem shopItem = GD.Load<PackedScene>("res://scenes/shop/components/ShopItem.tscn")
+            var shopItem = GD.Load<PackedScene>("res://scenes/shop/components/ShopItem.tscn")
                 .Instantiate<ShopItem>();
             _gridContainer.AddChild(shopItem);
             shopItem.SetItem(item);
@@ -53,28 +53,27 @@ public partial class Shop : Control
         _money = value;
     }
 
-    public int GetMoney()
+    private int GetMoney()
     {
         return _money;
     }
 
-    public ItemData AddItemToShop(
-        string productName,
+    private void AddItemToShop(string productName,
         int productPrice,
         string productImagePath,
         int categoryId)
     {
-        List<Category> categories = new()
-        {
+        List<Category> categories =
+        [
             new(0, "Dishes"),
             new(1, "Fruits and Vegetables"),
             new(2, "Bread"),
             new(3, "Milk Products")
-        };
+        ];
 
-        Category category = categories.Find(c => c.CategoryId == categoryId);
+        var category = categories.Find(c => c.CategoryId == categoryId);
 
-        ItemData itemData = new ItemData(
+        var itemData = new ItemData(
             productName,
             productPrice,
             GD.Load<Texture2D>(_imagePath + productImagePath),
@@ -82,26 +81,24 @@ public partial class Shop : Control
         );
 
         _items.Add(itemData);
-
-        return itemData;
     }
 
     public void DisplayShopItems()
     {
-        foreach (Node child in _gridContainer.GetChildren())
+        foreach (var child in _gridContainer.GetChildren())
         {
             child.QueueFree();
         }
 
-        int startIndex = (_pageSwitcher.CurrentPage - 1) * 8;
+        var startIndex = (_pageSwitcher.CurrentPage - 1) * 8;
 
-        foreach (ItemData item in _items
+        foreach (var item in _items
                      .Skip(startIndex)
                      .Take(8))
         {
             if (item.Category.CategoryId == 0) return;
 
-            ShopItem shopItem = GD.Load<PackedScene>(
+            var shopItem = GD.Load<PackedScene>(
                 "res://scenes/shop/components/ShopItem.tscn"
             ).Instantiate<ShopItem>();
 
@@ -118,10 +115,8 @@ public partial class Shop : Control
     private void LoadItemData()
     {
         var json = FileAccess.GetFileAsString("res://data/ItemData.json");
-        var options = new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        };
+        var options = new JsonSerializerOptions();
+        options.PropertyNameCaseInsensitive = true;
         var items = JsonSerializer.Deserialize<List<ItemDataJson>>(json, options);
 
         foreach (var item in items)
@@ -132,7 +127,7 @@ public partial class Shop : Control
 
     private void GetItemCountWithoutDishes(List<ItemData> items)
     {
-        foreach (ItemData item in items)
+        foreach (var item in items)
         {
             if (item.Category.CategoryId != 0)
             {
