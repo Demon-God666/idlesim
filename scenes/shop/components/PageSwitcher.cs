@@ -4,18 +4,17 @@ namespace IdleSim.scenes.shop.components;
 
 public partial class PageSwitcher : Control
 {
-    private Shop _shop;
-    public int CurrentPage { get; private set; } = 1;
-    private Button _backButton;
-    private Button _forwardButton;
-
     private Panel _activeDot;
-    private Panel _inactiveDot;
-    private HBoxContainer _dotsContainer;
+    private Button _backButton;
 
     private Panel _currentActiveDot;
+    private HBoxContainer _dotsContainer;
+    private Button _forwardButton;
+    private Panel _inactiveDot;
 
     private int _maxPage;
+    private Shop _shop;
+    public int CurrentPage { get; private set; } = 1;
 
     public override void _Ready()
     {
@@ -38,10 +37,7 @@ public partial class PageSwitcher : Control
         CurrentPage--;
         _shop.DisplayShopItems();
         _forwardButton.Disabled = false;
-        if (CurrentPage <= 1)
-        {
-            _backButton.Disabled = true;
-        }
+        if (CurrentPage <= 1) _backButton.Disabled = true;
 
         MoveActiveDot();
     }
@@ -51,10 +47,7 @@ public partial class PageSwitcher : Control
         CurrentPage++;
         _shop.DisplayShopItems();
         _backButton.Disabled = false;
-        if (CurrentPage >= _maxPage)
-        {
-            _forwardButton.Disabled = true;
-        }
+        if (CurrentPage >= _maxPage) _forwardButton.Disabled = true;
 
         MoveActiveDot();
     }
@@ -67,10 +60,7 @@ public partial class PageSwitcher : Control
 
     private void GetDots()
     {
-        foreach (var child in _dotsContainer.GetChildren())
-        {
-            child.Free();
-        }
+        foreach (var child in _dotsContainer.GetChildren()) child.Free();
 
         for (var i = 0; i < _maxPage; i++)
         {

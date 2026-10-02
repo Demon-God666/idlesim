@@ -4,12 +4,11 @@ namespace IdleSim.scenes.skill_tree;
 
 public partial class SkillTree : Control
 {
-    public int SkillPoints { get; private set; } = 5;
-
-    private ScrollContainer _scrollContainer;
-
     private bool _dragging;
     private Vector2 _lastMousePosition;
+
+    private ScrollContainer _scrollContainer;
+    public int SkillPoints { get; private set; } = 5;
 
     public override void _Ready()
     {

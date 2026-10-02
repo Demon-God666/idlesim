@@ -6,21 +6,20 @@ namespace IdleSim.scenes.shop.components;
 
 public partial class ShopItem : Control
 {
+	private Button _addButton;
+
+	private Button _buttonBuy;
 	private CurrencySystem _currencySystem;
 	private Inventory _inventory;
 	private ItemData _item;
-
-	private Button _addButton;
-	private Button _removeButton;
 	private Label _productAmountLabel;
 	private int _productAmountValue;
+	private TextureRect _productImage;
 
 	private Label _productNameLabel;
 	private Label _productPriceLabel;
 	private int _productPriceValue;
-	private TextureRect _productImage;
-
-	private Button _buttonBuy;
+	private Button _removeButton;
 
 	public override void _Ready()
 	{
@@ -56,10 +55,7 @@ public partial class ShopItem : Control
 
 	private void Remove(int amount)
 	{
-		if (_productAmountValue <= 1)
-		{
-			return;
-		}
+		if (_productAmountValue <= 1) return;
 
 		_productAmountValue -= amount;
 		UpdateProductAmountLabel();
@@ -90,7 +86,7 @@ public partial class ShopItem : Control
 
 	private void UpdateProductPriceLabel()
 	{
-		_productPriceLabel.Text = (_productPriceValue * _productAmountValue) + "$";
+		_productPriceLabel.Text = _productPriceValue * _productAmountValue + "$";
 	}
 
 	public void SetItem(ItemData item)

@@ -6,20 +6,11 @@ namespace IdleSim.scenes.inventory.components;
 
 public partial class InventoryItem : Control
 {
-	private Inventory _inventory;
-
-	private Label _productName;
-	private TextureRect _inventoryImage;
-	private Button _removeAmount;
-	private bool _remove;
-	private Button _addAmount;
-	private bool _add = true;
-
-	private HBoxContainer _multiplierContainer;
-	private Button _multiplierButtonTemplate;
 	private readonly List<int> _multipliers = [1, 5, 10];
-
-	private HBoxContainer _sellContainer;
+	private bool _add = true;
+	private Button _addAmount;
+	private Inventory _inventory;
+	private TextureRect _inventoryImage;
 	private Label _itemAvailable;
 	private int _itemAvailableValue;
 	private Label _itemSellAmount;
@@ -27,7 +18,16 @@ public partial class InventoryItem : Control
 	private Label _itemSellPrice;
 	private float _itemSellPriceValue;
 	private float _itemSingleSellPrice;
+	private Button _multiplierButtonTemplate;
+
+	private HBoxContainer _multiplierContainer;
+
+	private Label _productName;
+	private bool _remove;
+	private Button _removeAmount;
 	private Button _sellButton;
+
+	private HBoxContainer _sellContainer;
 
 	public override void _Ready()
 	{
@@ -50,10 +50,8 @@ public partial class InventoryItem : Control
 		LoadMultipliers();
 
 		foreach (var child in _multiplierContainer.GetChildren())
-		{
 			if (child is Button button)
 				button.Pressed += () => CalculateProductAmount(button);
-		}
 
 		var buttonGroup = new ButtonGroup();
 
@@ -107,13 +105,9 @@ public partial class InventoryItem : Control
 
 
 		if (_add)
-		{
 			_itemSellAmountValue += amount;
-		}
 		else
-		{
 			_itemSellAmountValue -= amount;
-		}
 
 		if (CheckItemAvailable())
 		{
@@ -135,26 +129,17 @@ public partial class InventoryItem : Control
 			GD.Print("Min Reached");
 			return true;
 		}
-		else if (_itemSellAmountValue > _itemAvailableValue)
-		{
-			_itemSellAmountValue = _itemAvailableValue;
-			GD.Print("Max Reached");
-			return true;
-		}
-		else if (_itemSellAmountValue <= _itemAvailableValue)
-		{
-			return true;
-		}
 
-		return false;
+		if (_itemSellAmountValue <= _itemAvailableValue) return _itemSellAmountValue <= _itemAvailableValue;
+		
+		_itemSellAmountValue = _itemAvailableValue;
+		GD.Print("Max Reached");
+		return true;
 	}
 
 	private void LoadMultipliers()
 	{
-		foreach (var buttons in _multiplierContainer.GetChildren())
-		{
-			buttons.QueueFree();
-		}
+		foreach (var buttons in _multiplierContainer.GetChildren()) buttons.QueueFree();
 
 		for (var i = 0; i < _multipliers.Count * 2; i++)
 		{

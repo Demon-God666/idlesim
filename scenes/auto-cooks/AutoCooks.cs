@@ -10,12 +10,12 @@ namespace IdleSim.scenes.auto_cooks;
 
 public partial class AutoCooks : Control
 {
-	private readonly List<Dishes> _autoCookDishes = [];
-	
-	private Shop _shop;
+	private readonly List<Dish> _autoCookDishes = [];
 
 	private GridContainer _autoCookItemContainer;
 	private AutoCookItem _autoCookItemTemplate;
+
+	private Shop _shop;
 
 	public override void _Ready()
 	{
@@ -35,7 +35,7 @@ public partial class AutoCooks : Control
 		var ingredients = ingredientData
 			.Select(_ => new IngredientList(IngredientListJson.Name, IngredientListJson.Amount)).ToList();
 
-		var dish = new Dishes(
+		var dish = new Dish(
 			ingredients,
 			itemData,
 			produceTime
@@ -49,10 +49,7 @@ public partial class AutoCooks : Control
 
 	private void LoadAutoCooks()
 	{
-		foreach (var child in _autoCookItemContainer.GetChildren())
-		{
-			child.QueueFree();
-		}
+		foreach (var child in _autoCookItemContainer.GetChildren()) child.QueueFree();
 
 		foreach (var dish in _autoCookDishes)
 		{
@@ -66,12 +63,8 @@ public partial class AutoCooks : Control
 	public void UpdateAllAutoCookItems()
 	{
 		foreach (var child in _autoCookItemContainer.GetChildren())
-		{
 			if (child is AutoCookItem autoCookItem)
-			{
 				autoCookItem.UpdateInventory();
-			}
-		}
 	}
 
 	private void LoadDishes()

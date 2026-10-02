@@ -9,24 +9,21 @@ namespace IdleSim.scenes.shop;
 
 public partial class Shop : Control
 {
-    private CurrencySystem _currencySystem;
-    private int _money;
     private readonly List<ItemData> _items = [];
+    private CurrencySystem _currencySystem;
     private GridContainer _gridContainer;
-    private PageSwitcher _pageSwitcher;
-    private int _itemCountWithoutDishes;
 
     private string _imagePath = "res://assets/images/";
+    private int _itemCountWithoutDishes;
+    private int _money;
+    private PageSwitcher _pageSwitcher;
 
     public override void _Ready()
     {
         _pageSwitcher = GetNode<PageSwitcher>("ColorRect/PageSwitcher");
 
         _gridContainer = GetNode<GridContainer>("ColorRect/ShopCatalog/HBoxContainer/CatalogRect/BoxContainer");
-        foreach (var child in _gridContainer.GetChildren())
-        {
-            child.QueueFree();
-        }
+        foreach (var child in _gridContainer.GetChildren()) child.QueueFree();
 
         _currencySystem = GetTree().Root.GetNode<CurrencySystem>("Main/CurrencySystem");
         _currencySystem.MoneyUpdated += UpdateMoney;
@@ -76,10 +73,7 @@ public partial class Shop : Control
 
     public void DisplayShopItems()
     {
-        foreach (var child in _gridContainer.GetChildren())
-        {
-            child.QueueFree();
-        }
+        foreach (var child in _gridContainer.GetChildren()) child.QueueFree();
 
         var startIndex = (_pageSwitcher.CurrentPage - 1) * 8;
 
@@ -113,17 +107,12 @@ public partial class Shop : Control
         var items = JsonSerializer.Deserialize<List<ItemDataJson>>(json, options);
 
         foreach (var _ in items)
-        {
             AddItemToShop(ItemDataJson.Name, ItemDataJson.Price, ItemDataJson.Image, ItemDataJson.Category);
-        }
     }
 
     private void GetItemCountWithoutDishes(List<ItemData> items)
     {
-        foreach (var _ in items.Where(item => item.Category != 0))
-        {
-            _itemCountWithoutDishes++;
-        }
+        foreach (var _ in items.Where(item => item.Category != 0)) _itemCountWithoutDishes++;
     }
 
     public List<ItemData> GetItemData()

@@ -6,15 +6,15 @@ namespace IdleSim.scenes.navigation;
 
 public partial class Navigation : Control
 {
-    private Main _main;
+    private Button _autoCookButton;
     private CurrencySystem _currencySystem;
 
     private Button _currencySystemButton;
-    private Button _skillTreeButton;
-    private Button _shopButton;
     private Button _inventoryButton;
-    private Button _autoCookButton;
+    private Main _main;
     private Label _moneyLabel;
+    private Button _shopButton;
+    private Button _skillTreeButton;
 
     public override void _Ready()
     {

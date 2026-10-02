@@ -8,7 +8,7 @@ public partial class AutoCookItem : Control
 {
 	private AutoCooks _autoCooks;
 	private Button _cookingButton;
-	private Dishes _dish;
+	private Dish _dish;
 	private double _elapsedTime;
 	private bool _hasStartedCooking;
 	private Label _ingredientList;
@@ -44,7 +44,7 @@ public partial class AutoCookItem : Control
 		_inventory.InventoryUpdated += UpdateInventory;
 	}
 
-	public void SetAutoCookItem(Dishes dish)
+	public void SetAutoCookItem(Dish dish)
 	{
 		_dish = dish;
 

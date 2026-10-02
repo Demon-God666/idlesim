@@ -7,8 +7,8 @@ namespace IdleSim.scenes.main;
 
 public partial class Main : Control
 {
-	private Control _skillTree;
 	private Control _shop;
+	private Control _skillTree;
 
 	private Inventory Inventory { get; set; }
 	private CurrencySystem CurrencySystem { get; set; }

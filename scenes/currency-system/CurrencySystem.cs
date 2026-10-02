@@ -4,16 +4,16 @@ namespace IdleSim.scenes.currency_system;
 
 public partial class CurrencySystem : Control
 {
-    private int _value;
+    [Signal]
+    public delegate void MoneyUpdatedEventHandler(int value);
 
-    private Label _valueLabel;
+    private Button _buyButton;
     private Label _label;
     private Button _minusButton;
     private Button _plusButton;
-    private Button _buyButton;
+    private int _value;
 
-    [Signal]
-    public delegate void MoneyUpdatedEventHandler(int value);
+    private Label _valueLabel;
 
     public override void _Ready()
     {
@@ -44,10 +44,7 @@ public partial class CurrencySystem : Control
 
     public bool Remove(int amount)
     {
-        if (_value < amount)
-        {
-            return false;
-        }
+        if (_value < amount) return false;
 
         _value -= amount;
         UpdateValue();
