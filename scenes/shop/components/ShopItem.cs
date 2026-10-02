@@ -15,6 +15,7 @@ public partial class ShopItem : Control
 	private Label _productAmountLabel;
 	private int _productAmountValue;
 	private TextureRect _productImage;
+	private AspectRatioContainer _productImageAspectRatioContainer;
 
 	private Label _productNameLabel;
 	private Label _productPriceLabel;
@@ -34,6 +35,8 @@ public partial class ShopItem : Control
 		_productNameLabel = GetNode<Label>("VBoxContainer/ProductLabel");
 		_productPriceLabel = GetNode<Label>("VBoxContainer/ButtonContainer/ButtonContainerBuy/ProductPriceLabel");
 		_productImage = GetNode<TextureRect>("VBoxContainer/ImageContainer/AspectRatioContainer/ProductImage");
+		_productImageAspectRatioContainer =
+			GetNode<AspectRatioContainer>("VBoxContainer/ImageContainer/AspectRatioContainer");
 
 
 		_productAmountValue = 1;
@@ -95,7 +98,9 @@ public partial class ShopItem : Control
 
 		_productNameLabel.Text = item.ProductName;
 		_productPriceValue = item.ProductPrice;
-		_productImage.Texture = item.ProductImage;
+		_productImage.Texture = GD.Load<Texture2D>(
+			"res://assets/images/" + item.ProductImage
+		);
 
 		LoadImageShadow();
 		UpdateProductPriceLabel();
@@ -103,7 +108,7 @@ public partial class ShopItem : Control
 
 	private void LoadImageShadow()
 	{
-		var imageAspect = _productImage.GetParent<AspectRatioContainer>();
+		var imageAspect = _productImageAspectRatioContainer;
 
 		var shadowAspect = (AspectRatioContainer)imageAspect.Duplicate();
 		shadowAspect.Name = "ShadowAspectRatioContainer";

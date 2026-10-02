@@ -79,7 +79,9 @@ public partial class InventoryItem : Control
 	public void SetInventoryItem(BoughtItem item)
 	{
 		_productName.Text = item.Item.ProductName;
-		_inventoryImage.Texture = item.Item.ProductImage;
+		_inventoryImage.Texture = GD.Load<Texture2D>(
+			"res://assets/images/" + item.Item.ProductImage
+		);
 
 		_itemAvailableValue = item.Amount;
 		_itemAvailable.Text = $"Own: {_itemAvailableValue}x";

@@ -63,8 +63,8 @@ public partial class Shop : Control
     {
         var itemData = new ItemData(
             productName,
-            productPrice,
-            GD.Load<Texture2D>(_imagePath + productImagePath),
+            productPrice, 
+            productImagePath,
             categoryId
         );
 
@@ -106,8 +106,13 @@ public partial class Shop : Control
         };
         var items = JsonSerializer.Deserialize<List<ItemDataJson>>(json, options);
 
-        foreach (var _ in items)
-            AddItemToShop(ItemDataJson.Name, ItemDataJson.Price, ItemDataJson.Image, ItemDataJson.Category);
+        foreach (var item in items)
+            AddItemToShop(
+                item.Name,
+                item.Price,
+                item.Image,
+                item.Category
+            );
     }
 
     private void GetItemCountWithoutDishes(List<ItemData> items)
