@@ -106,10 +106,9 @@ public partial class InventoryItem : Control
 			: (int)Math.Round(_itemAvailableValue * (buttonValue / 100.0));
 
 
-		if (_add)
-			_itemSellAmountValue += amount;
-		else
-			_itemSellAmountValue -= amount;
+		if (amount < 1) amount = 1;
+		
+		_itemSellAmountValue += _add ? amount : -amount;
 
 		if (CheckItemAvailable())
 		{
@@ -133,7 +132,7 @@ public partial class InventoryItem : Control
 		}
 
 		if (_itemSellAmountValue <= _itemAvailableValue) return _itemSellAmountValue <= _itemAvailableValue;
-		
+
 		_itemSellAmountValue = _itemAvailableValue;
 		GD.Print("Max Reached");
 		return true;
