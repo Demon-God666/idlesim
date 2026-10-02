@@ -19,7 +19,7 @@ public partial class Navigation : Control
     public override void _Ready()
     {
         _main = GetParent<Main>();
-        _currencySystem = GetNode<CurrencySystem>("../CurrencySystem");
+        _currencySystem = GetTree().Root.GetNode<CurrencySystem>("Main/CurrencySystem");
 
         _currencySystemButton = GetNode<Button>("HBoxContainer/CurrencySystemButton");
         _skillTreeButton = GetNode<Button>("HBoxContainer/SkillTreeButton");

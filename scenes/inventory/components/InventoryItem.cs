@@ -156,7 +156,7 @@ public partial class InventoryItem : Control
 			buttons.QueueFree();
 		}
 
-		for (int i = 0; i < _multipliers.Count * 2; i++)
+		for (var i = 0; i < _multipliers.Count * 2; i++)
 		{
 			var multiplierIndex = i % _multipliers.Count;
 			var multiplierSuffix = i < _multipliers.Count ? "x" : "0%";
@@ -166,11 +166,10 @@ public partial class InventoryItem : Control
 		}
 	}
 
-	private float SetSellPrice(int buyPrice)
+	private static float SetSellPrice(int buyPrice)
 	{
 		var sellPrice = (float)Math.Round(buyPrice * 0.7 - 1, 2);
-		if (sellPrice <= 0.01) return 0.01f;
-		return sellPrice;
+		return sellPrice <= 0.01 ? 0.01f : sellPrice;
 	}
 
 	private void SellItem()

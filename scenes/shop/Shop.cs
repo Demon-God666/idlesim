@@ -28,7 +28,7 @@ public partial class Shop : Control
             child.QueueFree();
         }
 
-        _currencySystem = GetNode<CurrencySystem>("../CurrencySystem");
+        _currencySystem = GetTree().Root.GetNode<CurrencySystem>("Main/CurrencySystem");
         _currencySystem.MoneyUpdated += UpdateMoney;
 
         _money = _currencySystem.GetMoney();

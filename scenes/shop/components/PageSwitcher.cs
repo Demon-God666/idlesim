@@ -19,7 +19,7 @@ public partial class PageSwitcher : Control
 
     public override void _Ready()
     {
-        _shop = GetNode<Shop>("../..");
+        _shop = GetTree().Root.GetNode<Shop>("Main/Shop");
         _backButton = GetNode<Button>("BackButton");
         _forwardButton = GetNode<Button>("ForwardButton");
 
