@@ -20,9 +20,9 @@ public partial class Shop : Control
 
     public override void _Ready()
     {
-        _pageSwitcher = GetNode<PageSwitcher>("ColorRect/PageSwitcher");
+        _pageSwitcher = GetNode<PageSwitcher>("PageSwitcher");
 
-        _gridContainer = GetNode<GridContainer>("ColorRect/ShopCatalog/HBoxContainer/CatalogRect/BoxContainer");
+        _gridContainer = GetNode<GridContainer>("ShopCatalog/HBoxContainer/CatalogRect/BoxContainer");
         foreach (var child in _gridContainer.GetChildren()) child.QueueFree();
 
         _currencySystem = GetTree().Root.GetNode<CurrencySystem>("Main/CurrencySystem");

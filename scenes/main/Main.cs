@@ -28,6 +28,7 @@ public partial class Main : Control
 		_backgroundColorRect = GetNode<ColorRect>("BackgroundColorRect");
 		
 		ShowCurrencySystem();
+		Settings.InitializeTheme();
 	}
 
 	public void ShowCurrencySystem()

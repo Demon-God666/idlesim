@@ -31,4 +31,9 @@ public partial class Settings : Control
 		_main.ToggleDarkMode(backgroundColor);
 	}
 	
+	public void InitializeTheme()
+	{
+		_toggleDarkMode.ButtonPressed = true;
+		SetThemeColor();
+	}
 }
