@@ -9,13 +9,12 @@ public partial class Main : Control
 {
 	private Control _shop;
 	private Control _skillTree;
-
 	private Inventory Inventory { get; set; }
 	private CurrencySystem CurrencySystem { get; set; }
-
 	private AutoCooks AutoCooks { get; set; }
+	private settings.Settings Settings { get; set; }
 
-	private Settings Settings { get; set; }
+	private ColorRect _backgroundColorRect;
 
 	public override void _Ready()
 	{
@@ -24,8 +23,10 @@ public partial class Main : Control
 		_shop = GetNode<Control>("Shop");
 		Inventory = GetNode<Inventory>("Inventory");
 		AutoCooks = GetNode<AutoCooks>("AutoCooks");
-		Settings = GetNode<Settings>("Settings");
+		Settings = GetNode<settings.Settings>("Settings");
 
+		_backgroundColorRect = GetNode<ColorRect>("BackgroundColorRect");
+		
 		ShowCurrencySystem();
 	}
 
@@ -67,6 +68,11 @@ public partial class Main : Control
 	public void HideSettings()
 	{
 		Settings.Hide();
+	}
+
+	public void ToggleDarkMode(Color backgroundColor)
+	{
+		_backgroundColorRect.Color = backgroundColor;
 	}
 
 private void HideAll()

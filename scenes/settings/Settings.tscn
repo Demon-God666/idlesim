@@ -18,7 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.2647818, 0.2647818, 0.2647818, 1)
+color = Color(0.26666668, 0.26666668, 0.26666668, 1)
 
 [node name="CloseButton" type="Button" parent="." unique_id=2076703167]
 layout_mode = 1
@@ -55,11 +55,13 @@ offset_right = 170.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SettingLabel" type="Label" parent="VBoxContainer/SettingItem/HBoxContainer" unique_id=426614080]
+[node name="DarkModeLabel" type="Label" parent="VBoxContainer/SettingItem/HBoxContainer" unique_id=426614080]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Darkmode"
 
-[node name="CheckButton" type="CheckButton" parent="VBoxContainer/SettingItem/HBoxContainer" unique_id=1666711886]
+[node name="DarkModeButton" type="CheckButton" parent="VBoxContainer/SettingItem/HBoxContainer" unique_id=1666711886]
 layout_mode = 2
 size_flags_horizontal = 3
+button_pressed = true

@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://c37xl3mb30gxt" path="res://scenes/navigation/Navigation.tscn" id="4_gyg6b"]
 [ext_resource type="PackedScene" uid="uid://us8jt5wp4ug6" path="res://scenes/auto-cooks/AutoCooks.tscn" id="6_sjxhf"]
 [ext_resource type="PackedScene" uid="uid://b1g2va78b85bq" path="res://scenes/settings/Settings.tscn" id="8_ko0rf"]
-[ext_resource type="Script" uid="uid://b1p02ywd6yxbp" path="res://scenes/settings/Settings.cs" id="9_ostsq"]
 
 [node name="Main" type="Control" unique_id=658005909]
 layout_mode = 3
@@ -19,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q24mn")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=380353336]
+[node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=380353336]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,8 +45,8 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="Settings" parent="." unique_id=1595021710 instance=ExtResource("8_ko0rf")]
+top_level = true
 layout_mode = 1
-script = ExtResource("9_ostsq")
 
 [editable path="Inventory"]
 [editable path="Inventory/ScrollContainer/GridContainer/InventoryItem"]
