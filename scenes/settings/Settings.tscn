@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://b1g2va78b85bq"]
+
+[ext_resource type="Script" uid="uid://b1p02ywd6yxbp" path="res://scenes/settings/Settings.cs" id="1_jn3rj"]
+
+[node name="Settings" type="Control" unique_id=1595021710]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jn3rj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1668526907]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2647818, 0.2647818, 0.2647818, 1)
+
+[node name="CloseButton" type="Button" parent="." unique_id=2076703167]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -52.0
+offset_bottom = 31.0
+grow_horizontal = 0
+offset_transform_enabled = true
+text = "x"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=273693710]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -336.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingItem" type="Control" parent="VBoxContainer" unique_id=1393950790]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/SettingItem" unique_id=1851591902]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 170.0
+offset_right = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingLabel" type="Label" parent="VBoxContainer/SettingItem/HBoxContainer" unique_id=426614080]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Darkmode"
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/SettingItem/HBoxContainer" unique_id=1666711886]
+layout_mode = 2
+size_flags_horizontal = 3

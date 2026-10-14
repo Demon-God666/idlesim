@@ -54,3 +54,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 text = "Auto Cook"
 metadata/_edit_use_anchors_ = true
+
+[node name="SettingsButton" type="Button" parent="HBoxContainer" unique_id=1680905091]
+layout_mode = 2
+text = "Settings"

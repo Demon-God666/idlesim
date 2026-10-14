@@ -15,6 +15,8 @@ public partial class Main : Control
 
 	private AutoCooks AutoCooks { get; set; }
 
+	private Settings Settings { get; set; }
+
 	public override void _Ready()
 	{
 		CurrencySystem = GetNode<CurrencySystem>("CurrencySystem");
@@ -22,6 +24,7 @@ public partial class Main : Control
 		_shop = GetNode<Control>("Shop");
 		Inventory = GetNode<Inventory>("Inventory");
 		AutoCooks = GetNode<AutoCooks>("AutoCooks");
+		Settings = GetNode<Settings>("Settings");
 
 		ShowCurrencySystem();
 	}
@@ -56,12 +59,23 @@ public partial class Main : Control
 		AutoCooks.Show();
 	}
 
-	private void HideAll()
+	public void ShowSettings()
+	{
+		Settings.Show();
+	}
+
+	public void HideSettings()
+	{
+		Settings.Hide();
+	}
+
+private void HideAll()
 	{
 		CurrencySystem.Hide();
 		_skillTree.Hide();
 		_shop.Hide();
 		Inventory.Hide();
 		AutoCooks.Hide();
+		Settings.Hide();
 	}
 }

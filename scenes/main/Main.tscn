@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bji4tvxkn4cxe" path="res://scenes/shop/Shop.tscn" id="4_dc040"]
 [ext_resource type="PackedScene" uid="uid://c37xl3mb30gxt" path="res://scenes/navigation/Navigation.tscn" id="4_gyg6b"]
 [ext_resource type="PackedScene" uid="uid://us8jt5wp4ug6" path="res://scenes/auto-cooks/AutoCooks.tscn" id="6_sjxhf"]
+[ext_resource type="PackedScene" uid="uid://b1g2va78b85bq" path="res://scenes/settings/Settings.tscn" id="8_ko0rf"]
+[ext_resource type="Script" uid="uid://b1p02ywd6yxbp" path="res://scenes/settings/Settings.cs" id="9_ostsq"]
 
 [node name="Main" type="Control" unique_id=658005909]
 layout_mode = 3
@@ -43,7 +45,12 @@ layout_mode = 1
 [node name="Navigation" parent="." unique_id=61163014 instance=ExtResource("4_gyg6b")]
 layout_mode = 1
 
+[node name="Settings" parent="." unique_id=1595021710 instance=ExtResource("8_ko0rf")]
+layout_mode = 1
+script = ExtResource("9_ostsq")
+
 [editable path="Inventory"]
+[editable path="Inventory/ScrollContainer/GridContainer/InventoryItem"]
 [editable path="SkillTree"]
 [editable path="CurrencySystem"]
 [editable path="Shop"]
@@ -54,3 +61,4 @@ layout_mode = 1
 [editable path="AutoCooks/AutoCookItemContainer/AutoCookItem4"]
 [editable path="AutoCooks/AutoCookItemContainer/AutoCookItem5"]
 [editable path="Navigation"]
+[editable path="Settings"]
