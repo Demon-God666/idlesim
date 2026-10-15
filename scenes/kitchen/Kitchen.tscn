@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dmoorbvgd5r37"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7e2p1"]
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7e2p1"]
+albedo_color = Color(0.4149491, 0.4149491, 0.4149491, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_07ot1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7gnm0"]
+size = Vector3(2, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yecpc"]
+size = Vector3(2, 1, 2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nxeht"]
+height = 0.8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7gnm0"]
+height = 0.8
+
+[node name="Kitchen" type="Node3D" unique_id=328623890]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=131463659]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1894610075]
+mesh = SubResource("PlaneMesh_7e2p1")
+surface_material_override/0 = SubResource("StandardMaterial3D_7e2p1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=156790715]
+shape = SubResource("WorldBoundaryShape3D_07ot1")
+
+[node name="Table" type="StaticBody3D" parent="." unique_id=1109643450]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Table" unique_id=1601445258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_7gnm0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table" unique_id=1730243050]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_yecpc")
+
+[node name="Chair" type="StaticBody3D" parent="." unique_id=882141018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.15600002, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Chair" unique_id=201490526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24399996, 0)
+mesh = SubResource("CylinderMesh_nxeht")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chair" unique_id=1244730380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24399996, 0)
+shape = SubResource("CylinderShape3D_7gnm0")
+
+[node name="TemplateStaticBody3D" type="StaticBody3D" parent="." unique_id=1740871975]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TemplateStaticBody3D" unique_id=604753339]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TemplateStaticBody3D" unique_id=1171418140]

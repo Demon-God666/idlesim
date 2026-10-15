@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cxssqhp8xvokw" path="res://scenes/main/Main.cs" id="1_q24mn"]
 [ext_resource type="PackedScene" uid="uid://biwpkgyydxv6r" path="res://scenes/inventory/Inventory.tscn" id="2_1rhdn"]
 [ext_resource type="PackedScene" uid="uid://c7tfjcqom4dw6" path="res://scenes/currency-system/CurrencySystem.tscn" id="2_gyg6b"]
+[ext_resource type="PackedScene" uid="uid://dmoorbvgd5r37" path="res://scenes/kitchen/Kitchen.tscn" id="2_ostsq"]
 [ext_resource type="PackedScene" uid="uid://fd2m0cml4vwx" path="res://scenes/skill-tree/SkillTree.tscn" id="3_dc040"]
 [ext_resource type="PackedScene" uid="uid://bji4tvxkn4cxe" path="res://scenes/shop/Shop.tscn" id="4_dc040"]
 [ext_resource type="PackedScene" uid="uid://c37xl3mb30gxt" path="res://scenes/navigation/Navigation.tscn" id="4_gyg6b"]
@@ -25,6 +26,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1567035230]
+
+[node name="Kitchen" parent="SubViewport" unique_id=328623890 instance=ExtResource("2_ostsq")]
 
 [node name="Inventory" parent="." unique_id=1310039838 instance=ExtResource("2_1rhdn")]
 layout_mode = 1
