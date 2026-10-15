@@ -22,11 +22,11 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
-offset_top = 60.0
 offset_bottom = -10.0
 theme_override_constants/scrollbar_h_separation = 10
 
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer" unique_id=1563676152]
+show_behind_parent = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

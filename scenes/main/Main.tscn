@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d4fs0qf04gbxs"]
 
+[ext_resource type="Theme" uid="uid://bf84e278hhslv" path="res://scenes/main/LightTheme.tres" id="1_3km4f"]
 [ext_resource type="Script" uid="uid://cxssqhp8xvokw" path="res://scenes/main/Main.cs" id="1_q24mn"]
 [ext_resource type="PackedScene" uid="uid://biwpkgyydxv6r" path="res://scenes/inventory/Inventory.tscn" id="2_1rhdn"]
 [ext_resource type="Script" uid="uid://bcx6hj7fehym6" path="res://scenes/navigation/NavigationLabel.cs" id="2_3km4f"]
@@ -17,15 +18,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_3km4f")
 script = ExtResource("1_q24mn")
-
-[node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=380353336]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="NavigationLabels" type="Control" parent="." unique_id=127516998]
 layout_mode = 1
@@ -57,10 +51,11 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_alignment = 2
-current_tab = 0
+current_tab = 5
 switch_on_drag_hover = false
 
 [node name="Kitchen" parent="TabContainer" unique_id=145453569 instance=ExtResource("2_ostsq")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -88,7 +83,6 @@ metadata/_tab_index = 4
 visible = false
 
 [node name="AutoCooks" parent="TabContainer" unique_id=1225239424 instance=ExtResource("6_sjxhf")]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 5
 

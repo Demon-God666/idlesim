@@ -6,28 +6,27 @@ namespace IdleSim.scenes.settings;
 public partial class Settings : Control
 {
 	private Main _main;
-	
 	private CheckButton _toggleDarkMode;
 
 	public override void _Ready()
 	{
 		_main = GetTree().Root.GetNode<Main>("Main");
-		_toggleDarkMode = GetNode<CheckButton>("VBoxContainer/SettingItem/HBoxContainer/DarkModeButton");
-		_toggleDarkMode.Pressed += SetThemeColor;
+		_toggleDarkMode = GetNode<CheckButton>(
+			"VBoxContainer/SettingItem/HBoxContainer/DarkModeButton");
+
+		_toggleDarkMode.Toggled += SetThemeColor;
+
+		_toggleDarkMode.ButtonPressed = true;
+		SetThemeColor(true);
 	}
 
-	private void SetThemeColor()
+	private void SetThemeColor(bool isPressed)
 	{
-		var backgroundColor = _toggleDarkMode.ButtonPressed
-			? new Color(0.267f, 0.267f, 0.267f)
-			: Colors.White;
-		
-		_main.ToggleDarkMode(backgroundColor);
+		_main.ToggleDarkMode(isPressed);
 	}
 	
 	public void InitializeTheme()
 	{
-		_toggleDarkMode.ButtonPressed = true;
-		SetThemeColor();
+		SetThemeColor(true);
 	}
 }
