@@ -24,8 +24,8 @@ public partial class ShopItem : Control
 
 	public override void _Ready()
 	{
-		_currencySystem = GetTree().Root.GetNode<CurrencySystem>("Main/CurrencySystem");
-		_inventory = GetTree().Root.GetNode<Inventory>("Main/Inventory");
+		_currencySystem = GetTree().Root.GetNode<CurrencySystem>("Main/TabContainer/CurrencySystem");
+		_inventory = GetTree().Root.GetNode<Inventory>("Main/TabContainer/Inventory");
 
 		_addButton = GetNode<Button>("VBoxContainer/ButtonContainer/ButtonContainerAmount/ButtonAdd");
 		_removeButton = GetNode<Button>("VBoxContainer/ButtonContainer/ButtonContainerAmount/ButtonRemove");

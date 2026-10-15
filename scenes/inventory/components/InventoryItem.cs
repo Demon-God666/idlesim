@@ -31,7 +31,7 @@ public partial class InventoryItem : Control
 
 	public override void _Ready()
 	{
-		_inventory = GetTree().GetRoot().GetNode<Inventory>("Main/Inventory");
+		_inventory = GetTree().GetRoot().GetNode<Inventory>("Main/TabContainer/Inventory");
 
 		_productName = GetNode<Label>("VBoxContainer/ProductNameLabel");
 		_inventoryImage = GetNode<TextureRect>("VBoxContainer/AspectRatioContainer/InventoryImage");

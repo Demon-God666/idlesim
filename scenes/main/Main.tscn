@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cxssqhp8xvokw" path="res://scenes/main/Main.cs" id="1_q24mn"]
 [ext_resource type="PackedScene" uid="uid://biwpkgyydxv6r" path="res://scenes/inventory/Inventory.tscn" id="2_1rhdn"]
+[ext_resource type="Script" uid="uid://bcx6hj7fehym6" path="res://scenes/navigation/NavigationLabel.cs" id="2_3km4f"]
 [ext_resource type="PackedScene" uid="uid://c7tfjcqom4dw6" path="res://scenes/currency-system/CurrencySystem.tscn" id="2_gyg6b"]
 [ext_resource type="PackedScene" uid="uid://dmoorbvgd5r37" path="res://scenes/kitchen/Kitchen.tscn" id="2_ostsq"]
 [ext_resource type="PackedScene" uid="uid://fd2m0cml4vwx" path="res://scenes/skill-tree/SkillTree.tscn" id="3_dc040"]
 [ext_resource type="PackedScene" uid="uid://bji4tvxkn4cxe" path="res://scenes/shop/Shop.tscn" id="4_dc040"]
-[ext_resource type="PackedScene" uid="uid://c37xl3mb30gxt" path="res://scenes/navigation/Navigation.tscn" id="4_gyg6b"]
 [ext_resource type="PackedScene" uid="uid://us8jt5wp4ug6" path="res://scenes/auto-cooks/AutoCooks.tscn" id="6_sjxhf"]
 [ext_resource type="PackedScene" uid="uid://b1g2va78b85bq" path="res://scenes/settings/Settings.tscn" id="8_ko0rf"]
 
@@ -27,42 +27,85 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=1567035230]
-
-[node name="Kitchen" parent="SubViewport" unique_id=328623890 instance=ExtResource("2_ostsq")]
-
-[node name="Inventory" parent="." unique_id=1310039838 instance=ExtResource("2_1rhdn")]
+[node name="NavigationLabels" type="Control" parent="." unique_id=127516998]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_3km4f")
 
-[node name="SkillTree" parent="." unique_id=1749117477 instance=ExtResource("3_dc040")]
+[node name="HBoxContainer" type="HBoxContainer" parent="NavigationLabels" unique_id=566991979]
+custom_maximum_size = Vector2(488, -1)
 layout_mode = 1
+offset_right = 488.0
+offset_bottom = 31.0
+alignment = 2
 
-[node name="CurrencySystem" parent="." unique_id=1295007714 instance=ExtResource("2_gyg6b")]
+[node name="MoneyLabel" type="Label" parent="NavigationLabels/HBoxContainer" unique_id=204500863]
+layout_mode = 2
+text = "Money:"
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=820439836]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tab_alignment = 2
+current_tab = 0
+switch_on_drag_hover = false
 
-[node name="Shop" parent="." unique_id=1308284145 instance=ExtResource("4_dc040")]
-layout_mode = 1
+[node name="Kitchen" parent="TabContainer" unique_id=145453569 instance=ExtResource("2_ostsq")]
+layout_mode = 2
+metadata/_tab_index = 0
 
-[node name="AutoCooks" parent="." unique_id=1225239424 instance=ExtResource("6_sjxhf")]
-layout_mode = 1
+[node name="Inventory" parent="TabContainer" unique_id=1310039838 instance=ExtResource("2_1rhdn")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
 
-[node name="Navigation" parent="." unique_id=61163014 instance=ExtResource("4_gyg6b")]
-layout_mode = 1
+[node name="SkillTree" parent="TabContainer" unique_id=1749117477 instance=ExtResource("3_dc040")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
 
-[node name="Settings" parent="." unique_id=1595021710 instance=ExtResource("8_ko0rf")]
-top_level = true
-layout_mode = 1
+[node name="CurrencySystem" parent="TabContainer" unique_id=1295007714 instance=ExtResource("2_gyg6b")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
 
-[editable path="Inventory"]
-[editable path="Inventory/ScrollContainer/GridContainer/InventoryItem"]
-[editable path="SkillTree"]
-[editable path="CurrencySystem"]
-[editable path="Shop"]
-[editable path="AutoCooks"]
-[editable path="AutoCooks/AutoCookItemContainer/AutoCookItem"]
-[editable path="AutoCooks/AutoCookItemContainer/AutoCookItem2"]
-[editable path="AutoCooks/AutoCookItemContainer/AutoCookItem3"]
-[editable path="AutoCooks/AutoCookItemContainer/AutoCookItem4"]
-[editable path="AutoCooks/AutoCookItemContainer/AutoCookItem5"]
-[editable path="Navigation"]
-[editable path="Settings"]
+[node name="Shop" parent="TabContainer" unique_id=1308284145 instance=ExtResource("4_dc040")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="HBoxContainer" parent="TabContainer/Shop/PageSwitcher" parent_id_path=PackedInt32Array(1308284145, 1939084611) index="2" unique_id=1923557975]
+visible = false
+
+[node name="AutoCooks" parent="TabContainer" unique_id=1225239424 instance=ExtResource("6_sjxhf")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="Settings" parent="TabContainer" unique_id=1595021710 instance=ExtResource("8_ko0rf")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 6
+
+[editable path="TabContainer/Inventory"]
+[editable path="TabContainer/Inventory/ScrollContainer/GridContainer/InventoryItem"]
+[editable path="TabContainer/SkillTree"]
+[editable path="TabContainer/CurrencySystem"]
+[editable path="TabContainer/Shop"]
+[editable path="TabContainer/AutoCooks"]
+[editable path="TabContainer/AutoCooks/AutoCookItemContainer/AutoCookItem"]
+[editable path="TabContainer/AutoCooks/AutoCookItemContainer/AutoCookItem2"]
+[editable path="TabContainer/AutoCooks/AutoCookItemContainer/AutoCookItem3"]
+[editable path="TabContainer/AutoCooks/AutoCookItemContainer/AutoCookItem4"]
+[editable path="TabContainer/AutoCooks/AutoCookItemContainer/AutoCookItem5"]
+[editable path="TabContainer/Settings"]

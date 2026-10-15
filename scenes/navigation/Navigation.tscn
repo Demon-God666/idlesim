@@ -10,51 +10,13 @@ anchor_right = 1.0
 grow_horizontal = 0
 script = ExtResource("1_2a8o0")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1399133230]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -283.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = 50.0
-grow_horizontal = 0
-theme_override_constants/separation = 10
-
-[node name="MoneyLabel" type="Label" parent="HBoxContainer" unique_id=189397776]
+[node name="MoneyLabel" type="Label" parent="." unique_id=189397776]
 modulate = Color(0, 0, 0, 1)
-layout_mode = 2
+layout_mode = 0
+offset_left = -283.0
+offset_top = 18.0
+offset_right = -226.0
+offset_bottom = 41.0
 text = "Money:"
 horizontal_alignment = 2
 vertical_alignment = 1
-
-[node name="SkillTreeButton" type="Button" parent="HBoxContainer" unique_id=1940161455]
-layout_mode = 2
-text = "Skill Tree"
-metadata/_edit_use_anchors_ = true
-
-[node name="CurrencySystemButton" type="Button" parent="HBoxContainer" unique_id=1947057188]
-layout_mode = 2
-text = "Money"
-metadata/_edit_use_anchors_ = true
-
-[node name="ShopButton" type="Button" parent="HBoxContainer" unique_id=1235084449]
-layout_mode = 2
-text = "Shop"
-metadata/_edit_use_anchors_ = true
-
-[node name="InventoryButton" type="Button" parent="HBoxContainer" unique_id=1687623281]
-layout_mode = 2
-text = "Inventory
-"
-metadata/_edit_use_anchors_ = true
-
-[node name="AutoCookButton" type="Button" parent="HBoxContainer" unique_id=1839942962]
-layout_mode = 2
-text = "Auto Cook"
-metadata/_edit_use_anchors_ = true
-
-[node name="SettingsButton" type="Button" parent="HBoxContainer" unique_id=1680905091]
-layout_mode = 2
-text = "Settings"

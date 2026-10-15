@@ -23,7 +23,7 @@ public partial class AutoCookItem : Control
 
 	public override void _Ready()
 	{
-		_inventory = GetTree().Root.GetNode<Inventory>("Main/Inventory");
+		_inventory = GetTree().Root.GetNode<Inventory>("Main/TabContainer/Inventory");
 
 		_ingredientList = GetNode<Label>("VBoxContainer/IngredientListLabel");
 		_produceItem = GetNode<Label>("VBoxContainer/ProduceItemLabel");
@@ -32,7 +32,7 @@ public partial class AutoCookItem : Control
 
 		_loadingBar = GetNode<LoadingBar>("HBoxContainer/LoadingBar");
 		_cookingButton = GetNode<Button>("HBoxContainer/StartAutoCookButton");
-		_autoCooks = GetTree().Root.GetNode<AutoCooks>("Main/AutoCooks");
+		_autoCooks = GetTree().Root.GetNode<AutoCooks>("Main/TabContainer/AutoCooks");
 
 		_ingredientList.Text = "Ingredients: \n";
 		_produceItem.Text = "Produce: \n";

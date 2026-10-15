@@ -19,7 +19,7 @@ public partial class AutoCooks : Control
 
 	public override void _Ready()
 	{
-		_shop = GetTree().Root.GetNode<Shop>("Main/Shop");
+		_shop = GetTree().Root.GetNode<Shop>("Main/TabContainer/Shop");
 		_autoCookItemContainer = GetNode<GridContainer>("AutoCookItemContainer");
 		_autoCookItemTemplate = GetNode<AutoCookItem>("AutoCookItemTemplate/AutoCookItem");
 

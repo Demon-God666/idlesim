@@ -25,7 +25,7 @@ public partial class Shop : Control
         _gridContainer = GetNode<GridContainer>("ShopCatalog/HBoxContainer/CatalogRect/BoxContainer");
         foreach (var child in _gridContainer.GetChildren()) child.QueueFree();
 
-        _currencySystem = GetTree().Root.GetNode<CurrencySystem>("Main/CurrencySystem");
+        _currencySystem = GetTree().Root.GetNode<CurrencySystem>("Main/TabContainer/CurrencySystem");
         _currencySystem.MoneyUpdated += UpdateMoney;
 
         _money = _currencySystem.GetMoney();
