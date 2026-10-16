@@ -34,12 +34,9 @@ anchor_right = 1.0
 offset_bottom = 24.0
 grow_horizontal = 2
 
-[node name="DarkModeLabel" type="Label" parent="VBoxContainer/SettingItem/HBoxContainer" unique_id=426614080]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Darkmode"
-
 [node name="DarkModeButton" type="CheckButton" parent="VBoxContainer/SettingItem/HBoxContainer" unique_id=1666711886]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/align_to_largest_stylebox = 1
 button_pressed = true
+text = "Darkmode"
