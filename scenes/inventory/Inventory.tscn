@@ -40,10 +40,6 @@ columns = 4
 layout_mode = 2
 script = ExtResource("3_78qb0")
 
-[node name="HBoxContainerAddRemove" parent="ScrollContainer/GridContainer/InventoryItem/VBoxContainer" parent_id_path=PackedInt32Array(863489559, 734698202) index="4" unique_id=119024787]
-propagate_maximum_size = false
-alignment = 1
-
 [node name="InventoryItem2" parent="ScrollContainer/GridContainer" unique_id=205167407 instance=ExtResource("2_vugo4")]
 layout_mode = 2
 script = ExtResource("3_78qb0")
@@ -126,5 +122,3 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Show Inventory"
-
-[editable path="ScrollContainer/GridContainer/InventoryItem"]

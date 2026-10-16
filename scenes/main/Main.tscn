@@ -48,11 +48,14 @@ render_target_update_mode = 0
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="VBoxContainer" parent="TabContainer/Inventory/ScrollContainer/GridContainer/InventoryItem" parent_id_path=PackedInt32Array(1310039838, 863489559) index="1" unique_id=734698202]
-offset_left = -48.5
-offset_top = -12.5
-offset_right = 48.5
-offset_bottom = 12.5
+[node name="InventoryItem" parent="TabContainer/Inventory/ScrollContainer/GridContainer" parent_id_path=PackedInt32Array(1310039838, 1563676152) index="0" unique_id=863489559]
+propagate_maximum_size = false
+
+[node name="VBoxContainer" parent="TabContainer/Inventory/ScrollContainer/GridContainer/InventoryItem" index="1" unique_id=734698202]
+propagate_maximum_size = false
+
+[node name="HBoxContainerButtons" parent="TabContainer/Inventory/ScrollContainer/GridContainer/InventoryItem/VBoxContainer" index="5" unique_id=1196145393]
+size_flags_vertical = 3
 
 [node name="SkillTree" parent="TabContainer" unique_id=1749117477 instance=ExtResource("3_dc040")]
 visible = false
