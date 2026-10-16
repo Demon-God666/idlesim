@@ -47,6 +47,15 @@ render_target_update_mode = 4
 
 [node name="Kitchen" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=328623890]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Kitchen" unique_id=1702504093]
+transform = Transform3D(0.64278764, 0.663414, -0.38302216, 0, 0.4999999, 0.86602545, 0.76604444, -0.5566704, 0.32139376, 0, 8.559995, -1.3299642e-07)
+shadow_enabled = true
+shadow_bias = 3.84
+shadow_blur = 10.0
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Kitchen" unique_id=1955226027]
+transform = Transform3D(1, 0, 0, 0, 0.819128, 0.5736108, 0, -0.5736108, 0.819128, 0, 3.2181084, 6.3356094)
+
 [node name="Floor" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Kitchen" unique_id=131463659]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Kitchen/Floor" unique_id=1894610075]
@@ -83,6 +92,3 @@ visible = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Kitchen/TemplateStaticBody3D" unique_id=604753339]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Kitchen/TemplateStaticBody3D" unique_id=1171418140]
-
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Kitchen" unique_id=1955226027]
-transform = Transform3D(1, 0, 0, 0, 0.819128, 0.5736108, 0, -0.5736108, 0.819128, 0, 3.2181108, 6.3356104)
