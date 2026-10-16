@@ -32,6 +32,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 offset_transform_enabled = true
+theme_override_constants/side_margin = 0
 tab_alignment = 2
 current_tab = 1
 switch_on_drag_hover = false
@@ -47,15 +48,6 @@ render_target_update_mode = 0
 [node name="Inventory" parent="TabContainer" unique_id=1310039838 instance=ExtResource("2_1rhdn")]
 layout_mode = 2
 metadata/_tab_index = 1
-
-[node name="InventoryItem" parent="TabContainer/Inventory/ScrollContainer/GridContainer" parent_id_path=PackedInt32Array(1310039838, 1563676152) index="0" unique_id=863489559]
-propagate_maximum_size = false
-
-[node name="VBoxContainer" parent="TabContainer/Inventory/ScrollContainer/GridContainer/InventoryItem" index="1" unique_id=734698202]
-propagate_maximum_size = false
-
-[node name="HBoxContainerButtons" parent="TabContainer/Inventory/ScrollContainer/GridContainer/InventoryItem/VBoxContainer" index="5" unique_id=1196145393]
-size_flags_vertical = 3
 
 [node name="SkillTree" parent="TabContainer" unique_id=1749117477 instance=ExtResource("3_dc040")]
 visible = false
@@ -95,6 +87,7 @@ grow_vertical = 2
 script = ExtResource("2_3km4f")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NavigationLabels" unique_id=566991979]
+top_level = true
 custom_maximum_size = Vector2(488, -1)
 layout_mode = 1
 offset_right = 488.0

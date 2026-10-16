@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bykqh30l5oxcd" path="res://scenes/inventory/Inventory.cs" id="1_py74r"]
 [ext_resource type="PackedScene" uid="uid://chv3gaxfmhmqu" path="res://scenes/inventory/components/InventoryItem.tscn" id="2_vugo4"]
-[ext_resource type="Script" uid="uid://bc548slv53v6i" path="res://scenes/inventory/components/InventoryItem.cs" id="3_78qb0"]
 
 [node name="Inventory" type="Control" unique_id=1310039838]
-clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,51 +36,40 @@ columns = 4
 
 [node name="InventoryItem" parent="ScrollContainer/GridContainer" unique_id=863489559 instance=ExtResource("2_vugo4")]
 layout_mode = 2
-script = ExtResource("3_78qb0")
 
 [node name="InventoryItem2" parent="ScrollContainer/GridContainer" unique_id=205167407 instance=ExtResource("2_vugo4")]
 layout_mode = 2
-script = ExtResource("3_78qb0")
 
 [node name="InventoryItem3" parent="ScrollContainer/GridContainer" unique_id=313569162 instance=ExtResource("2_vugo4")]
 layout_mode = 2
-script = ExtResource("3_78qb0")
 
 [node name="InventoryItem4" parent="ScrollContainer/GridContainer" unique_id=949231556 instance=ExtResource("2_vugo4")]
 layout_mode = 2
-script = ExtResource("3_78qb0")
 
 [node name="InventoryItem5" parent="ScrollContainer/GridContainer" unique_id=1584042340 instance=ExtResource("2_vugo4")]
+propagate_maximum_size = false
 layout_mode = 2
-script = ExtResource("3_78qb0")
 
 [node name="InventoryItem6" parent="ScrollContainer/GridContainer" unique_id=482700930 instance=ExtResource("2_vugo4")]
 layout_mode = 2
-script = ExtResource("3_78qb0")
 
 [node name="InventoryItem7" parent="ScrollContainer/GridContainer" unique_id=230641593 instance=ExtResource("2_vugo4")]
 layout_mode = 2
-script = ExtResource("3_78qb0")
 
 [node name="InventoryItem8" parent="ScrollContainer/GridContainer" unique_id=323007018 instance=ExtResource("2_vugo4")]
 layout_mode = 2
-script = ExtResource("3_78qb0")
 
 [node name="InventoryItem9" parent="ScrollContainer/GridContainer" unique_id=1535709722 instance=ExtResource("2_vugo4")]
 layout_mode = 2
-script = ExtResource("3_78qb0")
 
 [node name="InventoryItem10" parent="ScrollContainer/GridContainer" unique_id=1778588536 instance=ExtResource("2_vugo4")]
 layout_mode = 2
-script = ExtResource("3_78qb0")
 
 [node name="InventoryItem11" parent="ScrollContainer/GridContainer" unique_id=182085719 instance=ExtResource("2_vugo4")]
 layout_mode = 2
-script = ExtResource("3_78qb0")
 
 [node name="InventoryItem12" parent="ScrollContainer/GridContainer" unique_id=146999714 instance=ExtResource("2_vugo4")]
 layout_mode = 2
-script = ExtResource("3_78qb0")
 
 [node name="Templates" type="Control" parent="." unique_id=230211965]
 visible = false
@@ -106,21 +93,5 @@ offset_right = 275.0
 offset_bottom = 36.0
 grow_horizontal = 1
 grow_vertical = 1
-script = ExtResource("3_78qb0")
-
-[node name="ShowInventoryButton" type="Button" parent="Templates" unique_id=284546072]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.5
-offset_top = -15.5
-offset_right = 64.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Show Inventory"
 
 [editable path="ScrollContainer/GridContainer/InventoryItem"]

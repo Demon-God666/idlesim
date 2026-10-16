@@ -33,26 +33,22 @@ public partial class InventoryItem : Control
 	{
 		_inventory = GetTree().GetRoot().GetNode<Inventory>("Main/TabContainer/Inventory");
 
-		_productName = GetNode<Label>("ColorRect/VBoxContainer/ProductNameLabel");
-		_inventoryImage = GetNode<TextureRect>("ColorRect/VBoxContainer/AspectRatioContainer/InventoryImage");
-		_removeAmount = GetNode<Button>("ColorRect/VBoxContainer/HBoxContainerAddRemove/RemoveAmountButton");
-		_addAmount = GetNode<Button>("ColorRect/VBoxContainer/HBoxContainerAddRemove/AddAmountButton");
+		_productName = GetNode<Label>("VBoxContainer/ProductNameLabel");
+		_inventoryImage = GetNode<TextureRect>("VBoxContainer/AspectRatioContainer/InventoryImage");
+		_removeAmount = GetNode<Button>("VBoxContainer/HBoxContainerAddRemove/RemoveAmountButton");
+		_addAmount = GetNode<Button>("VBoxContainer/HBoxContainerAddRemove/AddAmountButton");
 
-		_multiplierContainer = GetNode<HBoxContainer>("ColorRect/VBoxContainer/HBoxContainerButtons");
+		_multiplierContainer = GetNode<HBoxContainer>("VBoxContainer/HBoxContainerButtons");
 		_multiplierButtonTemplate = GetNode<Button>("Templates/MultiplierButton");
 
-		_sellContainer = GetNode<HBoxContainer>("ColorRect/VBoxContainer/HBoxContainer");
-		_itemAvailable = GetNode<Label>("ColorRect/VBoxContainer/HBoxContainer/ItemAvailableLabel");
-		_itemSellAmount = GetNode<Label>("ColorRect/VBoxContainer/HBoxContainer/ItemAmountLabel");
-		_itemSellPrice = GetNode<Label>("ColorRect/VBoxContainer/HBoxContainer/ItemPriceLabel");
-		_sellButton = GetNode<Button>("ColorRect/VBoxContainer/HBoxContainer/SellButton");
-
+		_sellContainer = GetNode<HBoxContainer>("VBoxContainer/HBoxContainer");
+		_itemAvailable = GetNode<Label>("VBoxContainer/HBoxContainer/ItemAvailableLabel");
+		_itemSellAmount = GetNode<Label>("VBoxContainer/HBoxContainer/ItemAmountLabel");
+		_itemSellPrice = GetNode<Label>("VBoxContainer/HBoxContainer/ItemPriceLabel");
+		_sellButton = GetNode<Button>("VBoxContainer/HBoxContainer/SellButton");
+		
 		LoadMultipliers();
-
-		foreach (var child in _multiplierContainer.GetChildren())
-			if (child is Button button)
-				button.Pressed += () => CalculateProductAmount(button);
-
+		
 		var buttonGroup = new ButtonGroup();
 
 		_addAmount.ToggleMode = true;
@@ -140,14 +136,20 @@ public partial class InventoryItem : Control
 
 	private void LoadMultipliers()
 	{
-		foreach (var buttons in _multiplierContainer.GetChildren()) buttons.QueueFree();
+		foreach (var child in _multiplierContainer.GetChildren())
+			child.QueueFree();
 
 		for (var i = 0; i < _multipliers.Count * 2; i++)
 		{
 			var multiplierIndex = i % _multipliers.Count;
 			var multiplierSuffix = i < _multipliers.Count ? "x" : "0%";
+
 			var newMultiplier = (Button)_multiplierButtonTemplate.Duplicate();
+			newMultiplier.AddThemeFontSizeOverride("font_size", 9);
 			newMultiplier.Text = $"{_multipliers[multiplierIndex]}{multiplierSuffix}";
+
+			newMultiplier.Pressed += () => CalculateProductAmount(newMultiplier);
+
 			_multiplierContainer.AddChild(newMultiplier);
 		}
 	}
