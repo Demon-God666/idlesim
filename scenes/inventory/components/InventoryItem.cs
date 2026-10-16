@@ -33,19 +33,19 @@ public partial class InventoryItem : Control
 	{
 		_inventory = GetTree().GetRoot().GetNode<Inventory>("Main/TabContainer/Inventory");
 
-		_productName = GetNode<Label>("VBoxContainer/ProductNameLabel");
-		_inventoryImage = GetNode<TextureRect>("VBoxContainer/AspectRatioContainer/InventoryImage");
-		_removeAmount = GetNode<Button>("VBoxContainer/HBoxContainerAddRemove/RemoveAmountButton");
-		_addAmount = GetNode<Button>("VBoxContainer/HBoxContainerAddRemove/AddAmountButton");
+		_productName = GetNode<Label>("ColorRect/VBoxContainer/ProductNameLabel");
+		_inventoryImage = GetNode<TextureRect>("ColorRect/VBoxContainer/AspectRatioContainer/InventoryImage");
+		_removeAmount = GetNode<Button>("ColorRect/VBoxContainer/HBoxContainerAddRemove/RemoveAmountButton");
+		_addAmount = GetNode<Button>("ColorRect/VBoxContainer/HBoxContainerAddRemove/AddAmountButton");
 
-		_multiplierContainer = GetNode<HBoxContainer>("VBoxContainer/HBoxContainerButtons");
+		_multiplierContainer = GetNode<HBoxContainer>("ColorRect/VBoxContainer/HBoxContainerButtons");
 		_multiplierButtonTemplate = GetNode<Button>("Templates/MultiplierButton");
 
-		_sellContainer = GetNode<HBoxContainer>("VBoxContainer/HBoxContainer");
-		_itemAvailable = GetNode<Label>("VBoxContainer/HBoxContainer/ItemAvailableLabel");
-		_itemSellAmount = GetNode<Label>("VBoxContainer/HBoxContainer/ItemAmountLabel");
-		_itemSellPrice = GetNode<Label>("VBoxContainer/HBoxContainer/ItemPriceLabel");
-		_sellButton = GetNode<Button>("VBoxContainer/HBoxContainer/SellButton");
+		_sellContainer = GetNode<HBoxContainer>("ColorRect/VBoxContainer/HBoxContainer");
+		_itemAvailable = GetNode<Label>("ColorRect/VBoxContainer/HBoxContainer/ItemAvailableLabel");
+		_itemSellAmount = GetNode<Label>("ColorRect/VBoxContainer/HBoxContainer/ItemAmountLabel");
+		_itemSellPrice = GetNode<Label>("ColorRect/VBoxContainer/HBoxContainer/ItemPriceLabel");
+		_sellButton = GetNode<Button>("ColorRect/VBoxContainer/HBoxContainer/SellButton");
 
 		LoadMultipliers();
 

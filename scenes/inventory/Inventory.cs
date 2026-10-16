@@ -23,6 +23,8 @@ public partial class Inventory : Control
         
         EmitSignal(SignalName.InventoryUpdated);
         InventoryUpdated += UpdateInventory;
+        
+        UpdateInventory();
     }
 
     private void UpdateInventory()
