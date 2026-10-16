@@ -17,15 +17,18 @@ corner_radius_bottom_left = 5
 
 [node name="InventoryItem" type="Control" unique_id=863489559]
 custom_minimum_size = Vector2(0, 300)
-custom_maximum_size = Vector2(-1, 300)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 174.0
+offset_right = -884.0
+offset_bottom = -174.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+offset_transform_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=799295025]
 layout_mode = 1
@@ -37,12 +40,17 @@ grow_vertical = 2
 color = Color(0.58148444, 0.76655674, 0.9058925, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=734698202]
+custom_maximum_size = Vector2(268, 300)
+propagate_maximum_size = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.9, 0.9)
+alignment = 1
 
 [node name="ProductNameLabel" type="Label" parent="VBoxContainer" unique_id=1568921288]
 layout_mode = 2
@@ -92,7 +100,9 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_83w4y")
 text = "+"
 
 [node name="HBoxContainerButtons" type="HBoxContainer" parent="VBoxContainer" unique_id=1196145393]
+propagate_maximum_size = false
 layout_mode = 2
+offset_transform_enabled = true
 alignment = 1
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainerButtons" unique_id=1501896111]

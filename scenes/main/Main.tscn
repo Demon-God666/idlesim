@@ -21,27 +21,8 @@ grow_vertical = 2
 theme = ExtResource("1_3km4f")
 script = ExtResource("1_q24mn")
 
-[node name="NavigationLabels" type="Control" parent="." unique_id=127516998]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_3km4f")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="NavigationLabels" unique_id=566991979]
-custom_maximum_size = Vector2(488, -1)
-layout_mode = 1
-offset_right = 488.0
-offset_bottom = 31.0
-alignment = 2
-
-[node name="MoneyLabel" type="Label" parent="NavigationLabels/HBoxContainer" unique_id=204500863]
-layout_mode = 2
-text = "Money:"
-
 [node name="TabContainer" type="TabContainer" parent="." unique_id=820439836]
+top_level = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,8 +31,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+offset_transform_enabled = true
 tab_alignment = 2
-current_tab = 5
+current_tab = 1
 switch_on_drag_hover = false
 
 [node name="Kitchen" parent="TabContainer" unique_id=145453569 instance=ExtResource("2_ostsq")]
@@ -59,10 +41,18 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
+[node name="SubViewport" parent="TabContainer/Kitchen/SubViewportContainer" parent_id_path=PackedInt32Array(145453569, 1607254712) index="0" unique_id=67111897]
+render_target_update_mode = 0
+
 [node name="Inventory" parent="TabContainer" unique_id=1310039838 instance=ExtResource("2_1rhdn")]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
+
+[node name="VBoxContainer" parent="TabContainer/Inventory/ScrollContainer/GridContainer/InventoryItem" parent_id_path=PackedInt32Array(1310039838, 863489559) index="1" unique_id=734698202]
+offset_left = -48.5
+offset_top = -12.5
+offset_right = 48.5
+offset_bottom = 12.5
 
 [node name="SkillTree" parent="TabContainer" unique_id=1749117477 instance=ExtResource("3_dc040")]
 visible = false
@@ -83,6 +73,7 @@ metadata/_tab_index = 4
 visible = false
 
 [node name="AutoCooks" parent="TabContainer" unique_id=1225239424 instance=ExtResource("6_sjxhf")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 5
 
@@ -91,6 +82,27 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 6
 
+[node name="NavigationLabels" type="Control" parent="." unique_id=127516998]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_3km4f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NavigationLabels" unique_id=566991979]
+custom_maximum_size = Vector2(488, -1)
+layout_mode = 1
+offset_right = 488.0
+offset_bottom = 31.0
+alignment = 2
+
+[node name="MoneyLabel" type="Label" parent="NavigationLabels/HBoxContainer" unique_id=204500863]
+layout_mode = 2
+text = "Money:"
+
+[editable path="TabContainer/Kitchen"]
 [editable path="TabContainer/Inventory"]
 [editable path="TabContainer/Inventory/ScrollContainer/GridContainer/InventoryItem"]
 [editable path="TabContainer/SkillTree"]

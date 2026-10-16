@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bc548slv53v6i" path="res://scenes/inventory/components/InventoryItem.cs" id="3_78qb0"]
 
 [node name="Inventory" type="Control" unique_id=1310039838]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,9 +25,10 @@ anchor_bottom = 1.0
 offset_left = 10.0
 offset_bottom = -10.0
 theme_override_constants/scrollbar_h_separation = 10
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer" unique_id=1563676152]
-show_behind_parent = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -37,6 +39,10 @@ columns = 4
 [node name="InventoryItem" parent="ScrollContainer/GridContainer" unique_id=863489559 instance=ExtResource("2_vugo4")]
 layout_mode = 2
 script = ExtResource("3_78qb0")
+
+[node name="HBoxContainerAddRemove" parent="ScrollContainer/GridContainer/InventoryItem/VBoxContainer" parent_id_path=PackedInt32Array(863489559, 734698202) index="4" unique_id=119024787]
+propagate_maximum_size = false
+alignment = 1
 
 [node name="InventoryItem2" parent="ScrollContainer/GridContainer" unique_id=205167407 instance=ExtResource("2_vugo4")]
 layout_mode = 2

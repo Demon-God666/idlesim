@@ -23,19 +23,26 @@ height = 0.8
 height = 0.8
 
 [node name="Kitchen" type="Control" unique_id=145453569]
+clip_contents = true
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_7gnm0")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1607254712]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=67111897]
 handle_input_locally = false
+size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Kitchen" type="Node3D" parent="SubViewportContainer/SubViewport" unique_id=328623890]
@@ -76,3 +83,6 @@ visible = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Kitchen/TemplateStaticBody3D" unique_id=604753339]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Kitchen/TemplateStaticBody3D" unique_id=1171418140]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Kitchen" unique_id=1955226027]
+transform = Transform3D(1, 0, 0, 0, 0.819128, 0.5736108, 0, -0.5736108, 0.819128, 0, 3.2181108, 6.3356104)
