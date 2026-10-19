@@ -6,47 +6,94 @@ public partial class SkillTree : Control
 {
 	private bool _dragging;
 	private Vector2 _lastMousePosition;
+	private Vector2 _panOffset;
 
-	private ScrollContainer _scrollContainer;
+	private Control _skillTreeContainer;
+
 	public int SkillPoints { get; private set; } = 5;
+
+	private const float ZoomStep = 1.1f;
+	private const float MinZoom = 0.5f;
+	private const float MaxZoom = 2.0f;
+
+	private float _zoom = 1.0f;
 
 	public override void _Ready()
 	{
-		_scrollContainer = GetNode<ScrollContainer>("ScrollContainer");
-		CallDeferred(MethodName.CenterSkillTree);
+		_skillTreeContainer = GetNode<Control>("SkillTreeContainer");
+
+		_panOffset = (Size / 2) - new Vector2(2000, 2000);
+		UpdateCanvas();
 	}
 
 	public override void _Input(InputEvent @event)
 	{
-		
-		if (@event is InputEventMouseButton
-				{ ButtonIndex: MouseButton.Middle or MouseButton.Right } mouseButton)
+		if (@event is InputEventMouseButton mouseButton)
 		{
-			_dragging = mouseButton.Pressed;
-			_lastMousePosition = GetGlobalMousePosition();
+			if (mouseButton.ButtonIndex is MouseButton.WheelUp or MouseButton.WheelDown)
+			{
+				if (!GetGlobalRect().HasPoint(GetGlobalMousePosition()))
+					return;
+
+				GetViewport().SetInputAsHandled();
+
+				if (mouseButton.Pressed)
+				{
+					Zoom(mouseButton.ButtonIndex == MouseButton.WheelUp
+						? ZoomStep
+						: 1f / ZoomStep);
+				}
+
+				return;
+			}
+
+			if (mouseButton.ButtonIndex is MouseButton.Middle or MouseButton.Right)
+			{
+				_dragging = mouseButton.Pressed;
+				_lastMousePosition = GetGlobalMousePosition();
+
+				GetViewport().SetInputAsHandled();
+			}
 		}
 
-		if (@event is not InputEventMouseMotion || !_dragging) return;
+		if (@event is InputEventMouseMotion && _dragging)
+		{
+			var mousePosition = GetGlobalMousePosition();
+			_panOffset += mousePosition - _lastMousePosition;
+			_lastMousePosition = mousePosition;
 
+			UpdateCanvas();
+			GetViewport().SetInputAsHandled();
+		}
+	}
+
+	private void Zoom(float factor)
+	{
 		var mousePosition = GetGlobalMousePosition();
-		var movement = mousePosition - _lastMousePosition;
+		var oldZoom = _zoom;
 
-		_scrollContainer.ScrollHorizontal -= (int)movement.X;
-		_scrollContainer.ScrollVertical -= (int)movement.Y;
+		_zoom = Mathf.Clamp(_zoom * factor, MinZoom, MaxZoom);
 
-		_lastMousePosition = mousePosition;
+		if (Mathf.IsEqualApprox(oldZoom, _zoom))
+			return;
+
+		var mouseInCanvas = (mousePosition - _panOffset) / oldZoom;
+		_panOffset = mousePosition - mouseInCanvas * _zoom;
+
+		UpdateCanvas();
+	}
+
+	private void UpdateCanvas()
+	{
+		_skillTreeContainer.Position = _panOffset;
+		_skillTreeContainer.Scale = Vector2.One * _zoom;
 	}
 
 	public void SpendSkillPoints(int amount)
 	{
-		if (SkillPoints < amount) return;
+		if (SkillPoints < amount)
+			return;
 
 		SkillPoints -= amount;
-	}
-
-	private void CenterSkillTree()
-	{
-		_scrollContainer.ScrollHorizontal = 2000 - (int)(_scrollContainer.Size.X / 2);
-		_scrollContainer.ScrollVertical = 2000 - (int)(_scrollContainer.Size.Y / 2);
 	}
 }
