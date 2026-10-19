@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bpwj1a3g28sey" path="res://scenes/skill-tree/SkillTree.cs" id="1_jfxr7"]
 [ext_resource type="Script" uid="uid://xilgetaae20r" path="res://scenes/skill-tree/components/SkillTreeScroll.cs" id="1_sntgx"]
 [ext_resource type="Script" uid="uid://drmci42cpebax" path="res://scenes/skill-tree/components/Connections.cs" id="2_ib7fn"]
-[ext_resource type="PackedScene" uid="uid://wokk0s7f4ikw" path="res://scenes/skill-tree/components/SkillButton.tscn" id="4_c1xl7"]
+[ext_resource type="PackedScene" uid="uid://wokk0s7f4ikw" path="res://scenes/skill-tree/components/SkillButtonItem.tscn" id="4_c1xl7"]
 [ext_resource type="PackedScene" uid="uid://rkhlchs5fnqa" path="res://scenes/skill-tree/components/SkillBuy.tscn" id="4_sntgx"]
 
 [node name="SkillTree" type="Control" unique_id=1749117477]
@@ -37,78 +37,72 @@ offset_transform_enabled = true
 visible = false
 script = ExtResource("2_ib7fn")
 
-[node name="SkillButton" parent="SkillTreeScroll/SkillTreeContainer" unique_id=1070685481 instance=ExtResource("4_c1xl7")]
+[node name="SkillButtonItem" parent="SkillTreeScroll/SkillTreeContainer" unique_id=1070685481 instance=ExtResource("4_c1xl7")]
 layout_mode = 1
-text = "MIDDLE"
-script = null
 
-[node name="SkillButton2" parent="SkillTreeScroll/SkillTreeContainer" unique_id=1257008910 instance=ExtResource("4_c1xl7")]
+[node name="SkillButtonItem2" parent="SkillTreeScroll/SkillTreeContainer" unique_id=1257008910 instance=ExtResource("4_c1xl7")]
 layout_mode = 1
 anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
 offset_right = 100.0
 offset_bottom = 100.0
 grow_horizontal = 1
 grow_vertical = 1
-script = null
 
-[node name="SkillButton3" parent="SkillTreeScroll/SkillTreeContainer" unique_id=1815284228 instance=ExtResource("4_c1xl7")]
+[node name="SkillButtonItem3" parent="SkillTreeScroll/SkillTreeContainer" unique_id=1815284228 instance=ExtResource("4_c1xl7")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 0.0
-anchor_right = 1.0
 anchor_bottom = 0.0
 offset_left = -100.0
-offset_top = 0.0
-offset_right = 0.0
 offset_bottom = 100.0
 grow_horizontal = 0
 grow_vertical = 1
-script = null
 
-[node name="SkillButton4" parent="SkillTreeScroll/SkillTreeContainer" unique_id=166499673 instance=ExtResource("4_c1xl7")]
+[node name="SkillButtonItem4" parent="SkillTreeScroll/SkillTreeContainer" unique_id=166499673 instance=ExtResource("4_c1xl7")]
 layout_mode = 1
 anchors_preset = 2
-anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 0.0
-anchor_bottom = 1.0
-offset_left = 0.0
 offset_top = -100.0
 offset_right = 100.0
-offset_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 0
-script = null
 
-[node name="SkillButton5" parent="SkillTreeScroll/SkillTreeContainer" unique_id=1440404851 instance=ExtResource("4_c1xl7")]
+[node name="SkillButtonItem5" parent="SkillTreeScroll/SkillTreeContainer" unique_id=1440404851 instance=ExtResource("4_c1xl7")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
 offset_left = -100.0
 offset_top = -100.0
-offset_right = 0.0
-offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
-script = null
 
-[node name="SkillButton6" parent="SkillTreeScroll/SkillTreeContainer" unique_id=74489736 instance=ExtResource("4_c1xl7")]
+[node name="SkillButtonItem6" parent="SkillTreeScroll/SkillTreeContainer" unique_id=74489736 instance=ExtResource("4_c1xl7")]
 layout_mode = 1
 offset_left = -1352.0
 offset_top = -557.0
 offset_right = -1252.0
 offset_bottom = -457.0
-script = null
 
-[node name="SkillBuy" parent="." unique_id=1190539766 instance=ExtResource("4_sntgx")]
+[node name="SkillBuy" parent="SkillTreeScroll" unique_id=1190539766 instance=ExtResource("4_sntgx")]
 layout_mode = 1
+
+[node name="Templates" type="Control" parent="SkillTreeScroll" unique_id=1536515348]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SkillBuyTemplate" parent="SkillTreeScroll/Templates" unique_id=338361752 instance=ExtResource("4_sntgx")]
+layout_mode = 1
+offset_bottom = 467.0
+
+[node name="SkillButtonItemTemplate" parent="SkillTreeScroll/Templates" unique_id=979185972 instance=ExtResource("4_c1xl7")]
+layout_mode = 1
+offset_left = 1930.0
+offset_top = 1930.0
+offset_right = 2030.0
+offset_bottom = 2030.0
