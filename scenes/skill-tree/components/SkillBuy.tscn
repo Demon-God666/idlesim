@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://rkhlchs5fnqa"]
+
+[ext_resource type="Texture2D" uid="uid://ckofnxwl7htbo" path="res://icon.svg" id="1_3vk8u"]
+
+[node name="SkillBuy" type="Control" unique_id=1190539766]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 507.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=825033117]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+color = Color(0.16470589, 0.48235294, 1, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1725454851]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.1
+anchor_right = 0.99
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1475593898]
+layout_mode = 2
+texture = ExtResource("1_3vk8u")
+
+[node name="DescriptionLabel" type="Label" parent="HBoxContainer" unique_id=24999648]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "CoolSkill
+
+Miauw"
+
+[node name="PriceContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1296971642]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="PriceLabel" type="Label" parent="HBoxContainer/PriceContainer" unique_id=588405375]
+layout_mode = 2
+text = "Cost: 2 SP"
+
+[node name="LevelLabel" type="Label" parent="HBoxContainer/PriceContainer" unique_id=1719741940]
+layout_mode = 2
+text = "Level: 0/3"

@@ -34,48 +34,56 @@ size_flags_vertical = 3
 offset_transform_enabled = true
 theme_override_constants/side_margin = 0
 tab_alignment = 2
-current_tab = 3
+current_tab = 1
 switch_on_drag_hover = false
-
-[node name="Kitchen" parent="TabContainer" unique_id=145453569 instance=ExtResource("2_ostsq")]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="SubViewport" parent="TabContainer/Kitchen/SubViewportContainer" parent_id_path=PackedInt32Array(145453569, 1607254712) index="0" unique_id=67111897]
-render_target_update_mode = 0
 
 [node name="Inventory" parent="TabContainer" unique_id=1310039838 instance=ExtResource("2_1rhdn")]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 1
+metadata/_tab_index = 0
 
 [node name="SkillTree" parent="TabContainer" unique_id=1749117477 instance=ExtResource("3_dc040")]
+clip_contents = true
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="SkillBuy" parent="TabContainer/SkillTree" index="1" unique_id=1190539766]
+offset_top = 454.0
+
+[node name="CurrencySystem" parent="TabContainer" unique_id=1295007714 instance=ExtResource("2_gyg6b")]
 visible = false
+clip_contents = true
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="CurrencySystem" parent="TabContainer" unique_id=1295007714 instance=ExtResource("2_gyg6b")]
-layout_mode = 2
-metadata/_tab_index = 3
-
 [node name="Shop" parent="TabContainer" unique_id=1308284145 instance=ExtResource("4_dc040")]
 visible = false
+clip_contents = true
 layout_mode = 2
-metadata/_tab_index = 4
+metadata/_tab_index = 3
 
 [node name="HBoxContainer" parent="TabContainer/Shop/PageSwitcher" parent_id_path=PackedInt32Array(1308284145, 1939084611) index="2" unique_id=1923557975]
 visible = false
 
 [node name="AutoCooks" parent="TabContainer" unique_id=1225239424 instance=ExtResource("6_sjxhf")]
 visible = false
+clip_contents = true
 layout_mode = 2
-metadata/_tab_index = 5
+metadata/_tab_index = 4
 
 [node name="Settings" parent="TabContainer" unique_id=1595021710 instance=ExtResource("8_ko0rf")]
 visible = false
+clip_contents = true
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="Kitchen" parent="TabContainer" unique_id=145453569 instance=ExtResource("2_ostsq")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 6
+
+[node name="SubViewport" parent="TabContainer/Kitchen/SubViewportContainer" parent_id_path=PackedInt32Array(145453569, 1607254712) index="0" unique_id=67111897]
+render_target_update_mode = 0
 
 [node name="NavigationLabels" type="Control" parent="." unique_id=127516998]
 layout_mode = 1
@@ -98,9 +106,6 @@ alignment = 2
 layout_mode = 2
 text = "Money:"
 
-[editable path="TabContainer/Kitchen"]
-[editable path="TabContainer/Kitchen/SubViewportContainer/SubViewport/Kitchen/Table/Table"]
-[editable path="TabContainer/Kitchen/SubViewportContainer/SubViewport/Character"]
 [editable path="TabContainer/Inventory"]
 [editable path="TabContainer/Inventory/ScrollContainer/GridContainer/InventoryItem"]
 [editable path="TabContainer/SkillTree"]
@@ -113,3 +118,6 @@ text = "Money:"
 [editable path="TabContainer/AutoCooks/AutoCookItemContainer/AutoCookItem4"]
 [editable path="TabContainer/AutoCooks/AutoCookItemContainer/AutoCookItem5"]
 [editable path="TabContainer/Settings"]
+[editable path="TabContainer/Kitchen"]
+[editable path="TabContainer/Kitchen/SubViewportContainer/SubViewport/Kitchen/Table/Table"]
+[editable path="TabContainer/Kitchen/SubViewportContainer/SubViewport/Character"]

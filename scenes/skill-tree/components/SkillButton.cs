@@ -18,7 +18,7 @@ public partial class SkillButton : Button
     private void OnPressed()
     {
         if (Unlocked) return;
-        if (GetTree().CurrentScene is not SkillTree skillTree) return;
+        if (GetTree().CurrentScene is not SkillTreeScroll skillTree) return;
         if (skillTree.SkillPoints < Cost) return;
 
         skillTree.SpendSkillPoints(Cost);
