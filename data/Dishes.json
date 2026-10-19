@@ -5,6 +5,10 @@
       {
         "name": "Milk",
         "amount": 1
+      },
+      {
+        "name": "Butter",
+        "amount": 1
       }
     ],
     "produceTime": 2

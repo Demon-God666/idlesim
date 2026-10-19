@@ -1,5 +1,6 @@
 using Godot;
-using System;
+
+namespace IdleSim.scenes.character;
 
 public partial class Character : CharacterBody3D
 {
@@ -80,9 +81,7 @@ public partial class Character : CharacterBody3D
 		if (@event.IsActionPressed("ui_cancel"))
 			Input.MouseMode = Input.MouseModeEnum.Visible;
 		
-		if (@event is InputEventMouseButton mouseButton
-			&& mouseButton.Pressed
-			&& Input.MouseMode == Input.MouseModeEnum.Visible)
+		if (@event is InputEventMouseButton { Pressed: true } && Input.MouseMode == Input.MouseModeEnum.Visible)
 		{
 			Input.MouseMode = Input.MouseModeEnum.Captured;
 		}

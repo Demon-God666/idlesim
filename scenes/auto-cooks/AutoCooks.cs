@@ -33,7 +33,7 @@ public partial class AutoCooks : Control
 		int produceTime)
 	{
 		var ingredients = ingredientData
-			.Select(_ => new IngredientList(IngredientListJson.Name, IngredientListJson.Amount)).ToList();
+			.Select(ingredient => new IngredientList(ingredient.Name, ingredient.Amount)).ToList();
 
 		var dish = new Dish(
 			ingredients,
