@@ -1,0 +1,20 @@
+- [ ] Nicht alles commiten. (PS: Es hat private keys von dir im repo) (Bitte .gitignore updaten)
+- [ ] Wieso so viele Branches? Welches ist der aktuelle? Wieso ist develop default und nicht main?
+- [ ] Bitte Rider formatting benutzen. (Alt + Shift + L)
+- [ ] Entweder Deutsch oder Englisch aber nicht beides. Und sonst i18n support
+- [ ] Entweder überall namespaces oder gar keine aber nicht beides.
+- [ ] Naming convention entscheiden und nicht 10 verschiedene und jedes mal eine andere
+- [ ] Unsused imports löschen in folgenden files:
+  - LoadingBar.cs
+  - DishesJson.cs
+  - IngredientList.cs
+  - CurrencySystem.cs
+  - ItemData.cs
+  - PageSwitcher.cs
+  - ShopItem.cs
+- [ ] AutoCookItem.cs Line: 24 | Bitte immer absolute paths benutzen (betrifft auch andere files)
+- [ ] Wieso Klassen die genau dasselbe machen? (IngredientList.cs, IngredientListJson.cs)
+- [ ] Auto Cook Ingredients: Was ich habe / Was ich brauche. Nicht anderst rum.
+- [ ] Money wird nicht richtig initialisiert
+- [ ] CookingButtonPressed Line 85 bis 95 | Wtf???
+- [ ] Entweder type foo = bar oder var foo = bar | Bitte entscheiden und dann überall gleich machen

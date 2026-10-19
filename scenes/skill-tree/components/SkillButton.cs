@@ -1,37 +1,29 @@
 using Godot;
 
+namespace IdleSim.scenes.skill_tree.components;
+
 public partial class SkillButton : Button
 {
-	[Export]
-	public string SkillName { get; set; } = "Skill";
+    [Export] public string SkillName { get; set; } = "Skill";
+    [Export] public int Cost { get; set; } = 1;
 
-	[Export]
-	public int Cost { get; set; } = 1;
+    private bool Unlocked { get; set; }
 
-	public bool Unlocked { get; private set; }
+    public override void _Ready()
+    {
+        Text = SkillName;
+        Pressed += OnPressed;
+    }
 
-	public override void _Ready()
-	{
-		Text = SkillName;
-		Pressed += OnPressed;
-	}
+    private void OnPressed()
+    {
+        if (Unlocked) return;
+        if (GetTree().CurrentScene is not SkillTree skillTree) return;
+        if (skillTree.SkillPoints < Cost) return;
 
-	private void OnPressed()
-	{
-		if (Unlocked)
-			return;
+        skillTree.SpendSkillPoints(Cost);
 
-		SkillTree skillTree = GetTree().CurrentScene as SkillTree;
-
-		if (skillTree == null)
-			return;
-
-		if (skillTree.SkillPoints < Cost)
-			return;
-
-		skillTree.SpendSkillPoints(Cost);
-
-		Unlocked = true;
-		Text = $"✓ {SkillName}";
-	}
+        Unlocked = true;
+        Text = $"{SkillName}";
+    }
 }

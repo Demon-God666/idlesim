@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using IdleSim.scenes.shop.components;
 
 namespace IdleSim.scenes.auto_cooks.components;
 
-public class DishesJson
+public class DishesJson(string itemData, List<IngredientListJson> ingredients, int produceTime)
 {
-    public string ItemData { get; set; }
-    public List<IngredientListJson> Ingredients { get; set; }
-    public int ProduceTime { get; set; }
+    public string ItemData { get; } = itemData;
+    public List<IngredientListJson> Ingredients { get; } = ingredients;
+    public int ProduceTime { get; } = produceTime;
 }

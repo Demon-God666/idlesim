@@ -8,92 +8,73 @@ namespace IdleSim.scenes.inventory;
 
 public partial class Inventory : Control
 {
-	public List<BoughtItem> InventoryItems { get; set; } = new();
-	
-	[Signal]
-	public delegate void InventoryUpdatedEventHandler();
+    [Signal]
+    public delegate void InventoryUpdatedEventHandler();
 
-	private InventoryItem _inventoryItem;
-	private GridContainer _inventoryItemsContainer;
-	
-	public override void _Ready()
-	{
-		_inventoryItem = GetNode<InventoryItem>("Templates/InventoryItem");
-		_inventoryItemsContainer = GetNode<GridContainer>("ScrollContainer/GridContainer");
-		
-		EmitSignal(SignalName.InventoryUpdated);
-		
-		LoadInventoryItems();
-	}
+    public List<BoughtItem> InventoryItems { get; } = [];
+    private GridContainer _inventoryItemContainer;
+    private Control _inventoryItemTemplate;
 
-	public void Add(ItemData item, int amount)
-	{
-		BoughtItem checkExistingItem = InventoryItems.Find(x => x.Item == item);
-		
-		if (checkExistingItem != null)
-		{
-			checkExistingItem.Amount += amount;
-		}
-		else
-		{
-			InventoryItems.Add(new BoughtItem(item, amount));
-		}
 
-		LoadInventoryItems();
-		EmitSignal(SignalName.InventoryUpdated);
-	}
-	
-	private void PrintInventory()
-	{
-		GD.Print("Inventory:");
-		foreach (BoughtItem item in InventoryItems)
-		{
-			GD.Print($"{item.Item.ProductName}: {item.Amount}");
-		}
-		
-	}
-	
-	public void Remove(ItemData item, int amount)
-	{
-		BoughtItem findItem = InventoryItems.Find(x => x.Item == item);
+    public override void _Ready()
+    {
+        _inventoryItemContainer = GetNode<GridContainer>("ScrollContainer/GridContainer");
+        _inventoryItemTemplate = GetNode<Control>("Templates/InventoryItem");
+        
+        EmitSignal(SignalName.InventoryUpdated);
+        InventoryUpdated += UpdateInventory;
+        
+        UpdateInventory();
+    }
 
-		if (findItem != null)
-		{
-			findItem.Amount -= amount;
-		}
-	}
-	
-	public bool CheckIngredientAvailable(List<IngredientList> ingredientList)
-	{
-		foreach (var ingredient in ingredientList)
-		{
-			var checkItem = InventoryItems.Find(
-				x => x.Item.ProductName == ingredient.ItemName
-			);
+    private void UpdateInventory()
+    {
+        foreach (var child in _inventoryItemContainer.GetChildren())
+            child.QueueFree();
 
-			if (checkItem == null || checkItem.Amount < ingredient.ItemAmount)
-			{
-				return false;
-			}
-		}
-		
-		return true;
-	}
-	
-	public void LoadInventoryItems()
-	{
-		foreach (var item in _inventoryItemsContainer.GetChildren())
-		{
-			item.QueueFree();	
-		}
-		
-		foreach (var item in InventoryItems)
-		{
-			var inventoryItemChild = (InventoryItem)_inventoryItem.Duplicate();
+        foreach (var item in InventoryItems)
+        {
+            var inventoryItem = (InventoryItem)_inventoryItemTemplate.Duplicate();
+            _inventoryItemContainer.AddChild(inventoryItem);
 
-			_inventoryItemsContainer.AddChild(inventoryItemChild);
-			inventoryItemChild.SetInventoryItem(item);
-		}
-	}
-	
+            inventoryItem.SetInventoryItem(item);
+        }
+    }
+    
+    public void Add(ItemData item, int amount)
+    {
+        var checkExistingItem = InventoryItems.Find(x => x.Item == item);
+
+        if (checkExistingItem != null)
+            checkExistingItem.Amount += amount;
+        else
+            InventoryItems.Add(new BoughtItem(item, amount));
+
+        EmitSignal(SignalName.InventoryUpdated);
+    }
+
+    private void PrintInventory()
+    {
+        GD.Print("Inventory:");
+        foreach (var item in InventoryItems) GD.Print($"{item.Item.ProductName}: {item.Amount}");
+    }
+
+    public void Remove(ItemData item, int amount)
+    {
+        var findItem = InventoryItems.Find(x => x.Item == item);
+
+        if (findItem != null) findItem.Amount -= amount;
+    }
+
+    public bool CheckIngredientAvailable(List<IngredientList> ingredientList)
+    {
+        foreach (var ingredient in ingredientList)
+        {
+            var checkItem = InventoryItems.Find(x => x.Item.ProductName == ingredient.ItemName);
+
+            if (checkItem == null || checkItem.Amount < ingredient.ItemAmount) return false;
+        }
+
+        return true;
+    }
 }

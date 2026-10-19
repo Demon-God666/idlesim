@@ -2,8 +2,16 @@ namespace IdleSim.scenes.shop.components;
 
 public class ItemDataJson
 {
-    public string Name { get; set; }
-    public int Price { get; set; }
-    public string Image { get; set; }
-    public int Category { get; set; }
+    public ItemDataJson(string name, int price, string image, int category)
+    {
+        Name = name;
+        Price = price;
+        Image = image;
+        Category = category;
+    }
+
+    public string Name { get; }
+    public int Price { get; }
+    public string Image { get; }
+    public int Category { get; }
 }

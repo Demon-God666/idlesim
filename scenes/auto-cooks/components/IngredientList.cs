@@ -1,15 +1,7 @@
-using System.Collections.Generic;
-
 namespace IdleSim.scenes.auto_cooks.components;
 
-public class IngredientList
+public class IngredientList(string itemName, int itemAmount)
 {
-    public string ItemName;
-    public int ItemAmount;
-    
-    public IngredientList(string itemName, int itemAmount)
-    {
-        ItemName = itemName;
-        ItemAmount = itemAmount;
-    }
+    public readonly int ItemAmount = itemAmount;
+    public readonly string ItemName = itemName;
 }

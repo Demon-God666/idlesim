@@ -1,64 +1,32 @@
 using Godot;
-using IdleSim.scenes.inventory;
+using IdleSim.scenes.settings;
+
+namespace IdleSim.scenes.main;
 
 public partial class Main : Control
-{	
+{
+	private Settings Settings { get; set; }
 
-	private Control _skillTree;
-	private Control _shop;
-	
-	public Inventory Inventory { get; set; }
-	public CurrencySystem CurrencySystem { get; private set; }
-	
-	private AutoCooks AutoCooks { get; set; }
+	private TabContainer _tabContainer;
+
+	private Theme _darkTheme;
+	private Theme _lightTheme;
 
 	public override void _Ready()
 	{
-		CurrencySystem = GetNode<CurrencySystem>("CurrencySystem");
-		_skillTree = GetNode<Control>("SkillTree"); 
-		_shop = GetNode<Control>("Shop");
-		Inventory = GetNode<Inventory>("Inventory");
-		AutoCooks = GetNode<AutoCooks>("AutoCooks");
+		Settings = GetNode<Settings>("TabContainer/Settings");
 
-		ShowCurrencySystem();
-	}
+		_tabContainer = GetNode<TabContainer>("TabContainer");
+		_tabContainer.CurrentTab = 0;
 
-	public void ShowCurrencySystem()
-	{
-		HideAll();	
-		CurrencySystem.Show();
-	}
-	
-	public void ShowSkillTree()
-	{
-		HideAll();	
-		_skillTree.Show();
+		_darkTheme = GD.Load<Theme>("res://scenes/main/DarkTheme.tres");
+		_lightTheme = GD.Load<Theme>("res://scenes/main/LightTheme.tres");
+
+		Settings.InitializeTheme();
 	}
 
-	public void ShowShop()
+	public void ToggleDarkMode(bool isDarkMode)
 	{
-		HideAll();	
-		_shop.Show();
-	}
-	
-	public void ShowInventory()
-	{
-		HideAll();	
-		Inventory.Show();
-	}
-	
-	public void ShowAutoCooks()
-	{
-		HideAll();	
-		AutoCooks.Show();
-	} 
-	
-	private void HideAll()
-	{
-		CurrencySystem.Hide();
-		_skillTree.Hide();
-		_shop.Hide();
-		Inventory.Hide();
-		AutoCooks.Hide();
+		Theme = isDarkMode ? _darkTheme : _lightTheme;
 	}
 }

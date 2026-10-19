@@ -1,67 +1,62 @@
 using Godot;
-using System;
+
+namespace IdleSim.scenes.currency_system;
 
 public partial class CurrencySystem : Control
 {
-	
-	private int _value = 0;
-	
-	private Label _valueLabel;
-	private Label _label;
-	private Button _minusButton;
-	private Button _plusButton;
-	private Button _buyButton;
-	
-	[Signal]
-	public delegate void MoneyUpdatedEventHandler(int value);
-	
-	public override void _Ready()
-	{
-		_valueLabel = GetNode<Label>("Container/Value");
-		_label = GetNode<Label>("Container/Label");
-		_minusButton = GetNode<Button>("Container/MinusButton");
-		_plusButton = GetNode<Button>("Container/PlusButton");
+    [Signal]
+    public delegate void MoneyUpdatedEventHandler(int value);
 
-		_value = 100; //_valueLabel.Text.ToInt();
-		_label.Text = "Money:";
-		
-		_plusButton.Pressed += () => Add(1);
-		_minusButton.Pressed += () => Remove(1);
-		
-		EmitSignal(SignalName.MoneyUpdated, _value);
-	}
+    private Button _buyButton;
+    private Label _label;
+    private Button _minusButton;
+    private Button _plusButton;
+    private int _value;
 
-	public int GetMoney()
-	{
-		return _value;
-	}
+    private Label _valueLabel;
 
-	public void Add(int amount)
-	{
-		_value += amount;
-		UpdateValue();
-	}
+    public override void _Ready()
+    {
+        _valueLabel = GetNode<Label>("Container/Value");
+        _label = GetNode<Label>("Container/Label");
+        _minusButton = GetNode<Button>("Container/MinusButton");
+        _plusButton = GetNode<Button>("Container/PlusButton");
 
-	public bool Remove(int amount)
-	{
-		if (_value < amount)
-		{
-			return false;
-		}
+        _value = _valueLabel.Text.ToInt();
+        _label.Text = "Money:";
+        
+        Add(100);
 
-		_value -= amount;
-		UpdateValue();
+        _plusButton.Pressed += () => Add(1);
+        _minusButton.Pressed += () => Remove(1);
 
-		return true;
-	}
-	
-	private void UpdateValue()
-	{
-		EmitSignal(SignalName.MoneyUpdated, _value);
-		_valueLabel.Text = _value.ToString();
-	}
-	
+        EmitSignal(SignalName.MoneyUpdated, _value);
+    }
 
-	
-	
+    public int GetMoney()
+    {
+        return _value;
+    }
+
+    public void Add(int amount)
+    {
+        _value += amount;
+        UpdateValue();
+    }
+
+    public bool Remove(int amount)
+    {
+        if (_value < amount) return false;
+
+        _value -= amount;
+        UpdateValue();
+
+        return true;
+    }
+
+    private void UpdateValue()
+    {
+        EmitSignal(SignalName.MoneyUpdated, _value);
+        _valueLabel.Text = _value.ToString();
+    }
 }

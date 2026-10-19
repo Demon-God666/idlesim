@@ -1,12 +1,14 @@
 using Godot;
-using IdleSim.scenes.auto_cooks.components;
+using IdleSim.components;
 using IdleSim.scenes.inventory;
+
+namespace IdleSim.scenes.auto_cooks.components;
 
 public partial class AutoCookItem : Control
 {
 	private AutoCooks _autoCooks;
 	private Button _cookingButton;
-	private Dishes _dish;
+	private Dish _dish;
 	private double _elapsedTime;
 	private bool _hasStartedCooking;
 	private Label _ingredientList;
@@ -21,7 +23,7 @@ public partial class AutoCookItem : Control
 
 	public override void _Ready()
 	{
-		_inventory = GetNode<Inventory>("../../../Inventory");
+		_inventory = GetTree().Root.GetNode<Inventory>("Main/TabContainer/Inventory");
 
 		_ingredientList = GetNode<Label>("VBoxContainer/IngredientListLabel");
 		_produceItem = GetNode<Label>("VBoxContainer/ProduceItemLabel");
@@ -30,7 +32,7 @@ public partial class AutoCookItem : Control
 
 		_loadingBar = GetNode<LoadingBar>("HBoxContainer/LoadingBar");
 		_cookingButton = GetNode<Button>("HBoxContainer/StartAutoCookButton");
-		_autoCooks = GetTree().Root.GetNode<AutoCooks>("Main/AutoCooks");
+		_autoCooks = GetTree().Root.GetNode<AutoCooks>("Main/TabContainer/AutoCooks");
 
 		_ingredientList.Text = "Ingredients: \n";
 		_produceItem.Text = "Produce: \n";
@@ -42,7 +44,7 @@ public partial class AutoCookItem : Control
 		_inventory.InventoryUpdated += UpdateInventory;
 	}
 
-	public void SetAutoCookItem(Dishes dish)
+	public void SetAutoCookItem(Dish dish)
 	{
 		_dish = dish;
 
@@ -82,13 +84,7 @@ public partial class AutoCookItem : Control
 
 	private void CookingButtonPressed()
 	{
-		if (_isCooking)
-		{
-			_isCooking = !_isCooking;
-			return;
-		}
-
-		if (_hasStartedCooking)
+		if (_isCooking || _hasStartedCooking)
 		{
 			_isCooking = !_isCooking;
 			return;
@@ -132,15 +128,13 @@ public partial class AutoCookItem : Control
 
 		_loadingBar.SetProgress(progress);
 
-		if (_elapsedTime >= _producingTime)
-		{
-			_isCooking = false;
-			_hasStartedCooking = false;
-			_elapsedTime = 0;
+		if (!(_elapsedTime >= _producingTime)) return;
+		_isCooking = false;
+		_hasStartedCooking = false;
+		_elapsedTime = 0;
 
-			_loadingBar.SetProgress(0);
+		_loadingBar.SetProgress(0);
 
-			GD.Print("Cooking finished");
-		}
+		GD.Print("Cooking finished");
 	}
 }
