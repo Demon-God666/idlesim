@@ -20,7 +20,7 @@ public partial class Character : CharacterBody3D
 		_head = GetNode<Node3D>("Head");
 		_camera = GetNode<Camera3D>("Head/Camera3D");
 
-		Input.MouseMode = Input.MouseModeEnum.Captured;
+		// Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
 	
 	public override void _PhysicsProcess(double delta)
