@@ -21,10 +21,13 @@ public partial class SkillBuyMenu : Control
 
 	public void ShowSkillBuyMenu(SkillData skill)
 	{
+		Show();
+		
 		_skillImage.Texture = GD.Load<Texture2D>($"res://assets/images/{skill.Image}");
 		_descriptionTitleLabel.Text = skill.SkillName;
 		_descriptionLabel.Text = skill.SkillDescription;
 		_priceLabel.Text = skill.Cost.ToString();
 		_levelLabel.Text = skill.Levels.ToString();
+		
 	}
 }

@@ -21,7 +21,7 @@ public partial class SkillTree : Control
 			Cost = 3,
 			Levels = 5,
 			Value = 15
-		},
+		}/*,
 		new()
 		{
 			Image = "Skill_Money.svg",
@@ -48,7 +48,7 @@ public partial class SkillTree : Control
 			Cost = 5,
 			Levels = 5,
 			Value = 25
-		}
+		}*/
 	];
 	public override void _Ready()
 	{

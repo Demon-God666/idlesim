@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://mbga6317aukl" path="res://scenes/skill-tree/components/SkillButtonItem.cs" id="1_cg5ny"]
 [ext_resource type="Texture2D" uid="uid://bg26jgteuu6hp" path="res://assets/images/Food_Apples.png" id="2_xic36"]
 
+[sub_resource type="SystemFont" id="SystemFont_g57xd"]
+font_weight = 800
+
 [node name="SkillButtonItem" type="VBoxContainer" unique_id=177281736]
 custom_minimum_size = Vector2(100, 150)
 custom_maximum_size = Vector2(100, 150)
@@ -17,6 +20,9 @@ custom_minimum_size = Vector2(100, 100)
 custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = SubResource("SystemFont_g57xd")
+theme_override_font_sizes/font_size = 20
 icon = ExtResource("2_xic36")
 icon_alignment = 1
 expand_icon = true

@@ -87,7 +87,13 @@ offset_right = -1252.0
 offset_bottom = -457.0
 
 [node name="SkillBuyMenu" parent="SkillTreeScroll" unique_id=1190539766 instance=ExtResource("4_sntgx")]
+visible = false
 layout_mode = 1
+
+[node name="SkillImage" parent="SkillTreeScroll/SkillBuyMenu/HBoxContainer" parent_id_path=PackedInt32Array(1190539766, 1725454851) index="0" unique_id=1475593898]
+custom_minimum_size = Vector2(128, 128)
+custom_maximum_size = Vector2(128, 128)
+stretch_mode = 5
 
 [node name="Templates" type="Control" parent="SkillTreeScroll" unique_id=1536515348]
 visible = false
@@ -96,6 +102,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="SkillBuyMenuTemplate" parent="SkillTreeScroll/Templates" unique_id=338361752 instance=ExtResource("4_sntgx")]
+visible = false
 layout_mode = 1
 offset_bottom = 467.0
 
@@ -107,3 +114,4 @@ offset_right = 2030.0
 offset_bottom = 2030.0
 
 [editable path="SkillTreeScroll/SkillBuyMenu"]
+[editable path="SkillTreeScroll/Templates/SkillButtonItemTemplate"]
