@@ -1,72 +1,65 @@
 using Godot;
+using IdleSim.scenes.main;
 
 namespace IdleSim.scenes.currency_system;
 
 public partial class CurrencySystem : Control
 {
-    [Signal]
-    public delegate void MoneyUpdatedEventHandler(int value);
-    
-    [Signal]
-    public delegate void SkillPointsUpdatedEventHandler(int skillPoints);
-
+    private Main _main;
     private Button _buyButton;
     private Label _label;
     private Button _minusButton;
     private Button _plusButton;
-    public int Value { get; set; }
-
-    public int SkillPoints { get; set; }
     
     private Label _valueLabel;
 
+    public int Money { get; set; }
+    public int SkillPoints { get; set; }
+    
     public override void _Ready()
+
     {
+        _main = GetTree().Root.GetNode<Main>("Main");
         _valueLabel = GetNode<Label>("Container/Value");
         _label = GetNode<Label>("Container/Label");
         _minusButton = GetNode<Button>("Container/MinusButton");
         _plusButton = GetNode<Button>("Container/PlusButton");
-
-        Value = _valueLabel.Text.ToInt();
-        _label.Text = "Money:";
         
-        AddMoney(100);
-        AddSkillPoints(200);
+        _label.Text = "Money:";
+
+        Money = _main.Money;
+        SkillPoints = _main.SkillPoints;
+        
+        AddMoney(Money);
+        AddSkillPoints(SkillPoints);
 
         _plusButton.Pressed += () => AddMoney(1);
         _minusButton.Pressed += () => RemoveMoney(1);
 
-        EmitSignal(SignalName.MoneyUpdated, Value);
-        EmitSignal(SignalName.SkillPointsUpdated, SkillPoints);
-
     }
+
+   
 
     public void AddMoney(int amount)
     {
-        Value += amount;
-        UpdateMoneyValue();
+        Money += amount;
+        _main.UpdateMoneyValue();
     }
 
     public bool RemoveMoney(int amount)
     {
-        if (Value < amount) return false;
+        if (Money < amount) return false;
 
-        Value -= amount;
-        UpdateMoneyValue();
+        Money -= amount;
+        _main.UpdateMoneyValue();
 
         return true;
-    }
-
-    private void UpdateMoneyValue()
-    {
-        EmitSignal(SignalName.MoneyUpdated, Value);
-        _valueLabel.Text = Value.ToString();
     }
     
     public void AddSkillPoints(int amount)
     {
         SkillPoints += amount;
-        UpdateSkillPoints();
+        _main.UpdateSkillPoints();
     }
 
     public bool RemoveSkillPoints(int amount)
@@ -74,13 +67,9 @@ public partial class CurrencySystem : Control
         if (SkillPoints < amount) return false;
 
         SkillPoints -= amount;
-        UpdateSkillPoints();
+        _main.UpdateSkillPoints();
 
         return true;
     }
     
-    private void UpdateSkillPoints()
-    {
-        EmitSignal(SignalName.SkillPointsUpdated, SkillPoints);
-    }
 }

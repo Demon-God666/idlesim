@@ -1,5 +1,6 @@
 using Godot;
 using IdleSim.scenes.currency_system;
+using IdleSim.scenes.main;
 
 namespace IdleSim.scenes.navigation;
 
@@ -15,20 +16,21 @@ public partial class NavigationLabel : Control
 	private Button _skillTreeButton;
 	private Button _settingsButton;
 	private Label _skillPointsLabel;
+
+	private Main _main;
 	
 	public override void _Ready()
 	{
-		_currencySystem = GetTree().Root.GetNode<CurrencySystem>("Main/TabContainer/CurrencySystem");
-
+		_main = GetTree().Root.GetNode<Main>("Main");
 		_moneyLabel = GetNode<Label>("HBoxContainer/MoneyLabel");
 		_skillPointsLabel = GetNode<Label>("HBoxContainer/SkillPointsLabel");
 
-		_moneyLabel.Text = $"Money: {_currencySystem.Value}$";
-		_skillPointsLabel.Text = $"SP: {_currencySystem.SkillPoints}$";
+		_moneyLabel.Text = $"Money: {_main.Money}$";
+		_skillPointsLabel.Text = $"SP: {_main.SkillPoints}$";
 		
-		_currencySystem.MoneyUpdated += UpdateMoneyText;
+		_main.MoneyUpdated += UpdateMoneyText;
 
-		_currencySystem.SkillPointsUpdated += UpdateSkillPoints;
+		_main.SkillPointsUpdated += UpdateSkillPoints;
 	}
 
 	private void UpdateMoneyText(int value)

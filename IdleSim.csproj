@@ -55,5 +55,6 @@
         <Content Include="data\Category.json" />
         <Content Include="data\Dishes.json"/>
         <Content Include="data\ItemData.json"/>
+        <Content Include="data\PlayerData.json" />
     </ItemGroup>
 </Project>

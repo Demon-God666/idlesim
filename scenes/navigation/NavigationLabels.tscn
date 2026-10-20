@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cv1p37pmcc5t4"]
+
+[ext_resource type="Script" uid="uid://bcx6hj7fehym6" path="res://scenes/navigation/NavigationLabel.cs" id="1_eam32"]
+
+[node name="NavigationLabels" type="Control" unique_id=2034530830]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eam32")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=862994983]
+top_level = true
+custom_maximum_size = Vector2(488, -1)
+layout_mode = 1
+offset_right = 488.0
+offset_bottom = 31.0
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="SkillPointsLabel" type="Label" parent="HBoxContainer" unique_id=648920864]
+layout_mode = 2
+text = "Skillpoints:"
+
+[node name="MoneyLabel" type="Label" parent="HBoxContainer" unique_id=1360418818]
+layout_mode = 2
+text = "Money:"
