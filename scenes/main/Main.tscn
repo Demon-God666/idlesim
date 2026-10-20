@@ -34,18 +34,13 @@ size_flags_vertical = 3
 offset_transform_enabled = true
 theme_override_constants/side_margin = 0
 tab_alignment = 2
-current_tab = 1
+current_tab = 0
 switch_on_drag_hover = false
-
-[node name="Inventory" parent="TabContainer" unique_id=1310039838 instance=ExtResource("2_1rhdn")]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 0
 
 [node name="SkillTree" parent="TabContainer" unique_id=1749117477 instance=ExtResource("3_dc040")]
 clip_contents = true
 layout_mode = 2
-metadata/_tab_index = 1
+metadata/_tab_index = 0
 
 [node name="SkillButtonItem3" parent="TabContainer/SkillTree/SkillTreeScroll/SkillTreeContainer" parent_id_path=PackedInt32Array(1749117477, 2118771792) index="3" unique_id=1815284228]
 anchor_right = 1.0
@@ -63,6 +58,11 @@ offset_bottom = 0.0
 
 [node name="SkillBuy" parent="TabContainer/SkillTree/SkillTreeScroll" parent_id_path=PackedInt32Array(1749117477, 1976897016) index="1" unique_id=1190539766]
 offset_top = 454.0
+
+[node name="Inventory" parent="TabContainer" unique_id=1310039838 instance=ExtResource("2_1rhdn")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="CurrencySystem" parent="TabContainer" unique_id=1295007714 instance=ExtResource("2_gyg6b")]
 visible = false
@@ -120,9 +120,9 @@ alignment = 2
 layout_mode = 2
 text = "Money:"
 
+[editable path="TabContainer/SkillTree"]
 [editable path="TabContainer/Inventory"]
 [editable path="TabContainer/Inventory/ScrollContainer/GridContainer/InventoryItem"]
-[editable path="TabContainer/SkillTree"]
 [editable path="TabContainer/CurrencySystem"]
 [editable path="TabContainer/Shop"]
 [editable path="TabContainer/Shop/ShopCatalog/HBoxContainer/TabRect/TabContainer/ShopTab"]

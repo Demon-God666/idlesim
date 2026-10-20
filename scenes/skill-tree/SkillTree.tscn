@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://xilgetaae20r" path="res://scenes/skill-tree/components/SkillTreeScroll.cs" id="1_sntgx"]
 [ext_resource type="Script" uid="uid://drmci42cpebax" path="res://scenes/skill-tree/components/Connections.cs" id="2_ib7fn"]
 [ext_resource type="PackedScene" uid="uid://wokk0s7f4ikw" path="res://scenes/skill-tree/components/SkillButtonItem.tscn" id="4_c1xl7"]
-[ext_resource type="PackedScene" uid="uid://rkhlchs5fnqa" path="res://scenes/skill-tree/components/SkillBuy.tscn" id="4_sntgx"]
+[ext_resource type="PackedScene" uid="uid://rkhlchs5fnqa" path="res://scenes/skill-tree/components/SkillBuyMenu.tscn" id="4_sntgx"]
 
 [node name="SkillTree" type="Control" unique_id=1749117477]
 layout_mode = 3
@@ -42,32 +42,27 @@ layout_mode = 1
 
 [node name="SkillButtonItem2" parent="SkillTreeScroll/SkillTreeContainer" unique_id=1257008910 instance=ExtResource("4_c1xl7")]
 layout_mode = 1
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_right = 100.0
 offset_bottom = 100.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="SkillButtonItem3" parent="SkillTreeScroll/SkillTreeContainer" unique_id=1815284228 instance=ExtResource("4_c1xl7")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
-anchor_bottom = 0.0
+anchor_right = 1.0
 offset_left = -100.0
+offset_right = 0.0
 offset_bottom = 100.0
 grow_horizontal = 0
-grow_vertical = 1
 
 [node name="SkillButtonItem4" parent="SkillTreeScroll/SkillTreeContainer" unique_id=166499673 instance=ExtResource("4_c1xl7")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.0
+anchor_bottom = 1.0
 offset_top = -100.0
 offset_right = 100.0
-grow_horizontal = 1
+offset_bottom = 0.0
 grow_vertical = 0
 
 [node name="SkillButtonItem5" parent="SkillTreeScroll/SkillTreeContainer" unique_id=1440404851 instance=ExtResource("4_c1xl7")]
@@ -75,8 +70,12 @@ layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = -100.0
 offset_top = -100.0
+offset_right = 0.0
+offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -87,7 +86,7 @@ offset_top = -557.0
 offset_right = -1252.0
 offset_bottom = -457.0
 
-[node name="SkillBuy" parent="SkillTreeScroll" unique_id=1190539766 instance=ExtResource("4_sntgx")]
+[node name="SkillBuyMenu" parent="SkillTreeScroll" unique_id=1190539766 instance=ExtResource("4_sntgx")]
 layout_mode = 1
 
 [node name="Templates" type="Control" parent="SkillTreeScroll" unique_id=1536515348]
@@ -96,7 +95,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="SkillBuyTemplate" parent="SkillTreeScroll/Templates" unique_id=338361752 instance=ExtResource("4_sntgx")]
+[node name="SkillBuyMenuTemplate" parent="SkillTreeScroll/Templates" unique_id=338361752 instance=ExtResource("4_sntgx")]
 layout_mode = 1
 offset_bottom = 467.0
 
@@ -106,3 +105,5 @@ offset_left = 1930.0
 offset_top = 1930.0
 offset_right = 2030.0
 offset_bottom = 2030.0
+
+[editable path="SkillTreeScroll/SkillBuyMenu"]
