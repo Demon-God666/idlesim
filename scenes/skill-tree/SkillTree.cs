@@ -15,7 +15,7 @@ public partial class SkillTree : Control
 	[
 		new()
 		{
-			Image = "Apples.png",
+			Image = "Skill_Money.svg",
 			SkillName = "CoolSkilllll",
 			SkillDescription = "Miauwww",
 			Cost = 2,
@@ -44,7 +44,7 @@ public partial class SkillTree : Control
 		var skillButton = skillButtonItem.GetNode<Button>("SkillButton");
 		var skillCost = skillButtonItem.GetNode<Label>("SkillPointsLabel"); 
 
-		skillButton.Text = skillButtonTest.SkillName;
+		skillButton.Icon = GD.Load<Texture2D>($"res://assets/images/{skillButtonTest.Image}");
 		skillCost.Text = "Skillpoints: " + skillButtonTest.Cost;
 
 		var skillButtonItemWidth = skillButtonItem.GetSize().X / 2;

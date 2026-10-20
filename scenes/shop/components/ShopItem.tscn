@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cmrj4gv8x6ec1"]
 
 [ext_resource type="Script" uid="uid://c6af1pv3m3lso" path="res://scenes/shop/components/ShopItem.cs" id="1_hrb1b"]
-[ext_resource type="Texture2D" uid="uid://do2vugqbgk62u" path="res://assets/images/Milk.png" id="1_sevgc"]
+[ext_resource type="Texture2D" uid="uid://do2vugqbgk62u" path="res://assets/images/Food_Milk.png" id="1_sevgc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3qebd"]
 

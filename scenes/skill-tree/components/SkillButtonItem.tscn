@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://wokk0s7f4ikw"]
 
 [ext_resource type="Script" uid="uid://mbga6317aukl" path="res://scenes/skill-tree/components/SkillButtonItem.cs" id="1_cg5ny"]
+[ext_resource type="Texture2D" uid="uid://bg26jgteuu6hp" path="res://assets/images/Food_Apples.png" id="2_xic36"]
 
 [node name="SkillButtonItem" type="VBoxContainer" unique_id=177281736]
 custom_minimum_size = Vector2(100, 150)
@@ -16,10 +17,12 @@ custom_minimum_size = Vector2(100, 100)
 custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_vertical = 3
+icon = ExtResource("2_xic36")
+icon_alignment = 1
+expand_icon = true
 
 [node name="SkillPointsLabel" type="Label" parent="." unique_id=694955109]
 layout_mode = 2
 offset_transform_enabled = true
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 text = "Skillpunkte"
 horizontal_alignment = 1

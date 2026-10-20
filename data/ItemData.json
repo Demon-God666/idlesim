@@ -2,127 +2,127 @@
     {
       "name": "Milk",
       "price": 10,
-      "image": "Milk.png",
+      "image": "Food_Milk.png",
       "category": 3
     },
     {
       "name": "Cheese",
       "price": 20,
-      "image": "Cheese.png",
+      "image": "Food_Cheese.png",
       "category": 3
     },
     {
       "name": "Eggs",
       "price": 8,
-      "image": "Eggs.png",
+      "image": "Food_Eggs.png",
       "category": 2
     },
     {
       "name": "Butter",
       "price": 15,
-      "image": "Butter.png",
+      "image": "Food_Butter.png",
       "category": 3
     },
     {
       "name": "Bread",
       "price": 12,
-      "image": "Bread.png",
+      "image": "Food_Bread.png",
       "category": 2
     },
     {
       "name": "Ham",
       "price": 25,
-      "image": "Ham.png",
+      "image": "Food_Ham.png",
       "category": 2
     },
     {
       "name": "Bananas",
       "price": 10,
-      "image": "Bananas.png",
+      "image": "Food_Bananas.png",
       "category": 1
     },
     {
       "name": "Apples",
       "price": 5,
-      "image": "Apples.png",
+      "image": "Food_Apples.png",
       "category": 1
     },
     {
       "name": "Oranges",
       "price": 7,
-      "image": "Oranges.png",
+      "image": "Food_Oranges.png",
       "category": 1
     },
     {
       "name": "Pasta",
       "price": 15,
-      "image": "Pasta.png",
+      "image": "Food_Pasta.png",
       "category": 2
     },
     {
       "name": "Rice",
       "price": 10,
-      "image": "Rice.png",
+      "image": "Food_Rice.png",
       "category": 2
     },
     {
       "name": "Tomatoes",
       "price": 12,
-      "image": "Tomatoes.png",
+      "image": "Food_Tomatoes.png",
       "category": 1
     },
     {
       "name": "Cucumber",
       "price": 8,
-      "image": "Cucumber.png",
+      "image": "Food_Cucumber.png",
       "category": 1
     },
     {
       "name": "Chicken",
       "price": 20,
-      "image": "Chicken.png",
+      "image": "Food_Chicken.png",
       "category": 2
     },
     {
       "name": "Beef",
       "price": 30,
-      "image": "Beef.png",
+      "image": "Food_Beef.png",
       "category": 2
     },
     {
       "name": "Cheese",
       "price": 20,
-      "image": "Cheese2.png",
+      "image": "Food_Cheese.png",
       "category": 3
     },
     {
       "name": "Milk Rice",
       "price": 20,
-      "image": "MilkRice.png",
+      "image": "Food_MilkRice.png",
       "category": 0
     },
     {
       "name": "Water Rice",
       "price": 10,
-      "image": "WaterRice.png",
+      "image": "Food_WaterRice.png",
       "category": 0
     },
     {
       "name": "Sugar Rice",
       "price": 22,
-      "image": "SugarRice.png",
+      "image": "Food_SugarRice.png",
       "category": 0
     },
     {
       "name": "Salt Rice",
       "price": 30,
-      "image": "SaltRice.png",
+      "image": "Food_SaltRice.png",
       "category": 0
     },
     {
       "name": "Flour Rice",
       "price": 20,
-      "image": "FlourRice.png",
+      "image": "Food_FlourRice.png",
       "category": 0
     }
 ]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://chv3gaxfmhmqu"]
 
-[ext_resource type="Texture2D" uid="uid://do2vugqbgk62u" path="res://assets/images/Milk.png" id="1_1dn05"]
+[ext_resource type="Texture2D" uid="uid://do2vugqbgk62u" path="res://assets/images/Food_Milk.png" id="1_1dn05"]
 [ext_resource type="Script" uid="uid://bc548slv53v6i" path="res://scenes/inventory/components/InventoryItem.cs" id="1_pcona"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83w4y"]

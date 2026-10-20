@@ -47,7 +47,21 @@ clip_contents = true
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="SkillBuy" parent="TabContainer/SkillTree" index="1" unique_id=1190539766]
+[node name="SkillButtonItem3" parent="TabContainer/SkillTree/SkillTreeScroll/SkillTreeContainer" parent_id_path=PackedInt32Array(1749117477, 2118771792) index="3" unique_id=1815284228]
+anchor_right = 1.0
+offset_right = 0.0
+
+[node name="SkillButtonItem4" parent="TabContainer/SkillTree/SkillTreeScroll/SkillTreeContainer" parent_id_path=PackedInt32Array(1749117477, 2118771792) index="4" unique_id=166499673]
+anchor_bottom = 1.0
+offset_bottom = 0.0
+
+[node name="SkillButtonItem5" parent="TabContainer/SkillTree/SkillTreeScroll/SkillTreeContainer" parent_id_path=PackedInt32Array(1749117477, 2118771792) index="5" unique_id=1440404851]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="SkillBuy" parent="TabContainer/SkillTree/SkillTreeScroll" parent_id_path=PackedInt32Array(1749117477, 1976897016) index="1" unique_id=1190539766]
 offset_top = 454.0
 
 [node name="CurrencySystem" parent="TabContainer" unique_id=1295007714 instance=ExtResource("2_gyg6b")]
@@ -111,6 +125,7 @@ text = "Money:"
 [editable path="TabContainer/SkillTree"]
 [editable path="TabContainer/CurrencySystem"]
 [editable path="TabContainer/Shop"]
+[editable path="TabContainer/Shop/ShopCatalog/HBoxContainer/TabRect/TabContainer/ShopTab"]
 [editable path="TabContainer/AutoCooks"]
 [editable path="TabContainer/AutoCooks/AutoCookItemContainer/AutoCookItem"]
 [editable path="TabContainer/AutoCooks/AutoCookItemContainer/AutoCookItem2"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://pmr355nhjen5"]
 
-[ext_resource type="Texture2D" uid="uid://dhpnfgtv1lf0r" path="res://assets/images/FruitAndVegtablesTab.png" id="1_ldrwk"]
+[ext_resource type="Texture2D" uid="uid://dhpnfgtv1lf0r" path="res://assets/images/Tab_FruitAndVegtables.png" id="1_ldrwk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtd04"]
 bg_color = Color(0.15322042, 0.6829182, 0.67085695, 1)

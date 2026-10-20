@@ -256,3 +256,5 @@ layout_mode = 2
 
 [node name="ShopItem8" parent="ShopCatalog/HBoxContainer/CatalogRect/BoxContainer" unique_id=348109013 instance=ExtResource("2_tc8pp")]
 layout_mode = 2
+
+[editable path="ShopCatalog/HBoxContainer/TabRect/TabContainer/ShopTab"]
