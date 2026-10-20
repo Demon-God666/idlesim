@@ -6,13 +6,18 @@ public partial class CurrencySystem : Control
 {
     [Signal]
     public delegate void MoneyUpdatedEventHandler(int value);
+    
+    [Signal]
+    public delegate void SkillPointsUpdatedEventHandler(int skillPoints);
 
     private Button _buyButton;
     private Label _label;
     private Button _minusButton;
     private Button _plusButton;
-    private int _value;
+    public int Value { get; set; }
 
+    public int SkillPoints { get; set; }
+    
     private Label _valueLabel;
 
     public override void _Ready()
@@ -22,41 +27,60 @@ public partial class CurrencySystem : Control
         _minusButton = GetNode<Button>("Container/MinusButton");
         _plusButton = GetNode<Button>("Container/PlusButton");
 
-        _value = _valueLabel.Text.ToInt();
+        Value = _valueLabel.Text.ToInt();
         _label.Text = "Money:";
         
-        Add(100);
+        AddMoney(100);
+        AddSkillPoints(200);
 
-        _plusButton.Pressed += () => Add(1);
-        _minusButton.Pressed += () => Remove(1);
+        _plusButton.Pressed += () => AddMoney(1);
+        _minusButton.Pressed += () => RemoveMoney(1);
 
-        EmitSignal(SignalName.MoneyUpdated, _value);
+        EmitSignal(SignalName.MoneyUpdated, Value);
+        EmitSignal(SignalName.SkillPointsUpdated, SkillPoints);
+
     }
 
-    public int GetMoney()
+    public void AddMoney(int amount)
     {
-        return _value;
+        Value += amount;
+        UpdateMoneyValue();
     }
 
-    public void Add(int amount)
+    public bool RemoveMoney(int amount)
     {
-        _value += amount;
-        UpdateValue();
-    }
+        if (Value < amount) return false;
 
-    public bool Remove(int amount)
-    {
-        if (_value < amount) return false;
-
-        _value -= amount;
-        UpdateValue();
+        Value -= amount;
+        UpdateMoneyValue();
 
         return true;
     }
 
-    private void UpdateValue()
+    private void UpdateMoneyValue()
     {
-        EmitSignal(SignalName.MoneyUpdated, _value);
-        _valueLabel.Text = _value.ToString();
+        EmitSignal(SignalName.MoneyUpdated, Value);
+        _valueLabel.Text = Value.ToString();
+    }
+    
+    public void AddSkillPoints(int amount)
+    {
+        SkillPoints += amount;
+        UpdateSkillPoints();
+    }
+
+    public bool RemoveSkillPoints(int amount)
+    {
+        if (SkillPoints < amount) return false;
+
+        SkillPoints -= amount;
+        UpdateSkillPoints();
+
+        return true;
+    }
+    
+    private void UpdateSkillPoints()
+    {
+        EmitSignal(SignalName.SkillPointsUpdated, SkillPoints);
     }
 }

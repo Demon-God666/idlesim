@@ -69,14 +69,14 @@ public partial class ShopItem : Control
 	{
 		var price = _productPriceValue * _productAmountValue;
 
-		if (_currencySystem.GetMoney() < price)
+		if (_currencySystem.Value < price)
 		{
 			GD.Print("Not enough money.");
 			return;
 		}
 
 		_inventory.Add(_item, _productAmountValue);
-		_currencySystem.Remove(price);
+		_currencySystem.RemoveMoney(price);
 
 		GD.Print($"Bought: {_productAmountValue}x for {price}$");
 	}

@@ -3,13 +3,13 @@
 [ext_resource type="Theme" uid="uid://bf84e278hhslv" path="res://scenes/main/LightTheme.tres" id="1_3km4f"]
 [ext_resource type="Script" uid="uid://cxssqhp8xvokw" path="res://scenes/main/Main.cs" id="1_q24mn"]
 [ext_resource type="PackedScene" uid="uid://biwpkgyydxv6r" path="res://scenes/inventory/Inventory.tscn" id="2_1rhdn"]
-[ext_resource type="Script" uid="uid://bcx6hj7fehym6" path="res://scenes/navigation/NavigationLabel.cs" id="2_3km4f"]
 [ext_resource type="PackedScene" uid="uid://c7tfjcqom4dw6" path="res://scenes/currency-system/CurrencySystem.tscn" id="2_gyg6b"]
 [ext_resource type="PackedScene" uid="uid://dmoorbvgd5r37" path="res://scenes/kitchen/Kitchen.tscn" id="2_ostsq"]
 [ext_resource type="PackedScene" uid="uid://fd2m0cml4vwx" path="res://scenes/skill-tree/SkillTree.tscn" id="3_dc040"]
 [ext_resource type="PackedScene" uid="uid://bji4tvxkn4cxe" path="res://scenes/shop/Shop.tscn" id="4_dc040"]
 [ext_resource type="PackedScene" uid="uid://us8jt5wp4ug6" path="res://scenes/auto-cooks/AutoCooks.tscn" id="6_sjxhf"]
 [ext_resource type="PackedScene" uid="uid://b1g2va78b85bq" path="res://scenes/settings/Settings.tscn" id="8_ko0rf"]
+[ext_resource type="PackedScene" uid="uid://cv1p37pmcc5t4" path="res://scenes/navigation/NavigationLabels.tscn" id="10_3km4f"]
 
 [node name="Main" type="Control" unique_id=658005909]
 layout_mode = 3
@@ -42,21 +42,7 @@ clip_contents = true
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="SkillButtonItem3" parent="TabContainer/SkillTree/SkillTreeScroll/SkillTreeContainer" parent_id_path=PackedInt32Array(1749117477, 2118771792) index="3" unique_id=1815284228]
-anchor_right = 1.0
-offset_right = 0.0
-
-[node name="SkillButtonItem4" parent="TabContainer/SkillTree/SkillTreeScroll/SkillTreeContainer" parent_id_path=PackedInt32Array(1749117477, 2118771792) index="4" unique_id=166499673]
-anchor_bottom = 1.0
-offset_bottom = 0.0
-
-[node name="SkillButtonItem5" parent="TabContainer/SkillTree/SkillTreeScroll/SkillTreeContainer" parent_id_path=PackedInt32Array(1749117477, 2118771792) index="5" unique_id=1440404851]
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-
-[node name="SkillBuy" parent="TabContainer/SkillTree/SkillTreeScroll" parent_id_path=PackedInt32Array(1749117477, 1976897016) index="1" unique_id=1190539766]
+[node name="SkillBuyMenu" parent="TabContainer/SkillTree/SkillTreeScroll" parent_id_path=PackedInt32Array(1749117477, 1976897016) index="1" unique_id=1190539766]
 offset_top = 454.0
 
 [node name="Inventory" parent="TabContainer" unique_id=1310039838 instance=ExtResource("2_1rhdn")]
@@ -99,28 +85,12 @@ metadata/_tab_index = 6
 [node name="SubViewport" parent="TabContainer/Kitchen/SubViewportContainer" parent_id_path=PackedInt32Array(145453569, 1607254712) index="0" unique_id=67111897]
 render_target_update_mode = 0
 
-[node name="NavigationLabels" type="Control" parent="." unique_id=127516998]
+[node name="NavigationLabels" parent="." unique_id=2034530830 instance=ExtResource("10_3km4f")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_3km4f")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="NavigationLabels" unique_id=566991979]
-top_level = true
-custom_maximum_size = Vector2(488, -1)
-layout_mode = 1
-offset_right = 488.0
-offset_bottom = 31.0
-alignment = 2
-
-[node name="MoneyLabel" type="Label" parent="NavigationLabels/HBoxContainer" unique_id=204500863]
-layout_mode = 2
-text = "Money:"
 
 [editable path="TabContainer/SkillTree"]
+[editable path="TabContainer/SkillTree/SkillTreeScroll/SkillBuyMenu"]
+[editable path="TabContainer/SkillTree/SkillTreeScroll/Templates/SkillButtonItemTemplate"]
 [editable path="TabContainer/Inventory"]
 [editable path="TabContainer/Inventory/ScrollContainer/GridContainer/InventoryItem"]
 [editable path="TabContainer/CurrencySystem"]

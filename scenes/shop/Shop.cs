@@ -28,7 +28,7 @@ public partial class Shop : Control
         _currencySystem = GetTree().Root.GetNode<CurrencySystem>("Main/TabContainer/CurrencySystem");
         _currencySystem.MoneyUpdated += UpdateMoney;
 
-        _money = _currencySystem.GetMoney();
+        _money = _currencySystem.Value;
 
         LoadItemData();
 

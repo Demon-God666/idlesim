@@ -81,7 +81,7 @@ mesh = SubResource("BoxMesh_7gnm0")
 [node name="Table" parent="SubViewportContainer/SubViewport/Kitchen/Table" unique_id=1984391860 instance=ExtResource("2_snlep")]
 transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Cube_001" parent="SubViewportContainer/SubViewport/Kitchen/Table/Table" index="1" unique_id=1248027421]
+[node name="Cube_001" parent="SubViewportContainer/SubViewport/Kitchen/Table/Table" index="1" unique_id=729300892]
 surface_material_override/0 = SubResource("StandardMaterial3D_im22k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Kitchen/Table" unique_id=1730243050]

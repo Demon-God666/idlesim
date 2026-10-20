@@ -1,4 +1,5 @@
 using Godot;
+using IdleSim.scenes.currency_system;
 
 namespace IdleSim.scenes.skill_tree.components;
 
@@ -15,8 +16,12 @@ public partial class SkillButtonItem : VBoxContainer
 
 	private SkillData _skillData;
 
+	private CurrencySystem _currencySystem;
+
 	public override void _Ready()
 	{
+		_currencySystem = GetTree().Root.GetNode<CurrencySystem>("Main/TabContainer/CurrencySystem");
+
 		_skillButton = GetNode<Button>("SkillButton");
 		_skillButtonCostLabel = GetNode<Label>("SkillPointsLabel");
 		_skillBuyMenu = GetParent().GetParent().GetNode<SkillBuyMenu>("SkillBuyMenu");
@@ -42,6 +47,8 @@ public partial class SkillButtonItem : VBoxContainer
 	
 	private void BuySkill(SkillData skill)
 	{
+		_currencySystem.RemoveSkillPoints(1);
+
 		/*
 		if (Unlocked) return;
 		if (GetTree().CurrentScene is not SkillTreeScroll skillTree) return;
