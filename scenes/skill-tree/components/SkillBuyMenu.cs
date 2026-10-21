@@ -9,6 +9,7 @@ public partial class SkillBuyMenu : Control
 	private Label _descriptionLabel;
 	private Label _priceLabel;
 	private Label _levelLabel;
+	private Label _effectLabel;
 	
 	public override void _Ready()
 	{
@@ -17,6 +18,7 @@ public partial class SkillBuyMenu : Control
 		_descriptionLabel = GetNode<Label>("HBoxContainer/VBoxContainer/DescriptionLabel");
 		_priceLabel = GetNode<Label>("HBoxContainer/PriceContainer/PriceLabel");
 		_levelLabel = GetNode<Label>("HBoxContainer/PriceContainer/LevelLabel");
+		_effectLabel = GetNode<Label>("HBoxContainer/VBoxContainer/EffectLabel");
 	}
 
 	public void ShowSkillBuyMenu(SkillData skill)
@@ -26,8 +28,8 @@ public partial class SkillBuyMenu : Control
 		_skillImage.Texture = GD.Load<Texture2D>($"res://assets/images/{skill.Image}");
 		_descriptionTitleLabel.Text = skill.SkillName;
 		_descriptionLabel.Text = skill.SkillDescription;
-		_priceLabel.Text = skill.Cost.ToString();
-		_levelLabel.Text = skill.Levels.ToString();
-		
+		_priceLabel.Text = $"Cost: {skill.Cost}";
+		_levelLabel.Text = $"Level: {skill.BoughtLevels} / {skill.Levels}";
+		_effectLabel.Text = $"Effect: {skill.Value * skill.BoughtLevels} (+{skill.Value})";
 	}
 }

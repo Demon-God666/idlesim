@@ -19,6 +19,7 @@ public partial class SkillTree : Control
 			SkillName = "MoneyMaster",
 			SkillDescription = "Verdiene mehr Geld pro Verkauf",
 			Cost = 3,
+			BoughtLevels = 0,
 			Levels = 5,
 			Value = 15
 		},
@@ -28,6 +29,7 @@ public partial class SkillTree : Control
 			SkillName = "FastService",
 			SkillDescription = "Erhöhe die Geschwindigkeit deiner Köche",
 			Cost = 2,
+			BoughtLevels = 0,
 			Levels = 3,
 			Value = 10
 		},
@@ -37,6 +39,7 @@ public partial class SkillTree : Control
 			SkillName = "BigTips",
 			SkillDescription = "Erhöhe die Trinkgelder deiner Kunden",
 			Cost = 4,
+			BoughtLevels = 0,
 			Levels = 4,
 			Value = 20
 		},
@@ -46,6 +49,7 @@ public partial class SkillTree : Control
 			SkillName = "CustomerMagnet",
 			SkillDescription = "Erhöhe die Anzahl deiner Kunden",
 			Cost = 5,
+			BoughtLevels = 0,
 			Levels = 5,
 			Value = 25
 		}
