@@ -1,17 +1,14 @@
+using System.Text.Json.Serialization;
+
 namespace IdleSim.scenes.main.components;
 
 public class PlayerDataJson
 {
-
-    public PlayerDataJson(int money, int skillPoints)
-    {
-        Money = money;
-        SkillPoints = skillPoints;
-    }
-
-    public int Money { get; }
-    public int SkillPoints { get; }
-
+    [JsonPropertyName("currency")] public CurrencyData Currency { get; set; }
 }
 
-
+public class CurrencyData
+{
+    [JsonPropertyName("money")] public int Money { get; set; }
+    [JsonPropertyName("skillPoints")] public int SkillPoints { get; set; }
+}

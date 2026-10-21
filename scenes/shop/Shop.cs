@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text.Json;
 using Godot;
 using IdleSim.scenes.currency_system;
+using IdleSim.scenes.main;
 using IdleSim.scenes.shop.components;
 
 namespace IdleSim.scenes.shop;
@@ -10,7 +11,7 @@ namespace IdleSim.scenes.shop;
 public partial class Shop : Control
 {
     private readonly List<ItemData> _items = [];
-    private CurrencySystem _currencySystem;
+    private Main _main;
     private GridContainer _gridContainer;
 
     private string _imagePath = "res://assets/images/";
@@ -25,10 +26,10 @@ public partial class Shop : Control
         _gridContainer = GetNode<GridContainer>("ShopCatalog/HBoxContainer/CatalogRect/BoxContainer");
         foreach (var child in _gridContainer.GetChildren()) child.QueueFree();
 
-        _currencySystem = GetTree().Root.GetNode<CurrencySystem>("Main/TabContainer/CurrencySystem");
-        _currencySystem.MoneyUpdated += UpdateMoney;
+        _main = GetTree().Root.GetNode<Main>("Main");
+        _main.MoneyUpdated += UpdateMoney;
 
-        _money = _currencySystem.Value;
+        _money = _main.Money;
 
         LoadItemData();
 

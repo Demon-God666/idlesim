@@ -11,7 +11,7 @@ public partial class Main : Control
 {
 	[Signal]
 	public delegate void MoneyUpdatedEventHandler(int value);
-    
+	
 	[Signal]
 	public delegate void SkillPointsUpdatedEventHandler(int skillPoints);
 	
@@ -36,10 +36,11 @@ public partial class Main : Control
 		_lightTheme = GD.Load<Theme>("res://scenes/main/LightTheme.tres");
 
 		Settings.InitializeTheme();
-
+		
+		LoadPlayerData();
+		
 		EmitSignal(SignalName.MoneyUpdated, Money);
 		EmitSignal(SignalName.SkillPointsUpdated, SkillPoints);
-		LoadPlayerData();
 	}
 
 	public void ToggleDarkMode(bool isDarkMode)
@@ -55,13 +56,13 @@ public partial class Main : Control
 		{
 			PropertyNameCaseInsensitive = true
 		};
-		var items = JsonSerializer.Deserialize<List<PlayerDataJson>>(json, options);
+		var items = JsonSerializer.Deserialize<List<PlayerDataJson>>(json);
 
-		foreach (var item in items)
-		{
-			Money = item.Money;
-			SkillPoints = item.SkillPoints;
-		}
+		Money = items[0].Currency.Money;
+		SkillPoints = items[0].Currency.SkillPoints;
+		
+		UpdateMoneyValue();
+		UpdateSkillPoints();
 	}
 	
 	public void UpdateMoneyValue()
