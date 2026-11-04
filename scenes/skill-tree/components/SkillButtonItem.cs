@@ -116,17 +116,7 @@ public partial class SkillButtonItem : VBoxContainer
 		skillButton.MouseEntered += EnteredHandler;
 		skillButton.MouseExited += ExitedHandler;
 		
-		/* TODO Maybe extract the positioning func*/
-		var skillButtonItemWidth = skillButtonItem.GetSize().X / 2;
-		var skillButtonItemHeight = skillButtonItem.GetSize().Y / 2;
-		var zeroPoint = new Vector2(
-			2000 - skillButtonItemWidth,
-			2000 - skillButtonItemHeight
-		);
-
-		skillButtonItem.Position = zeroPoint;
-		/**/
-
 		return skillButtonItem;
 	}
+	
 }

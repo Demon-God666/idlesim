@@ -10,12 +10,14 @@ public partial class SkillTree : Control
 {
 	private Control _skillTreeContainer;
 	private SkillButtonItem _skillButtonItem;
-	
-	private List<SkillData> _testSkills =
+
+	public List<SkillData> _testSkills =
 	[
 		new()
 		{
-			Image = "Skill_Money.svg",
+			Id = 1,
+			Child = [2, 3],
+			Image = "Skill_BuyConfirm.svg",
 			SkillName = "MoneyMaster",
 			SkillDescription = "Verdiene mehr Geld pro Verkauf",
 			Cost = 3,
@@ -25,6 +27,7 @@ public partial class SkillTree : Control
 		},
 		new()
 		{
+			Id = 2,
 			Image = "Skill_Money.svg",
 			SkillName = "FastService",
 			SkillDescription = "Erhöhe die Geschwindigkeit deiner Köche",
@@ -35,6 +38,7 @@ public partial class SkillTree : Control
 		},
 		new()
 		{
+			Id = 3,
 			Image = "Skill_Money.svg",
 			SkillName = "BigTips",
 			SkillDescription = "Erhöhe die Trinkgelder deiner Kunden",
@@ -45,6 +49,7 @@ public partial class SkillTree : Control
 		},
 		new()
 		{
+			Id = 4,
 			Image = "Skill_Money.svg",
 			SkillName = "CustomerMagnet",
 			SkillDescription = "Erhöhe die Anzahl deiner Kunden",
@@ -54,24 +59,55 @@ public partial class SkillTree : Control
 			Value = 25
 		}
 	];
+
 	public override void _Ready()
 	{
 		_skillTreeContainer = GetNode<Control>("SkillTreeScroll/SkillTreeContainer");
-		_skillButtonItem = GetNode<SkillButtonItem>("SkillTreeScroll/Templates/SkillButtonItemTemplate"); 
-		
+		_skillButtonItem = GetNode<SkillButtonItem>("SkillTreeScroll/Templates/SkillButtonItemTemplate");
+
+
 		foreach (var button in _skillTreeContainer.GetChildren())
 		{
-			button.QueueFree();
+			button.Free();
 		}
-		
+
 		LoadSkills();
 	}
 
 	private void LoadSkills()
 	{
-		foreach (var skillItem in _testSkills.Select(skill => _skillButtonItem.CreateSkill(skill)))
+		foreach (var skill in _testSkills)
 		{
+			var skillItem = _skillButtonItem.CreateSkill(skill);
+			SetSkillButtonPosition(skillItem, skill);
 			_skillTreeContainer.AddChild(skillItem);
 		}
+	}
+
+	private void SetSkillButtonPosition(SkillButtonItem skillButton, SkillData skill)
+	{
+		var skillButtonItemAmount = _skillTreeContainer.GetChildCount();
+		var positionX = 2000 + (skillButtonItemAmount * 200);
+		var positionY = positionX;
+		
+		GD.Print("amount", skillButtonItemAmount);
+
+		var skillButtonItemWidth = skillButton.GetSize().X / 2;
+		var skillButtonItemHeight = skillButton.GetSize().Y / 2;
+  
+		// TODO set other position for child
+
+		foreach (var child in _skillTreeContainer.GetChildren())
+		{
+			
+		}
+		
+		var newPosition = new Vector2(
+			positionX - skillButtonItemWidth,
+			positionY - skillButtonItemHeight
+		);
+	  
+
+		skillButton.Position = newPosition;
 	}
 }

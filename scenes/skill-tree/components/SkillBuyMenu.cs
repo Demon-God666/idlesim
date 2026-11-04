@@ -23,6 +23,7 @@ public partial class SkillBuyMenu : Control
 
 	public void ShowSkillBuyMenu(SkillData skill)
 	{
+		
 		Show();
 		
 		_skillImage.Texture = GD.Load<Texture2D>($"res://assets/images/{skill.Image}");

@@ -90,6 +90,7 @@ public partial class InventoryItem : Control
 		_itemSellPrice.Text = $"{_itemSellPriceValue}$";
 	}
 
+	// TODO add amount take from multiplier list not from ui
 	private void CalculateProductAmount(Button button)
 	{
 		var add = button.Text.EndsWith("x");
