@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Godot;
 using IdleSim.scenes.currency_system;
 
@@ -6,8 +7,6 @@ namespace IdleSim.scenes.skill_tree.components;
 
 public partial class SkillButtonItem : VBoxContainer
 {
-	[Export] public string SkillName { get; set; }
-	[Export] public int Cost { get; set; } = 1;
 	private bool Unlocked { get; set; }
 
 	private Button _skillButton;
@@ -18,7 +17,7 @@ public partial class SkillButtonItem : VBoxContainer
 	private SkillData _skillData;
 
 	private CurrencySystem _currencySystem;
-	
+
 	private void EnteredHandler()
 	{
 		OnSkillMouseEntered(_skillButton, _skillData);
@@ -45,10 +44,10 @@ public partial class SkillButtonItem : VBoxContainer
 			UpdateSkillData(skill);
 			return;
 		}
-		
+
 		skillButton.Modulate = new Color(0, 1, 0, 0.5f);
 		skillButton.Text = "Buy?";
-		
+
 		UpdateSkillData(skill);
 	}
 
@@ -59,13 +58,13 @@ public partial class SkillButtonItem : VBoxContainer
 			_skillBuyMenu.Hide();
 			return;
 		}
-		
+
 		skillButton.Modulate = Colors.White;
 		skillButton.Text = "";
 		_skillBuyMenu.Hide();
 	}
-	
-	
+
+
 	private void BuySkill(Button skillButton, SkillData skill)
 	{
 		if (CheckMaxLevelReached(skill))
@@ -74,13 +73,13 @@ public partial class SkillButtonItem : VBoxContainer
 			GD.Print("Max lvl reached");
 			return;
 		}
-		
+
 		_currencySystem.RemoveSkillPoints(skill.Cost);
 
 		skill.Cost *= 2;
 		skill.BoughtLevels++;
 		skill.Value *= 2;
-		
+
 		UpdateSkillData(skill);
 		/*
 		if (Unlocked) return;
@@ -96,27 +95,33 @@ public partial class SkillButtonItem : VBoxContainer
 	{
 		return skill.BoughtLevels + 1 > skill.Levels;
 	}
-	
+
 	private void UpdateSkillData(SkillData skill)
 	{
 		_skillBuyMenu.ShowSkillBuyMenu(skill);
 	}
+
 	public SkillButtonItem CreateSkill(SkillData skill)
 	{
 		var skillButtonItem = (SkillButtonItem)Duplicate();
 
+		skillButtonItem._skillData = skill;
+
 		var skillButton = skillButtonItem.GetNode<Button>("SkillButton");
 		var skillCostLabel = skillButtonItem.GetNode<Label>("SkillPointsLabel");
 
-		var skillIcon = GD.Load<Texture2D>($"res://assets/images/{skill.Image}"); ;
-	
-		skillButton.Icon = skillIcon;
+		skillButton.Icon = GD.Load<Texture2D>(
+			$"res://assets/images/{skill.Image}"
+		);
+
 		skillCostLabel.Text = "Skillpoints: " + skill.Cost;
-		skillButton.Pressed += () => BuySkill(skillButton, skill);
-		skillButton.MouseEntered += EnteredHandler;
-		skillButton.MouseExited += ExitedHandler;
-		
+
+		skillButton.Pressed += () =>
+			skillButtonItem.BuySkill(skillButton, skill);
+
+		skillButton.MouseEntered += skillButtonItem.EnteredHandler;
+		skillButton.MouseExited += skillButtonItem.ExitedHandler;
+
 		return skillButtonItem;
 	}
-	
 }

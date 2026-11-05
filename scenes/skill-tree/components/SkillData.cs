@@ -7,6 +7,8 @@ public class SkillData
     
     public int Id { get; set; }
     public List<int> Child { get; set; }
+    
+    public List<int> Position { get; set; }
     public string Image { get; set; } = "";
     public string SkillName { get; set; } = "";
     public string SkillDescription { get; set; } = "";
