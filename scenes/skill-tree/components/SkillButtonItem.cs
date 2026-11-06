@@ -17,6 +17,7 @@ public partial class SkillButtonItem : VBoxContainer
 	private SkillData _skillData;
 
 	private CurrencySystem _currencySystem;
+	public bool HasPosition { get; set; }
 
 	private void EnteredHandler()
 	{

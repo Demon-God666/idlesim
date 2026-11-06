@@ -10,7 +10,7 @@ public partial class SkillTree : Control
 {
 	private Control _skillTreeContainer;
 	private SkillButtonItem _skillButtonItem;
-	
+
 	private Dictionary<int, SkillButtonItem> _skillItems = new();
 
 	private Connection _connector;
@@ -106,49 +106,52 @@ public partial class SkillTree : Control
 
 	private void SetSkillButtonPosition(SkillButtonItem skillItem, SkillData skill)
 	{
-		var skillButtonItemAmount = _skillTreeContainer.GetChildCount();
 		var positionY = 2000;
 		var positionX = 2000 + (skill.Id * 200);
-		
-		GD.Print("amount", skill.Id);
 
 		var skillButtonItemWidth = skillItem.GetSize().X / 2;
 		var skillButtonItemHeight = skillItem.GetSize().Y / 2;
-		
-		if (skill.Child == null || skill.Child.Count <= 0) return;
 
-		var newPosition = new Vector2(
-			positionX - skillButtonItemWidth,
-			positionY - skillButtonItemHeight
-		);
-		
-		skillItem.Position = newPosition;
-		
+		if (!skillItem.HasPosition)
+		{
+			skillItem.Position = new Vector2(
+				positionX - skillButtonItemWidth,
+				positionY - skillButtonItemHeight
+			);
+
+			skillItem.HasPosition = true;
+		}
+
+		if (skill.Child == null || skill.Child.Count <= 0)
+			return;
+
 		var childCount = 0;
 
 		foreach (var child in skill.Child)
 		{
 			childCount++;
-			
-			var childPosition = new Vector2(
-				skillItem.Position.X,
-				skillItem.Position.Y + (childCount * 200)
-			);
-			
-			
 
 			if (!_skillItems.TryGetValue(child, out var childItem))
 				continue;
 
-			childItem.Position = childPosition;
-			
+			if (!childItem.HasPosition)
+			{
+				childItem.Position = new Vector2(
+					skillItem.Position.X,
+					skillItem.Position.Y + (childCount * 200)
+				);
+
+				childItem.HasPosition = true;
+			}
+
 			var connectionLine = new Connection();
+
 			connectionLine.SetConnection(
-				skillItem.Position,
-				childItem.Position
+				skillItem.Position + skillItem.GetSize() / 2,
+				childItem.Position + childItem.GetSize() / 2
 			);
+
 			_connectionContainer.AddChild(connectionLine);
 		}
-		
 	}
 }
