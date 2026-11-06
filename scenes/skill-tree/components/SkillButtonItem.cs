@@ -34,7 +34,7 @@ public partial class SkillButtonItem : VBoxContainer
 
 		_skillButton = GetNode<Button>("SkillButton");
 		_skillButtonCostLabel = GetNode<Label>("SkillPointsLabel");
-		_skillBuyMenu = GetParent().GetParent().GetNode<SkillBuyMenu>("SkillBuyMenu");
+		_skillBuyMenu = GetTree().Root.GetNode<SkillBuyMenu>("Main/TabContainer/SkillTree/SkillTreeScroll/SkillBuyMenu");
 	}
 
 	private void OnSkillMouseEntered(Button skillButton, SkillData skill)

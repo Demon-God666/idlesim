@@ -13,6 +13,9 @@ public partial class SkillTree : Control
 	
 	private Dictionary<int, SkillButtonItem> _skillItems = new();
 
+	private Connection _connector;
+	private Control _connectionContainer;
+
 	public List<SkillData> _testSkills =
 	[
 		new()
@@ -52,6 +55,7 @@ public partial class SkillTree : Control
 		new()
 		{
 			Id = 4,
+			Child = [2, 3],
 			Image = "Skill_Money.svg",
 			SkillName = "CustomerMagnet",
 			SkillDescription = "Erhöhe die Anzahl deiner Kunden",
@@ -66,12 +70,20 @@ public partial class SkillTree : Control
 	{
 		_skillTreeContainer = GetNode<Control>("SkillTreeScroll/SkillTreeContainer");
 		_skillButtonItem = GetNode<SkillButtonItem>("SkillTreeScroll/Templates/SkillButtonItemTemplate");
+		_connector = GetNode<Connection>("SkillTreeScroll/Templates/Connection");
 
 
 		foreach (var button in _skillTreeContainer.GetChildren())
 		{
 			button.Free();
 		}
+
+		_connectionContainer = new Control
+		{
+			Name = "Connections"
+		};
+
+		_skillTreeContainer.AddChild(_connectionContainer);
 
 		LoadSkills();
 	}
@@ -117,16 +129,25 @@ public partial class SkillTree : Control
 		foreach (var child in skill.Child)
 		{
 			childCount++;
-
+			
 			var childPosition = new Vector2(
 				skillItem.Position.X,
 				skillItem.Position.Y + (childCount * 200)
 			);
+			
+			
 
 			if (!_skillItems.TryGetValue(child, out var childItem))
 				continue;
 
 			childItem.Position = childPosition;
+			
+			var connectionLine = new Connection();
+			connectionLine.SetConnection(
+				skillItem.Position,
+				childItem.Position
+			);
+			_connectionContainer.AddChild(connectionLine);
 		}
 		
 	}
