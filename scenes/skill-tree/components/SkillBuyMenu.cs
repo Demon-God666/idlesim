@@ -13,6 +13,9 @@ public partial class SkillBuyMenu : Control
 	
 	public override void _Ready()
 	{
+		MouseFilter = MouseFilterEnum.Ignore;
+		SetMouseFilterRecursive(this);
+		
 		_skillImage = GetNode<TextureRect>("HBoxContainer/SkillImage");
 		_descriptionTitleLabel = GetNode<Label>("HBoxContainer/VBoxContainer/TitleLabel");
 		_descriptionLabel = GetNode<Label>("HBoxContainer/VBoxContainer/DescriptionLabel");
@@ -23,7 +26,6 @@ public partial class SkillBuyMenu : Control
 
 	public void ShowSkillBuyMenu(SkillData skill)
 	{
-		
 		Show();
 		
 		_skillImage.Texture = GD.Load<Texture2D>($"res://assets/images/{skill.Image}");
@@ -32,5 +34,16 @@ public partial class SkillBuyMenu : Control
 		_priceLabel.Text = $"Cost: {skill.Cost}";
 		_levelLabel.Text = $"Level: {skill.BoughtLevels} / {skill.Levels}";
 		_effectLabel.Text = $"Effect: {skill.Value * skill.BoughtLevels} (+{skill.Value})";
+	}
+	
+	private void SetMouseFilterRecursive(Node node)
+	{
+		foreach (Node child in node.GetChildren())
+		{
+			if (child is Control control)
+				control.MouseFilter = MouseFilterEnum.Ignore;
+
+			SetMouseFilterRecursive(child);
+		}
 	}
 }

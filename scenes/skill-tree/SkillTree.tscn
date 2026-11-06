@@ -34,6 +34,7 @@ offset_bottom = 4000.0
 offset_transform_enabled = true
 
 [node name="SkillButtonItem" parent="SkillTreeScroll/SkillTreeContainer" unique_id=1070685481 instance=ExtResource("4_c1xl7")]
+visible = false
 layout_mode = 1
 
 [node name="SkillButtonItem2" parent="SkillTreeScroll/SkillTreeContainer" unique_id=1257008910 instance=ExtResource("4_c1xl7")]
@@ -83,6 +84,7 @@ offset_right = -1252.0
 offset_bottom = -457.0
 
 [node name="SkillTreeContainer" type="Control" parent="SkillTreeScroll/SkillTreeContainer" unique_id=1649566793]
+visible = false
 custom_minimum_size = Vector2(4000, 4000)
 anchors_preset = 0
 offset_right = 4000.0
